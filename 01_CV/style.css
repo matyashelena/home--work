@@ -1,0 +1,60 @@
+.page_wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.header {
+  color: #1e0139;
+}
+.page_header {
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 10px;
+  background-color: #85c8de;
+}
+.author_photo {
+  border-radius: 50%;
+  max-width: 200px;
+}
+.page_header__description {
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #81b3bc;
+}
+.social {
+  padding: 20px;
+  margin-bottom: 0;
+  background-color: #badef1;
+  border-radius: 10px 10px 0 0 ;
+}
+.title_list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #61ccda;
+}
+.list_item {
+  padding: 5px 0 5px 0;
+}
+.list_item__link {
+  text-decoration: none;
+  color: #161414;
+}
+.personal_info {
+  margin-top: 0;
+  padding: 10px;
+  background-color: #b6d7f3;
+  border-radius: 0 0 10px 10px;
+}
+.resume_link {
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  padding: 20px;
+  max-width: 100px;
+  color: #161414;
+  background-color: #6d4691;
+  border-radius: 10px;
+  text-align: center;
+}
