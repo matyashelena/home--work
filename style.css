@@ -8,12 +8,14 @@
   background-color: #d6d1f0;
   text-align: center;
 }
-.item_works {
+.list_works {
+  padding: 0;
   list-style-type: none;
-  padding: 20px;
   font-size: 20px;
+}
+.item_works {
+  padding: 20px;
   margin: 20px;
- 
 }
 .link_works {
   color: black;
