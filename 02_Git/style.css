@@ -7,3 +7,30 @@
   list-style-type: none;
   
 }
+.wrapper {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+section, article {
+  margin-bottom: 50px;
+}
+.img_browsers {
+  max-width: 200px;
+}
+.img_example {
+  display: block;
+  max-width: 60%;
+  margin-bottom: 20px;
+  /* border-left: 4px solid #04AA6D; */
+}
+.button_example {
+  color: #fff;
+  font-size: 17px;
+  font-weight: bold;
+  background: #04AA6D;
+  padding: 6px 18px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+}
