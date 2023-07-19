@@ -34,3 +34,6 @@ section, article {
   border-radius: 5px;
   text-decoration: none;
 }
+iframe {
+  margin-bottom: 50px;
+}
