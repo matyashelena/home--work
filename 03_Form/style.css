@@ -1,0 +1,24 @@
+.container {
+  width: 90%;
+  min-width: 1440px;
+}
+.form {
+  width: 30%;
+  background-color: #c6ebf0;
+  padding: 20px;
+  margin-bottom: 50px;
+}
+.input-client {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.button {
+  display: flex;
+  justify-content: space-around;
+}
+.example_label, .example_button {
+  display: block;
+  padding: 10px;
+  margin: 10px;
+}

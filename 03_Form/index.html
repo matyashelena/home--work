@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <form class="form" action="https://jkorpela.fi/cgi-bin/echo.cgi" id="main-form" method="get" target="_blank" enctype="multipart/form-data">
+      <div class="input-client">
+        <label for="client_name">Повне ім'я</label>
+        <input id="client_name" name="client_name" type="text" required>
+      </div>
+
+      <div class="input-client">
+        <label for="client_email">Email</label>
+        <input id="client_email" name="client_email" type="email" required>
+      </div>
+
+      <div class="input-client">
+        <label for="client_password">Пароль</label>
+        <input id="client_password" name="client_password" type="password" required>
+      </div>
+
+      <div class="input-client">
+        <label for="client_password_again">Пароль ще раз</label>
+        <input id="client_password_again" name="client_password_again" type="password" required>
+      </div>
+
+      <div class="input-client">
+        <h3>Стать</h3>
+        <div class="gender">
+          <input id="client_gender" checked name="client_gender" type="radio" value="male">
+          <label for="client_gender">чоловіча</label>
+          
+          <input id="client_gender" name="client_gender" type="radio" value="femaile">
+          <label for="client_gender">жіноча</label>
+        </div>
+      </div>
+
+      <div class="input-client">
+        <label for="client_age">Вік</label>
+        <input id="client_age" name="client_age" type="number" min="18" max="110" required>
+      </div>
+
+      <div class="input-client">
+        <label for="client_course">Курс</label>
+        <select name="client_course" id="client_course">
+          <option value="defolt" selected disabled>Виберіть курс</option>
+          <option value="0" >Front-End Розробка</option>
+          <option value="1">Project management в IT</option>
+          <option value="2">UI/UX дизайн</option>
+          <option value="3">QA Manual</option>
+          <option value="4">Python Розробка</option>
+          <option value="5">Digital Marketing</option>
+        </select>
+      </div>
+
+      <div class="input-client">
+        <label for="client_adress">Повна адреса</label>
+        <textarea name="client_adress" id="client_adress" cols="20" rows="10" placeholder="Країна, регіон, місто/селище, вулиця" required></textarea>
+      </div>
+
+      <div class="input-client">
+        <input id="personal_data" name="personal_data" value="yes" type="checkbox" required>
+        <label for="personal_data">Я погоджуюсь з обробкою персональних даних</label>
+      </div>
+
+      <div class="button">
+        <button type="reset">Очистити форму</button>
+        <button type="submit">Зареєструватися</button>
+      </div>
+
+    </form>
+
+    <form action="https://jkorpela.fi/cgi-bin/echo.cgi" target="_blank">
+      <label class="example_label" for="mycolor">Обери свій улюблений колір</label>
+      <input type="color" id="mycolor" name="mycolor" value="#ff0000">
+
+      <label class="example_label" for="birthday">Ваша дата народження</label>
+      <input id="birthday" name="birthday" type="date">
+
+      <label class="example_label" for="date_time">Дата та час Вашого останнього візиту</label>
+      <input id="date_time" name="datetime-local" type="datetime-local">
+
+      <label class="example_label" for="type_image"></label>
+      <input id="type_image" type="image" src="./img/img_submit.gif" alt="submit" width="48" height="48">
+
+      <label class="example_label" for="volume">Оберіть гучність (від 0 до 50)</label>
+      <input id="volume" name="volume" type="range" min="0" max="50" value="10">
+
+      <label class="example_label" for="homepage">Введіть адресу Вашого сайту</label>
+      <input id="homepage" name="homepage" type="url"  pattern="https://.*" size="30" placeholder="https://homepage.com">
+
+      <label class="example_label" for="phone">Введіть Ваш номер телефону</label>
+      <input id="phone" name="phone" type="tel" placeholder="123-456-7890" required>
+
+
+      <button class="example_button" type="submit">Відправити</button>
+    </form>
+
+    <h2>Кнопка пошуку</h2>
+    <form action="https://www.google.com/search" target="_blank">
+        <input type="text" name="q">
+        <button type="submit">Ok Google</button>
+    </form>
+  
+  </div>
+
+</body>
+</html>
