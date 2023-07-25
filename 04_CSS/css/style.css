@@ -32,8 +32,6 @@
 }
 
 .nav-menu {
-  padding-top: 25px;
-  padding-bottom: 25px;
   border-bottom: 1px solid #828282;
 }
 .nav-list {
@@ -45,6 +43,7 @@
 }
 
 .nav-link {
+  display: inline-block;
   text-transform: capitalize;
   color: #828282;
   font-size: 18px;
