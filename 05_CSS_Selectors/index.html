@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Selectors</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+
+  <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <h1 class="header_title">CSS Dinner Shopping List</h1>
+      <a href="#main_form" class="header_link">Let’s go to the mall!</a>
+    </header>
+
+    <main class="main">
+
+      <form class="form" id="main_form" action="https://jkorpela.fi/cgi-bin/echo.cgi" target="_blank" method="get">
+
+        <div class="box">
+          <input name="pickles" id="pickles" type="checkbox">
+          <label class="form_label" for="pickles">
+            <span class="custom_checkbox"></span>
+            <p>A lot of pickles <span>for the next lessons about CSS</span></p>
+          </label>
+        </div>
+
+        <div class="box">
+          <input name="apples" id="apples" type="checkbox">
+          <label class="form_label" for="apples">
+            <span class="custom_checkbox"></span>
+            <p>10 apples <span>for more CSS manipulations</span></p>
+          </label>
+        </div>
+
+        <div class="box">
+          <input name="oranges" id="oranges" type="checkbox">
+          <label class="form_label" for="oranges">
+            <span class="custom_checkbox"></span>
+            <p>20 oranges <span>because they are awesome</span></p>
+          </label>
+        </div>
+
+        <div class="box">
+          <input name="plates" id="plates" type="checkbox">
+          <label class="form_label" for="plates">
+            <span class="custom_checkbox"></span>
+            <p>13 plates <span>hm... they always dissapear</span></p>
+          </label>
+        </div>
+
+        <div class="box">
+          <input name="bentos" id="bentos" type="checkbox">
+          <label class="form_label" for="bentos">
+            <span class="custom_checkbox"></span>
+            <p>15 bentos</p>
+          </label>
+        </div>
+
+        <div class="box">
+          <input name="bottle" id="bottle" type="checkbox">
+          <label class="form_label" for="bottle">
+            <span class="custom_checkbox"></span>
+            <p>1 bottle of Sake <span>for my friends</span></p>
+          </label>
+        </div>
+
+        <button class="button" type="submit">Bon appetit :)</button>
+
+      </form>
+
+    </main>
+
+  </div>
+
+</body>
+
+</html>

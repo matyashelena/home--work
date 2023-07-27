@@ -1,0 +1,137 @@
+body {
+  font-family: 'Manrope', sans-serif;
+  padding-top: 5px;
+  background-color: #9693a5;
+}
+
+* {
+  transition: all .1s ease-in;
+}
+
+.wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  border: 5px solid #fff;
+}
+
+.header {
+  padding: 19px 0 12px;
+  background-color: #4A4F56;
+  color: #FF8984;
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.header_title+.header_link {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.main {
+  background-color: #3B3F45;
+  padding: 20px 130px 45px;
+}
+
+.box {
+  font-size: 0;
+  background-color: #88839E;
+  padding: 12px;
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+}
+
+.box:nth-child(2n) {
+  background-color: #7A7593;
+}
+
+.box:last-of-type {
+  margin-bottom: 45px;
+}
+
+.box:hover {
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  background-color: #625E77;
+}
+
+.box:active {
+  background-color: #FF8984;
+  ;
+}
+
+label p,
+label>span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+p>span {
+  font-size: 11px;
+  vertical-align: middle;
+}
+
+p>span::before {
+  content: '(';
+}
+
+p>span::after {
+  content: ')';
+}
+
+.custom_checkbox {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  border: 5px solid #fff;
+  display: inline-block;
+  margin-right: 15px;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked+.form_label>.custom_checkbox {
+  background-image: url(../img/checkbox.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+input[type="checkbox"]:checked+.form_label {
+  color: #9B96AC;
+}
+
+label p {
+  position: relative;
+}
+
+input[type="checkbox"]:checked+.form_label>p::before {
+  content: '';
+  height: 1px;
+  width: 100%;
+  display: block;
+  background-color: #9B96AC;
+  position: absolute;
+  top: 50%;
+}
+
+.box~.button {
+  cursor: pointer;
+  width: 100%;
+  padding: 12px;
+  color: #FF8984;
+  font-size: 18px;
+  font-weight: 400;
+  background-color: #4A4F56;
+  display: inline-block;
+}
