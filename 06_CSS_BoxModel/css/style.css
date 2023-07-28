@@ -1,5 +1,6 @@
-*
-{transition: all .1s ease-in;}
+* {
+  transition: all .1s ease-in;
+}
 
 .main_section {
   max-width: 1440px;
@@ -46,11 +47,13 @@
   margin: 2px;
   opacity: 1;
 }
+
 .wrapper_weather div>a {
   display: inline-block;
   padding: 26px;
   width: 100%;
 }
+
 .wrapper_weather div:hover {
   opacity: 0.8;
 }
