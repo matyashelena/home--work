@@ -1,6 +1,14 @@
 *
 {transition: all .1s ease-in;}
-
+* {
+box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  display: inline-block;
+}
 .main_section {
   max-width: 1440px;
   outline: 1px transparent;
@@ -28,11 +36,13 @@
 }
 
 .wrapper_page {
+  width: 100%;
   max-width: 1170px;
   margin: 35px auto 50px;
 }
 
 .wrapper_weather {
+  width: 100%;
   font-size: 0;
   text-align: center;
   padding: 2px;
@@ -40,7 +50,7 @@
   background-color: #fff;
 }
 
-.wrapper_weather div {
+.wrapper_weather>div {
   display: inline-block;
   font-size: 1.5vw;
   padding: 26px;
@@ -52,17 +62,17 @@
   opacity: 0.8;
 }
 
-.wrapper_weather>div span {
+.wrapper_weather div>a span {
   margin-right: 10px;
   vertical-align: middle;
 }
 
-.wrapper_weather>div p:last-of-type {
+.wrapper_weather>div>a p:last-of-type {
   padding: 4px;
 }
 
 .wi {
-  font-size: 1.8vw;
+  font-size: 2vw;
   vertical-align: middle;
 }
 
