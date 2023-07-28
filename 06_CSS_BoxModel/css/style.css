@@ -43,11 +43,14 @@
 .wrapper_weather div {
   display: inline-block;
   font-size: 1.5vw;
-  padding: 26px;
   margin: 2px;
   opacity: 1;
 }
-
+.wrapper_weather div>a {
+  display: inline-block;
+  padding: 26px;
+  width: 100%;
+}
 .wrapper_weather div:hover {
   opacity: 0.8;
 }
