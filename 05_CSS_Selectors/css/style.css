@@ -40,7 +40,7 @@ h1 {
 .box {
   font-size: 0;
   background-color: #88839E;
-  padding: 12px;
+  /* padding: 12px; */
   color: white;
   font-size: 18px;
   font-weight: 400;
@@ -64,7 +64,13 @@ h1 {
 
 .box:active {
   background-color: #FF8984;
-  ;
+}
+
+label {
+  display: inline-block;
+  width: 100%;
+  padding: 12px;
+  cursor: pointer;
 }
 
 label p,
