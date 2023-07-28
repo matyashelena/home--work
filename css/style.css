@@ -17,11 +17,11 @@
 .list_works {
   padding: 0;
   list-style-type: none;
-  font-size: 20px;
+  font-size: 18px;
 }
 .item_works {
   padding: 20px;
-  margin: 20px;
+  margin: 5px;
 }
 .link_works {
   display: inline-block;
@@ -29,8 +29,8 @@
   color: #DAD7CD;
   font-weight: bold;
   text-decoration: none;
-  padding: 20px;
+  padding:10px;
   background-color: #588157;
   border-radius: 20px;
-  border: 2px solid #344E41;
+  border: 1px solid #344E41;
 }
