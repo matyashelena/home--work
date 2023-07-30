@@ -6,57 +6,193 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CSS Block Model</title>
 
+  <link rel="stylesheet" href="./assets/fontawesome/css/fontawesome.css">
+  <link rel="stylesheet" href="./assets/fontawesome/css/brands.css">
+  <link rel="stylesheet" href="./assets/fontawesome/css/solid.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@700&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-  <header class="header">
-    <div class="wrapper">
-      <div class="top-navbar">
-        <a href="#" class="logo"><img src="./img/Logo.svg" alt="logotype"></a>
-        <nav class="header_nav-menu">
+  <div class="page_wrapper">
+    <header class="header">
+      <div class="container">
+        <nav class="header_nav">
+          <a href="#" class="logo"><img src="./img/Logo.svg" alt="logotype"></a>
+
           <ul class="header_list-item">
             <li class="header-item">
-              <a href="#">Product</a>
+              <a href="#">product</a>
             </li>
             <li class="header-item">
-              <a href="#">Customers</a>
+              <a href="#">customers</a>
             </li>
             <li class="header-item">
-              <a href="#">Pricing</a>
+              <a href="#">pricing</a>
             </li>
             <li class="header-item">
-              <a href="#">Resources</a>
+              <a href="#">resources</a>
             </li>
           </ul>
-        </nav>
-        <div class="header_link" action="">
-          <a href="#" class="white-button button">Sign In</a>
-          <a href="#" class="header-button orange-button button">Sign In</a>
-        </div>
-      </div>
-    </div>
-  </header>
 
-  <main class="main">
-    <div class="wrapper">
-      <div class="first-screen">
-        <div class="first-screen_content">
-          <h1 class="first-screen_title color-title">The Design Thinking superpowers</h1>
-          <p class="first-screen_text">Tools, tutorials, design and innovation experts, all in one place! The most
-            intuitive way to imagine your
-            next user experience.</p>
-          <a href="#" class="orange-button button">Get started</a>
+          <div class="nav_button">
+            <a href="#" class="white-button button">sign in</a>
+            <a href="#" class="header-button orange-button button">sign un</a>
+          </div>
+        </nav>
+        <div class="top-navbar">
         </div>
-        <div class="first-screen-img w-50"></div>
       </div>
-    </div>
-  </main>
+    </header>
+
+    <main class="main">
+
+      <section class="first-screen">
+        <div class="container">
+          <div class="first-screen_page p-50">
+            <div class="first-screen_content">
+              <h1 class="first-screen_title color-title">The Design Thinking superpowers</h1>
+              <p class="first-screen_text">Tools, tutorials, design and innovation experts, all in one place! The most
+                intuitive way to imagine your
+                next user experience.</p>
+              <a class="orange-button button button-start">Get started</a>
+            </div>
+            <div class="first-screen-img "></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="design-tools p-50">
+        <div class="container">
+          <h2 class="title design-tools_title">We design tools to unveil your superpowers</h2>
+          <ul class="design-tools-list">
+            <li class="design-tools-item">
+              <span class="tools-icon"><i class="fa-solid fa-arrow-pointer"></i></span>
+              <span class="tools-title">First click tests</span>
+              <p class="tools-text">While most people enjoy casino gambling,</p>
+            </li>
+            <li class="design-tools-item">
+              <span class="tools-icon"><i class="fa-solid fa-worm"></i></span>
+              <span class="tools-title">Design surveys</span>
+              <p class="tools-text">Sports betting, lottery and bingo playing for the fun</p>
+            </li>
+            <li class="design-tools-item">
+              <span class="tools-icon"><i class="fa-solid fa-heart"></i></span>
+              <span class="tools-title">Preference tests</span>
+              <p class="tools-text">The Myspace page defines the individual.</p>
+            </li>
+            <li class="design-tools-item">
+              <span class="tools-icon"><i class="fa-solid fa-hourglass-half"></i></span>
+              <span class="tools-title">Five second tests</span>
+              <p class="tools-text">Personal choices and the overall personality of the person. </p>
+            </li>
+          </ul>
+          <a href="#" class="button orange-button button-start">Sign up Now</a>
+        </div>
+
+
+      </section>
+
+      <section class="about p-50">
+        <div class="container">
+          <div class="about_wrapper-page">
+            <div class="about_content">
+              <span class="">Effortless Validation for</span>
+              <h2 class="title mb-20">Design Professionals</h2>
+              <p class="mb-40">The Myspace page defines the individual, his or her characteristics, traits, personal choices and the
+                overall personality of the person.</p>
+              <ul class="about_content-list">
+                <li class="about_content-item">
+                  <span class="about_item-title">Accessory makers</span>
+                  <p>While most people enjoy casino gambling, sports betting, lottery and bingo playing for the fun</p>
+                </li>
+                <li class="about_content-item">
+                  <span class="about_item-title">Alterationists</span>
+                  <p>If you are looking for a new way to promote your business that won’t cost you more money, </p>
+                </li>
+                <li class="about_content-item">
+                  <span class="about_item-title">Custom Design designers</span>
+                  <p>If you are looking for a new way to promote your business that won’t cost you more money, </p>
+                </li>
+              </ul>
+            </div>
+            <div class="about-img"></div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="about product_managers p-50">
+        <div class="container">
+          <div class="about_wrapper-page revers">
+            <div class="produkt_managers_content">
+              <span class="">Easier decision making for</span>
+              <h2 class="title mb-20">Product Managers</h2>
+              <p class="mb-40">The Myspace page defines the individual, his or her characteristics, traits, personal choices and the overall personality of the person.</p>
+              <ul class="product_managers-content">
+                <li class="produkt_managers-item">
+                  <span class="product_managers-icon"><i class="fa-solid fa-check"></i></span>
+                  <p class="">Never worry about overpaying for your energy bill again.</p>
+                </li>
+                <li class="produkt_managers-item">
+                  <span class="product_managers-icon"><i class="fa-solid fa-check"></i></span>
+                  <p class="">We will only switch you to energy companies that we trust and will treat you right.</p>
+                </li>
+                <li class="produkt_managers-item">
+                  <span class="product_managers-icon"><i class="fa-solid fa-check"></i></span>
+                  <p class="">Never worry about overpaying for your energy bill again.</p>
+                </li>
+              </ul>
+            </div>
+            <div class="product_managers-img"></div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="about p-50">
+        <div class="container">
+          <div class="about_wrapper-page">
+            <div class="about_content">
+              <span class="">Optimisation for</span>
+              <h2 class="title mb-20">Marketers</h2>
+              <p class="mb-40">Few would argue that, despite the advancements of feminism over the past three decades, women still face a double standard when it comes to their behavior.</p>
+              <ul class="about_content-list">
+                <li class="about_content-item">
+                  <span class="about_item-title">Accessory makers</span>
+                  <p>While most people enjoy casino gambling, sports betting, lottery and bingo playing for the fun</p>
+                </li>
+                <li class="about_content-item">
+                  <span class="about_item-title">Alterationists</span>
+                  <p>If you are looking for a new way to promote your business that won’t cost you more money, </p>
+                </li>
+                <li class="about_content-item">
+                  <span class="about_item-title">Custom Design designers</span>
+                  <p>If you are looking for a new way to promote your business that won’t cost you more money, </p>
+                </li>
+              </ul>
+            </div>
+            <div class="marketers-img"></div>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+  </div>
+
 
 </body>
 
