@@ -230,7 +230,9 @@ flex-direction: row-reverse;
 }
 .produkt_managers-item {
   margin-bottom: 30px;
+  font-size: 0;
   display: flex;
+  align-items: center;
   justify-content: center;
   column-gap: 30px;
 }
@@ -244,8 +246,8 @@ flex-direction: row-reverse;
 }
 
 .product_managers-icon {
-  display: block;
-  width: 35px;
+  width: 100%;
+  max-width: 35px;
   height: 35px;
   border-radius: 10px;
   background-color: #FF9900;
@@ -255,8 +257,13 @@ flex-direction: row-reverse;
   color: #fff;
   font-size: 18px;
 }
+.fa-solid {
+  /* line-height: 17.5px; */
+
+}
 .product_managers-text {
   /* display: inline-block; */
+  font-size: 16px;
 }
 .marketers-img {
   background-image: url(../img/marketers-img.svg);
