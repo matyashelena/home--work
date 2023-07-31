@@ -58,7 +58,8 @@
   text-transform: capitalize;
 }
 
-.header-item:hover {
+.header-item:hover,
+.footer_list-item:hover  {
   color: #FF9900;
 }
 
