@@ -1,0 +1,84 @@
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header_nav {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  padding: 13px 0;
+}
+
+.breadcrump {
+  font-size: 0;
+}
+
+.breadcrump li+li::before {
+  content: '/';
+  padding: 0 10px;
+}
+
+.breadcrump_item {
+  font-family: 'Staatliches', cursive;
+  display: inline-block;
+  font-size: 22px;
+  letter-spacing: 0.66px;
+}
+
+.logo {
+  margin: 0 0 0 auto;
+}
+
+.user_language {
+  text-transform: uppercase;
+  font-family: 'Tourney', cursive;
+  font-size: 22px;
+  line-height: 18px;
+  letter-spacing: 0.88px;
+}
+
+.section {
+  padding-bottom: 30px;
+}
+.section:first-child {
+  padding-top: 70px;
+}
+.title {
+  margin-bottom: 40px;
+  font-family: 'Francois One', sans-serif;
+  font-size: 36px;
+  line-height: 48px;
+  letter-spacing: 1.44px;
+  text-transform: uppercase;
+}
+
+.sup_title {
+  font-family: 'Farro', sans-serif;
+  font-feature-settings: 'sups' on;
+  letter-spacing: 1.2px;
+  padding-left: 10px;
+  text-transform: capitalize;
+  font-weight: 300;
+}
+
+.section_content {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 48px;
+  padding-bottom: 40px;
+}
+.bg-gray {
+  background: #DADADA;
+}
+.pizza {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  background-image: url(../img/btf.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
