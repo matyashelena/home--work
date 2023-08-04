@@ -1,11 +1,11 @@
 .page_wrapper {
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-family: 'Gilroy-Medium', Arial, Helvetica, sans-serif;
   font-size: 18px;
 }
 
 .title-site{
+  font-family: 'Gilroy-Bold', Arial, Helvetica, sans-serif;
   font-size: 34px;
-  font-weight: 700;
   text-transform: capitalize;
 }
 
@@ -59,11 +59,29 @@
   margin-top: 12px;
 }
 .author-name {
+  font-family: 'Gilroy-Bold';
   font-size: 48px;
-  font-weight: 700;
   margin-bottom: 50px;
 }
-
+.author_photo-info {
+  display: flex;
+  justify-content: space-between;
+}
+.buttons {
+display: inline-block;
+  font-size: 0;
+  transform: rotate(-90deg);
+}
+.button_leng {
+  text-transform: uppercase;
+  font-size: 16px;
+}
+.button_leng:first-child:after {
+  content: '|';
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 .about_author {
   background-color: #F6F6F6;
 }

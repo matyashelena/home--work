@@ -5,11 +5,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>First CSS</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/style.css">
+
+  <style>
+@font-face {
+  font-family: 'Gilroy-Bold';
+  src: url(./fonts/Gilroy-Bold.ttf) format(ttf),
+  url(./fonts/Gilroy-Bold.woff) format(woff),
+  url(./fonts/Gilroy-Bold.woff2) format(woff2);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gilroy-Medium';
+  src: url(./fonts/Gilroy-Medium.ttf) format(ttf),
+  url(./fonts/Gilroy-Medium.woff) format(woff),
+  url(./fonts/Gilroy-Medium.woff2) format(woff2);
+  font-weight: normal;
+  font-style: normal;
+}
+  </style>
+  
 </head>
 
 <body>
@@ -42,7 +61,14 @@
 
       <section class="author_photo">
         <div class="container">
-          <h1 class="author-name">Denis Novik</h1>
+          <div class="author_photo-info">
+            <h1 class="author-name">Denis Novik</h1>
+          <p>UX | UI designer 24 years old, Minsk</p>
+          <div class="buttons">
+            <button type="button" class="button_leng">ru</button>
+            <button type="button" class="button_leng active_leng">eng</button>
+          </div>
+          </div>
           <div class="image-author">
             <img src="./img/photo_author.jpg" alt="" class="">
           </div>
