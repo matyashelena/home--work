@@ -38,6 +38,11 @@
   display: inline-block;
   font-size: 22px;
   letter-spacing: 0.66px;
+  opacity: .7;
+}
+
+.page_open {
+  opacity: 1;
 }
 
 .logo {
@@ -53,26 +58,22 @@
 }
 
 .main {
-  position: relative;
+  /* position: relative; */
   margin-top: 150px;
 }
 
 .main-container {
   display: flex;
   column-gap: 30px;
- }
-
-.bg-picture {
-  position: absolute;
-  z-index: -1;
-  width: 760px;
-  top: 150px;
-  right: 0;
 }
 
-.bg-sticky {
-  position: sticky;
+.bg-picture {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  max-width: 760px;
   top: 150px;
+  right: 0;
 }
 
 .sidebar-list {
@@ -161,17 +162,19 @@ code {
 }
 
 .using-section-title {
-display: flex;
-align-items: center;
-column-gap: 20px;
-margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  margin-bottom: 40px;
 }
+
 .line-using {
   display: block;
   width: 100px;
   height: 8px;
   background-color: #000;
 }
+
 .using-section-logo {
   display: flex;
   flex-wrap: wrap;
@@ -179,30 +182,37 @@ margin-bottom: 40px;
   column-gap: 30px;
   row-gap: 30px;
 }
+
 .card_wrapper {
   width: 270px;
   height: 180px;
   border-radius: 8px;
 }
+
 .card_flip {
   position: relative;
   width: 100%;
   height: 100%;
   cursor: pointer;
 }
+
 .card_flip:hover .card-front {
-  transform: rotateY(180deg);
+  transform: rotateX(180deg);
 }
+
 .card_flip:hover .card-hover {
-  transform: rotateY(0deg);
+  transform: rotateX(0deg);
 }
-.card-front, .card-hover {
+
+.card-front,
+.card-hover {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
   transition: all .6s ease;
 }
+
 .card-hover {
-  transform: rotateY(180deg);
+  transform: rotateX(180deg);
 }
