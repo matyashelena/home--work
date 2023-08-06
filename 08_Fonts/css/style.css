@@ -58,8 +58,7 @@
 }
 
 .main {
-  /* position: relative; */
-  margin-top: 150px;
+  margin-top: 70px;
 }
 
 .main-container {
@@ -75,7 +74,9 @@
   top: 150px;
   right: 0;
 }
-
+.sidebar {
+  padding-top: 80px;
+}
 .sidebar-list {
   position: sticky;
   top: 80px;
@@ -93,7 +94,7 @@
 }
 
 .section {
-  padding-bottom: 30px;
+  padding-top: 80px;
 }
 
 .line {
