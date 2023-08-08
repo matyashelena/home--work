@@ -91,22 +91,7 @@
 }
 
 .sidebar-item {
-  position: relative;
-}
-
-.sidebar-item::before {
-  position: absolute;
-  content: '';
-  top: 1.5em;
-  content: '';
-  width: 100%;
-  height: 2px;
-
-}
-
-.sidebar-item:hover::before {
-  display: block;
-  background-color: #000;
+  border-bottom: 1px solid #BDBDBD;
 }
 
 .document {
@@ -177,8 +162,6 @@ code {
 .using-title {
   font-family: 'Roboto';
   font-size: 36px;
-  font-style: normal;
-  font-weight: 600;
   line-height: 48px;
   letter-spacing: 1.44px;
 }
