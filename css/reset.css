@@ -25,3 +25,14 @@ img {
   display: block;
   width: 100%;
 }
+select {
+  border: none;
+  outline: none;
+  background: transparent;
+  border-image: none;
+  outline-offset: -2px;
+  border-color: transparent;
+  outline-color: transparent;
+  box-shadow: none;
+  -webkit-appearance: none;
+}

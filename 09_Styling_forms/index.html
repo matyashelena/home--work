@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styling forms</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div class="wrapper_page">
+    <div class="container">
+      <div class="form_wrapper">
+        <section class="form-section">
+          <h2 class="form-title">Create an Account</h2>
+          <form class="form" action="https://jkorpela.fi/cgi-bin/echo.cgi" id="main-form" method="get" target="_blank"
+            enctype="multipart/form-data">
+            <div class="form_block w-50">
+              <label for="first-name" class="form_label">First Name</label>
+              <input class="form_input" id="first-name" name="first-name" type="text">
+            </div>
+            <div class="form_block w-50">
+              <label for="last-name" class="form_label">Last Name</label>
+              <input class="form_input" id="last-name" name="last-name" type="text">
+            </div>
+            <div class="form_block w-100">
+              <label for="email" class="form_label">E-mail</label>
+              <input class="form_input" id="email" name="email" type="email">
+              <p class="form-text email-text">We'll never share your email with anyone else.</p>
+            </div>
+            <div class="form_block w-100">
+              <div class="gender-box">
+                <input id="gender-male" type="radio" checked="checked" name="gender">
+                <label for="gender-male" class="form_label gender-label">male</label>
+                <span class="checkmark"></span>
+              </div>
+
+              <div class="gender-box">
+                <input id="gender-female" type="radio" checked="checked" name="gender">
+                <label for="gender-female" class="form_label gender-label">female</label>
+                <span class="checkmark"></span>
+              </div>
+
+            </div>
+            <div class="form_block w-50">
+              <label for="country" class="form_label">country</label>
+              <div class="custom-select">
+                <select class="w-100 form_input select-country" name="country" id="country">
+                  <option selected value="Ukraine">Ukraine</option>
+                  <option value="Poland">Poland</option>
+                  <option value="Czech">Czech</option>
+                  <option value="Germany">Germany</option>
+                  <option value="Latvia">Latvia</option>
+                  <option value="Austria">Austria</option>
+                </select>
+                <span class="arrow"></span>
+              </div>
+
+            </div>
+            <div class="form_block w-50">
+              <label for="city" class="form_label">City</label>
+              <input class="form_input" id="city" name="city" type="text">
+            </div>
+
+            <button type="submit" class="button w-100">Sign Up</button>
+          </form>
+
+          <p class="form-text text-section">By clicking the 'Sign Up' button, you confirm that you accept our <a
+              class="text-link" href="#">Terms of Use</a>
+            and <a class="text-link" href="#">Privacy Policy</a>.</p>
+            
+          <div class="link-login">
+            <p class="form_label">Have an account?</p>
+            <a class="link-login-text" href="#">Log In</a>
+          </div>
+
+        </section>
+
+        <section class="form-section">
+          <h2 class="form-title">Profile</h2>
+          <div class="avatar">
+            <img src="./img/avatar.jpg" alt="avatar">
+          </div>
+          <form class="form" action="https://jkorpela.fi/cgi-bin/echo.cgi" id="main-form" method="get" target="_blank"
+            enctype="multipart/form-data">
+            <div class="form_block">
+              <label for="name" class="form_label">Name</label>
+              <input class="form_input" id="name" name="name" type="text">
+            </div>
+            <div class="form_block">
+              <label for="email" class="form_label">E-mail</label>
+              <input class="form_input" id="email" name="email" type="email">
+            </div>
+            <div class="form_block w-50">
+              <label for="country" class="form_label">country</label>
+              <div class="custom-select">
+                <select class="w-100 form_input select-country" name="country" id="country">
+                  <option selected value="Ukraine">Ukraine</option>
+                  <option value="Poland">Poland</option>
+                  <option value="Czech">Czech</option>
+                  <option value="Germany">Germany</option>
+                  <option value="Latvia">Latvia</option>
+                  <option value="Austria">Austria</option>
+
+                </select>
+                <span class="arrow"></span>
+
+              </div>
+
+            </div>
+            <div class="form_block w-50">
+              <label for="city" class="form_label">City</label>
+              <input class="form_input" id="city" name="city" type="text">
+            </div>
+            <div class="form_block">
+              <label for="zip-code" class="form_label">Zip Code</label>
+              <input maxlength="5" class="form_input" id="zip-code" name="zip-code" type="number">
+            </div>
+            <div class="form_block">
+              <label for="phone" class="form_label">Phone Number</label>
+              <input class="form_input" id="phone" name="phone" type="tel">
+            </div>
+            <button type="submit" class="button button-avatar">Sign Up</button>
+
+          </form>
+        </section>
+      </div>
+    </div>
+
+
+  </div>
+</body>
+
+</html>

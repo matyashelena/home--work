@@ -74,9 +74,11 @@
   top: 150px;
   right: 0;
 }
+
 .sidebar {
   padding-top: 80px;
 }
+
 .sidebar-list {
   position: sticky;
   top: 80px;
@@ -84,8 +86,27 @@
 }
 
 .sidebar-link {
-  display: inline-block;
+  display: block;
   margin-bottom: 30px;
+}
+
+.sidebar-item {
+  position: relative;
+}
+
+.sidebar-item::before {
+  position: absolute;
+  content: '';
+  top: 1.5em;
+  content: '';
+  width: 100%;
+  height: 2px;
+
+}
+
+.sidebar-item:hover::before {
+  display: block;
+  background-color: #000;
 }
 
 .document {
@@ -191,6 +212,7 @@ code {
 }
 
 .card_flip {
+  display: block;
   position: relative;
   width: 100%;
   height: 100%;
