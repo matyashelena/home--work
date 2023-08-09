@@ -59,20 +59,16 @@
 
 .main {
   padding: 70px 0;
+  background-image: url(../img/bg-picture.svg);
+  background-repeat: no-repeat;
+  background-position: right 150px;
+  background-size: 700px;
+  background-attachment: fixed;
 }
 
 .main-container {
   display: flex;
   column-gap: 30px;
-}
-
-.bg-picture {
-  position: fixed;
-  z-index: -1;
-  width: 100%;
-  max-width: 760px;
-  top: 150px;
-  right: 0;
 }
 
 .sidebar {
