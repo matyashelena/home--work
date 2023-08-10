@@ -17,8 +17,8 @@ ul, ol {
   list-style: none;
 }
 button, input {
-  outline: none;
-  border: none;
+  outline: 0;
+  border: 0;
   background-color: transparent;
 }
 img {
