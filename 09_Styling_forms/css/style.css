@@ -242,6 +242,7 @@ p.form_label {
   max-width: 145px;
   position: relative;
 }
+
 .avatar_img-file::before {
   position: absolute;
   content: '';
@@ -257,6 +258,7 @@ p.form_label {
   background-size: contain;
   pointer-events: none;
 }
+
 .file-download {
   display: block;
   border-radius: 6px;
@@ -276,13 +278,6 @@ p.form_label {
   padding: 4px;
 }
 
-.button-avatar {
-  width: 100%;
-  max-width: 150px;
-  margin-bottom: 105px;
-
-}
-
 .file-download:hover,
 .button_avatar-img:hover {
   outline: 1px solid #007BFF;
@@ -291,13 +286,16 @@ p.form_label {
 .avatar_img-file input[type="file"] {
   display: none;
 }
-input[type="file"] + label span {
+
+input[type="file"]+label span {
   opacity: 0;
 }
+
 input[type="file"]:valid+label span {
   opacity: 1;
   display: inline-block;
 }
+
 .button_avatar-img {
   width: 30px;
   height: 30px;
@@ -308,4 +306,9 @@ input[type="file"]:valid+label span {
   background-repeat: no-repeat;
   background-size: 16px;
   cursor: pointer;
+}
+
+.button-avatar {
+  width: 100%;
+  max-width: 150px;
 }
