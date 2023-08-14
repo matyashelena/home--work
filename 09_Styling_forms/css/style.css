@@ -1,5 +1,6 @@
-wrapper_page {
+.page_wrapper {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #F7F7F7;
 }
 
 .container {
@@ -14,7 +15,7 @@ wrapper_page {
   margin: 20px auto;
   padding: 35px 35px 16px 35px;
   font-size: 0;
-
+  border-radius: 6px;
 }
 
 .form-title {
@@ -195,6 +196,7 @@ input[type="radio"]:checked+.checkmark {
   width: 100%;
   max-width: 380px;
   margin-bottom: 40px;
+  border-bottom: 1px solid #E4E4E4;
 }
 
 .text-section:last-child {
