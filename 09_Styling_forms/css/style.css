@@ -192,16 +192,24 @@ input[type="radio"]:checked+.checkmark {
 }
 
 .text-section {
-  margin: 0 auto;
+  /* margin: 0 auto; */
   text-align: center;
   width: 100%;
+  
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  
+}
+.form-text__width {
+  width: 100%;
   max-width: 380px;
-  margin-bottom: 40px;
+  margin: 0 auto;
+}
+.text-section__border {
   border-bottom: 1px solid #E4E4E4;
 }
-
 .text-section:last-child {
-  margin-bottom: 16px;
+  padding-bottom: 0;
 }
 
 .text-link {
