@@ -31,6 +31,12 @@ img {
 
 .page_wrapper {
   font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.page_wrapper .main {
+  flex-grow: 1;
 }
 
 .container {

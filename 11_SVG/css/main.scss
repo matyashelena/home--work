@@ -12,6 +12,12 @@ $accent-color: #3DB370;
 
 .page_wrapper {
   font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  .main {
+    flex-grow: 1;
+  }
 }
 
 .container {
