@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive WebDesign</title>
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Red+Hat+Display:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/main.min.css">
+</head>
+
+<body>
+  <section class="hero">
+    <header class="header">
+      <div class="container">
+        <nav class="header-nav">
+          <a href="#" class="logo">
+            <svg class="logo-icon">
+              <use xlink:href="./assets/sprite.svg#logo"></use>
+            </svg>
+          </a>
+          <ul class="header-list">
+            <li class="header-item"><a href="#">home</a></li>
+            <li class="header-item"><a href="#">about</a></li>
+            <li class="header-item"><a href="#">works</a></li>
+            <li class="header-item"><a href="#">blog</a></li>
+            <li class="header-item"><a href="#">contact</a></li>
+          </ul>
+          <button class="search-button">
+            <img src="./img/search.svg" alt="search">
+          </button>
+          </nav>
+
+      </div>
+    </header>
+    <div class="hero_image">
+      <div class="container">
+        <h1 class="hero_title">Manifest is a newborn theme.
+          Clean, simple and fast.</h1>
+      </div>
+    </div>
+  </section>
+
+  <main class="main">
+    <section class="blog">
+      <div class="container">
+        <h2 class="title">Blog</h2>
+        <article class="blog_wrapper">
+          <div class="blog_wrapper-block">
+            <img src="./img/image-row-left.jpg" alt="">
+          </div>
+          <div class="blog_wrapper-block">
+            <div class="blog-info">
+              <p class="blog-info_name">Technology, Interface Design</p>
+              <h3 class="blog-info_title">Using UX Design to Build a Sustainable Future</h3>
+              <span class="blog-info_data">6 May, 2020</span>
+              <p class="description">Transformation has to be driven by everybody, not just by climate
+                groups, and we have a responsibility to
+                use our influence to drive this.
+                <button class="arrow"><img src="./img/arrow.svg" alt=""></button>
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog_wrapper">
+          <div class="blog_wrapper-block">
+            <div class="blog-info blog-info_left">
+              <p class="blog-info_name">Technology, Interface Design</p>
+              <h3 class="blog-info_title">Using UX Design to Build a Sustainable Future</h3>
+              <span class="blog-info_data">6 May, 2020</span>
+              <p class="description">Transformation has to be driven by everybody, not just by climate
+                groups, and we have a responsibility to
+                use our influence to drive this.
+                <button class="arrow"><img src="./img/arrow.svg" alt=""></button>
+              </p>
+            </div>
+          </div>
+          <div class="blog_wrapper-block">
+            <img src="./img/blog-image.png" alt="">
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="posts">
+      <div class="container">
+        <header class="posts-header">
+          <h2 class="posts-header_title">Latest Posts</h2>
+          <button class="posts-header_view">View All</button>
+        </header>
+
+        <div class="posts-blocks">
+          <article class="posts_article">
+            <div class="posts_article-img">
+              <img src="./img/image-lamp.jpg" alt="">
+            </div>
+
+            <div class="posts_article-info">
+              <div class="posts-position">
+                <span class="posts-position_name">Interface Design</span>
+                <span class="posts-position_name">8 June, 2020</span>
+              </div>
+
+              <h3 class="posts_article-title">TUX traffic light colours</h3>
+
+              <p class="description">UI has to make a huge visual difference between warning, an alert and a success.
+              </p>
+            </div>
+          </article>
+
+          <article class="posts_article">
+            <div class="posts_article-img">
+              <img src="./img/arrow-posts.jpg" alt="">
+            </div>
+
+            <div class="posts_article-info">
+              <div class="posts-position">
+                <span class="posts-position_name">Technology</span>
+                <span class="posts-position_name">6 May, 2020</span>
+              </div>
+              <h3 class="posts_article-title">Using UX Design to Build a Sustainable Future</h3>
+              <p class="description">UI has to make a huge visual difference between warning, an alert and a success.
+              </p>
+            </div>
+          </article>
+
+          <article class="posts_article">
+            <div class="posts_article-img">
+              <img src="./img/Image-roof.jpg" alt="">
+            </div>
+
+            <div class="posts_article-info">
+              <div class="posts-position">
+                <span class="posts-position_name">Visual Design</span>
+                <span class="posts-position_name">8 June, 2020</span>
+              </div>
+              <h3 class="posts_article-title">Creativity vs. UX</h3>
+              <p class="description">
+                Is it possible to create a delightful user experience without following best UX practices?
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="popular posts">
+      <div class="container">
+        <header class="posts-header">
+          <h2 class="posts-header_title">the most Popular</h2>
+          <button class="posts-header_view">View All</button>
+        </header>
+
+        <div class="posts-blocks">
+          <article class="blog_wrapper-block">
+            <div class="popular_article-img">
+              <img src="./img/Image-floor-lamp.jpg" alt="">
+            </div>
+
+            <div class="posts_article-info">
+              <div class="posts-position">
+                <span class="posts-position_name">Interface Design</span>
+                <span class="posts-position_name">8 June, 2020</span>
+              </div>
+
+              <h3 class="popular-title">TUX traffic light colours</h3>
+
+              <p class="description">LinkedIn is on a clear mission to make professionals more successful by connecting
+                the global workforce and as we learned — diversity and success go hand in hand
+              </p>
+            </div>
+          </article>
+
+          <article class="blog_wrapper-block">
+            <div class="popular_article-img">
+              <img src="./img/Image-wall.jpg" alt="">
+            </div>
+
+            <div class="posts_article-info">
+              <div class="posts-position">
+                <span class="posts-position_name">Technology</span>
+                <span class="posts-position_name">6 May, 2020</span>
+              </div>
+              <h3 class="popular-title">Using UX Design to Build a Sustainable Future</h3>
+              <p class="description">Is it possible to create a delightful user experience without following best UX
+                practices?
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+        <button class="button">Load More</button>
+
+      </div>
+    </section>
+
+    <section class="section-info">
+      <div class="container">
+        <div class="section-info_wrapper">
+
+          <div class="section-info_block">
+            <h2 class="section-info_title">Full-time UI/UX designer
+              Head of Design at VeronaLabs.com
+            </h2>
+            <button class="arrow-info"><img src="./img/arrow.svg" alt=""></button>
+          </div>
+
+          <div class="section-info_block">
+            <p class="section-info_description">
+              We work with clients around the world from our headquarters in Charleston, South Carolina.
+            </p>
+            <p class="section-info_description">We focus on naming, branding, brand narratives, website design and
+              development, and brand experiences.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer_wrapper">
+        <div class="footer-description">
+          <h2 class="title">Need a project?</h2>
+          <a class="footer-link" href="tel: (239)555-0108">(239) 555-0108</a>
+          <a class="footer-link" href="mailto: tanya.hill@example.com">tanya.hill@example.com</a>
+        </div>
+
+        <nav class="footer-nav">
+          <ul class="footer-list">
+            <li>
+              <a class="footer-item" href="#">
+                <svg class="instagram-icon">
+                  <use xlink:href="./assets/sprite.svg#instagram"></use>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="footer-item" href="#">
+                <svg class="facebook-icon">
+                  <use xlink:href="./assets/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="footer-item" href="#">
+                <svg class="twitter-icon">
+                  <use xlink:href="./assets/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="footer-item" href="#">
+                <svg class="linkedin-icon">
+                  <use xlink:href="./assets/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <p class="footer-down">© Copyright Manifest Theme. Allrights reserved</p>
+
+    </div>
+  </footer>
+
+</body>
+
+</html>
