@@ -28,7 +28,7 @@ $main-color: #565656;
 $secondary-color: #7B7B7B;
 
 .container {
-  width: 100%;
+  width: 90%;
   max-width: 1170px;
   margin: 0 auto;
 }
@@ -360,6 +360,7 @@ $secondary-color: #7B7B7B;
   font-size: 36px;
   line-height: 50px;
   letter-spacing: 1.8px;
+  padding-top: 30px;
 }
 .header-list {
   display: none;
@@ -441,7 +442,9 @@ $secondary-color: #7B7B7B;
 }
 
 @media screen and (max-width: 320px) {
-
+  .container {
+    max-width: 300px;
+  }
 }
 
 
