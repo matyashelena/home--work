@@ -114,6 +114,9 @@ html, body {
   display: block;
   padding: 10px;
 }
+.block-revers {
+  flex-direction: row-reverse;
+}
 .blog {
   padding: 90px 0;
   &_wrapper {
@@ -259,6 +262,7 @@ html, body {
 .popular-title {
   font-family: $font-title;
   @include article-title(24px, 2.4px);
+  margin-bottom: 20px;
 }
 .button {
   display: block;
@@ -463,23 +467,24 @@ html, body {
   }
 
   .hero_title {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     letter-spacing: 1.5px;
+    top: 25%;
   }
   .blog_wrapper {
     flex-wrap: wrap;
-
   }
-  .blog_wrapper.mobile-reverse {
-    flex-wrap: wrap-reverse;
+  .blog-info {
+    margin-bottom: 30px;
   }
+  
   .blog_wrapper-block {
     width: 100%;    
   }
+
   .posts_article {
     flex-wrap: wrap;
     padding-bottom: 50px;
-    
   }
   .posts_article-img {
     margin-bottom: 25px;
@@ -504,7 +509,12 @@ html, body {
 
   .popular-block {
     width: 100%;
+    max-width: 100%;
     margin-bottom: 50px;
+  }
+  .blog_wrapper-block {
+    width: 100%;
+    max-width: 100%;
   }
   .button {
     margin-top: 0;
