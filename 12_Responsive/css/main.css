@@ -518,6 +518,9 @@ html, body {
     margin-left: auto;
   }
 
+  .footer {
+    padding-bottom: 50px;
+  }
   .footer_wrapper {
     flex-wrap: wrap;
     justify-content: center;
