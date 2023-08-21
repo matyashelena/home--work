@@ -519,7 +519,7 @@ html, body {
   }
 
   .footer {
-    padding-bottom: 50px;
+    padding: 50px 0;
   }
   .footer_wrapper {
     flex-wrap: wrap;
