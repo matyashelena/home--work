@@ -29,6 +29,11 @@ img {
   width: 100%;
 }
 
+html, body {
+  font-style: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .container {
   width: 90%;
   max-width: 1170px;
@@ -36,13 +41,19 @@ img {
 }
 
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 1;
 }
 .header-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 40px 0;
+  padding: 32px 0;
 }
 .header-list {
   display: flex;
@@ -62,6 +73,10 @@ img {
   text-transform: uppercase;
   position: relative;
 }
+.header-item a {
+  display: block;
+  padding: 10px;
+}
 .header-item:hover:after {
   display: block;
 }
@@ -79,19 +94,16 @@ img {
 }
 
 .hero_image {
-  background-image: url(../img/bg-image.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: calc(100vh - 98.4px);
+  margin-top: 100px;
+  position: relative;
 }
 
 .hero_title {
-  padding-top: 100px;
-  width: 100%;
+  position: absolute;
+  top: 15%;
   max-width: 770px;
   font-family: "Red Hat Display", sans-serif;
-  font-size: 48px;
+  font-size: 3rem;
   font-style: normal;
   font-weight: 600;
   line-height: 64px;
@@ -100,6 +112,8 @@ img {
 
 .search-button {
   cursor: pointer;
+  display: block;
+  padding: 10px;
 }
 
 .blog {
@@ -120,7 +134,7 @@ img {
 
 .title {
   font-family: "Red Hat Display", sans-serif;
-  font-size: 48px;
+  font-size: 3rem;
   font-style: normal;
   font-weight: 400;
   line-height: 64px;
@@ -414,12 +428,12 @@ img {
   height: 24px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 968px) {
   .hero_title {
-    font-size: 36px;
+    max-width: 900px;
+    font-size: 2rem;
     line-height: 50px;
     letter-spacing: 1.8px;
-    padding-top: 30px;
   }
 
   .header-list {
@@ -514,8 +528,77 @@ img {
     margin-bottom: 40px;
   }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 568px) {
   .container {
-    max-width: 300px;
+    max-width: 500px;
+  }
+
+  .hero_title {
+    font-size: 1.8rem;
+    letter-spacing: 1.5px;
+  }
+
+  .blog_wrapper {
+    flex-wrap: wrap;
+  }
+
+  .blog_wrapper.mobile-reverse {
+    flex-wrap: wrap-reverse;
+  }
+
+  .blog_wrapper-block {
+    width: 100%;
+  }
+
+  .posts_article {
+    flex-wrap: wrap;
+    padding-bottom: 50px;
+  }
+
+  .posts_article-img {
+    margin-bottom: 25px;
+  }
+
+  .posts_article-img, .posts_article-info {
+    width: 100%;
+  }
+
+  .posts-header {
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+  .posts-header_title {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .posts-header_view {
+    margin-left: 0;
+  }
+
+  .popular-blocks {
+    flex-wrap: wrap;
+  }
+
+  .popular-block {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .button {
+    margin-top: 0;
+  }
+
+  .footer {
+    padding-top: 0;
+  }
+  .footer .title {
+    font-size: 2rem;
+    letter-spacing: 1.6px;
+  }
+
+  .section-info_description {
+    font-size: 18px;
+    letter-spacing: 0.9px;
   }
 }
