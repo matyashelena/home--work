@@ -20,30 +20,42 @@
   <section class="hero">
     <header class="header">
       <div class="container">
+        
         <nav class="header-nav">
           <a href="#" class="logo">
-            <svg class="logo-icon">
-              <use xlink:href="./assets/sprite.svg#logo"></use>
-            </svg>
-          </a>
-          <ul class="header-list">
+          <svg class="logo-icon">
+            <use xlink:href="./assets/sprite.svg#logo"></use>
+          </svg>
+        </a>
+          <ul class="header-list" onclick="toggleMenu(event)"> 
             <li class="header-item"><a href="#">home</a></li>
             <li class="header-item"><a href="#">about</a></li>
             <li class="header-item"><a href="#">works</a></li>
             <li class="header-item"><a href="#">blog</a></li>
             <li class="header-item"><a href="#">contact</a></li>
           </ul>
-          <button class="search-button">
-            <img src="./img/search.svg" alt="search">
-          </button>
-        </nav>
+          <a class="search-button" href="#">
+          <svg class="search-icon">
+            <use xlink:href="./assets/sprite.svg#search"></use>
+          </svg>
+        </a>
 
-      </div>
+        <button class="hamburger hamburger--elastic" onclick="toggleMenu(event)" type="button">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+        </nav>
+        
+        
+    </div>
     </header>
+    
+
     <div class="hero_image">
       <picture>
         <source srcset="./img/bg-image-mobile.jpg" media="(max-width: 568px)">
-        <source srcset="./img/bg-image-tablet.jpg" media="(max-width: 968px)">
+        <source srcset="./img/bg-image-tablet.jpg" media="(max-width: 768px)">
         <img src="./img/bg-image-desktop.jpg" alt="image">
       </picture>
       <div class="container">
@@ -74,7 +86,7 @@
           <div class="blog_wrapper-block">
             <picture>
               <source srcset="./img/blog-arrow-mobile.jpg" media="(max-width: 568px)">
-              <source srcset="./img/blog-arrow-tablet.jpg" media="(max-width: 968px)">
+              <source srcset="./img/blog-arrow-tablet.jpg" media="(max-width: 768px)">
               <img src="./img/blog-arrow-desktop.jpg" alt="blog arrow image">
             </picture>
           </div>
@@ -96,7 +108,7 @@
           <div class="blog_wrapper-block">
             <picture>
               <source srcset="./img/blog-wall-mobile.jpg" media="(max-width: 568px)">
-              <source srcset="./img/blog-wall-tablet.jpg" media="(max-width: 968px)">
+              <source srcset="./img/blog-wall-tablet.jpg" media="(max-width: 68px)">
               <img src="./img/blog-wall-desktop.jpg" alt="blog wall image">
             </picture>
           </div>
@@ -116,7 +128,7 @@
             <div class="posts_article-img">
               <picture>
                 <source srcset="./img/posts-lamp-mobile.jpg" media="(max-width: 568px)">
-                <source srcset="./img/posts-lamp-tablet.jpg" media="(max-width: 968px)">
+                <source srcset="./img/posts-lamp-tablet.jpg" media="(max-width: 768px)">
                 <img src="./img/posts-lamp-desktop.jpg" alt="posts lamp image">
               </picture>
             </div>
@@ -138,7 +150,7 @@
             <div class="posts_article-img">
               <picture>
                 <source srcset="./img/posts-arrow-mobile.jpg" media="(max-width: 568px)">
-                <source srcset="./img/posts-arrow-tablet.jpg" media="(max-width: 968px)">
+                <source srcset="./img/posts-arrow-tablet.jpg" media="(max-width: 768px)">
                 <img src="./img/posts-arrow-desktop.jpg" alt="aposts arrow image">
               </picture>
             </div>
@@ -158,7 +170,7 @@
             <div class="posts_article-img">
               <picture>
                 <source srcset="./img/posts-roof-mobile.jpg" media="(max-width: 568px)">
-                <source srcset="./img/posts-roof-tablet.jpg" media="(max-width: 968px)">
+                <source srcset="./img/posts-roof-tablet.jpg" media="(max-width: 768px)">
                 <img src="./img/posts-roof-desktop.jpg" alt="posts roof image">
               </picture>
             </div>
@@ -191,7 +203,7 @@
             <div class="popular_article-img">
               <picture>
                 <source srcset="./img/popular-lamp-mobile.jpg" media="(max-width: 568px)">
-                <source srcset="./img/popular-lamp-tablet.jpg" media="(max-width: 968px)">
+                <source srcset="./img/popular-lamp-tablet.jpg" media="(max-width: 768px)">
                 <img src="./img/popular-lamp-desktop.jpg" alt="popular-lamp">
               </picture>
             </div>
@@ -214,7 +226,7 @@
             <div class="popular_article-img">
               <picture>
                 <source srcset="./img/popular-wall-mobile.jpg" media="(max-width: 568px)">
-                <source srcset="./img/popular-wall-tablet.jpg" media="(max-width: 968px)">
+                <source srcset="./img/popular-wall-tablet.jpg" media="(max-width: 768px)">
                 <img src="./img/popular-wall-desktop.jpg" alt="popular wall image">
               </picture>
             </div>
@@ -309,6 +321,13 @@
     </div>
   </footer>
 
+  <script>
+    function toggleMenu(event) {
+      document.querySelector('.hamburger').classList.toggle('is-active');
+      document.querySelector('.header-list').classList.toggle('is-open');
+      document.querySelector('body').classList.toggle('lock');
+    }
+  </script>
 </body>
 
 </html>
