@@ -194,7 +194,7 @@ img {
   animation-name: "front";
   animation-duration: 2s;
   animation-iteration-count: 1;
-  animation-fill-mode: backwards;
+  animation-fill-mode: forwards;
   animation-timing-function: ease;
   animation-play-state: running;
 }
@@ -203,7 +203,7 @@ img {
   animation-name: "hover";
   animation-duration: 2s;
   animation-iteration-count: 1;
-  animation-fill-mode: backwards;
+  animation-fill-mode: forwards;
   animation-timing-function: ease;
   animation-play-state: running;
 }
@@ -234,21 +234,15 @@ img {
   0% {
     transform: rotateY(180deg);
   }
-  50% {
-    transform: rotateY(0deg);
-  }
   100% {
-    transform: rotateY(180deg);
+    transform: rotateY(0deg);
   }
 }
 @keyframes front {
   0% {
     transform: rotateY(0deg);
   }
-  50% {
-    transform: rotateY(180deg);
-  }
   100% {
-    transform: rotateY(0deg);
+    transform: rotateY(180deg);
   }
 }

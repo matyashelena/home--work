@@ -160,7 +160,7 @@ div.icon-even {
   animation-name: 'front';
   animation-duration: 2s;
   animation-iteration-count: 1;
-  animation-fill-mode: backwards;
+  animation-fill-mode: forwards;
   animation-timing-function: ease;
   animation-play-state: running;
   
@@ -171,7 +171,7 @@ div.icon-even {
   animation-name: 'hover';
   animation-duration: 2s;
   animation-iteration-count: 1;
-  animation-fill-mode: backwards;
+  animation-fill-mode: forwards;
   animation-timing-function: ease;
   animation-play-state: running;
 }
@@ -203,21 +203,16 @@ div.icon-even {
   0%{
     transform: rotateY(180deg);
   }
-  50% {
-    transform: rotateY(0deg);
-  }
   100% {
-    transform: rotateY(180deg);
+    transform: rotateY(0deg);
   }
 }
 @keyframes front {
   0%{
     transform: rotateY(0deg);
   }
-  50% {
+  100% {
     transform: rotateY(180deg);
   }
-  100% {
-    transform: rotateY(0deg);
-  }
+  
 }
