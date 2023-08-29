@@ -27,7 +27,7 @@
           </svg>
         </a>
 
-        <nav class="header_nav">
+        <nav class="header_nav desktop">
           <ul class="header_nav-list">
             <li class="header_nav-item">
               <a href="#" class="header_nav-link">about</a>
@@ -42,23 +42,59 @@
               <a href="#" class="header_nav-link">sign up</a>
             </li>
           </ul>
+
         </nav>
 
-        <a class="header_demo" href="#">
+        <a class="header_demo desktop" href="#">
           <span>Request Demo</span>
           <svg class="icon_arrow">
             <use xlink:href="./assets/sprite.svg#arrow" />
           </svg>
         </a>
+
+        <nav class="mobile_nav mobile" onclick="toggleMenu(event)">
+          <ul class="header_nav-list">
+            <li class="header_nav-item">
+              <a href="#" class="header_nav-link">about</a>
+            </li>
+            <li class="header_nav-item">
+              <a href="#" class="header_nav-link">help</a>
+            </li>
+            <li class="header_nav-item">
+              <a href="#" class="header_nav-link">features</a>
+            </li>
+            <li class="header_nav-item">
+              <a href="#" class="header_nav-link">sign up</a>
+            </li>
+          </ul>
+
+          <a class="header_demo" href="#">
+            <span>Request Demo</span>
+            <svg class="icon_arrow">
+              <use xlink:href="./assets/sprite.svg#arrow" />
+            </svg>
+          </a>
+        </nav>
+
+        <button class="hamburger hamburger--boring mobile" onclick="toggleMenu(event)" type="button">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
       </div>
+
+
+
+
     </header>
 
     <main class="main">
       <section class="hero">
         <div class="container">
           <h1 class="hero_title">Save your data storage here.</h1>
-          <p class="description">Data Warehouse is a data storage area that has been tested for security, so you can store your data here safely but not be afraid of being stolen by others.</p>
-          <a  class="more-link" href="#">Learn more</a>
+          <p class="description">Data Warehouse is a data storage area that has been tested for security, so you can
+            store your data here safely but not be afraid of being stolen by others.</p>
+          <a class="more-link" href="#">Learn more</a>
           <div class="hero_image">
             <img src="./img/hero-bg.svg" alt="">
           </div>
@@ -71,11 +107,71 @@
             <img src="./img/who-we-are.svg" alt="">
           </div>
           <div class="storage_description">
-            <h2 class="title">We are a high-level data 
+            <h2 class="title">We are a high-level data
               storage bank</h2>
-              <p class="description">The place to store various data that you can access at any time through the internet  and where you can carry it.</p>
-              <p class="description">This very flexible storage area has a high level of security. To enter into your own data you must enter the password that you created when you registered in this Data Warehouse.</p>
+            <p class="description">The place to store various data that you can access at any time through the internet
+              and where you can carry it.</p>
+            <p class="description">This very flexible storage area has a high level of security. To enter into your own
+              data you must enter the password that you created when you registered in this Data Warehouse.</p>
           </div>
+        </div>
+      </section>
+
+      <section class="features">
+        <div class="container">
+          <h2 class="title">Features</h2>
+          <p class="description">Some of the features and advantages that we provide for those of you who store data in this Data Warehouse.</p>
+          <section class="cards">
+            <div class="card">
+              <div class="card_image search_image">
+                <img src="./img/card-image1.svg" alt="search">
+              </div>
+              <div class="card_content card_search">
+                <h3 class="card_title">search data</h3>
+                <p class="card_description">Don’t worry if your data is very large, the Data Warehoue provides a search
+                  engine, which is useful for making it easier to find data effectively saving time.</p>
+                <a class="card_link" href="#">Learn more</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card_image access_image">
+                <img src="./img/card-image2.svg" alt="access">
+              </div>
+              <div class="card_content card_access">
+                <h3 class="card_title">24 Hours Access</h3>
+                <p class="card_description">Access is given 24 hours a full morning to night and meet again in the
+                  morning, giving you comfort when you need data when urgent.</p>
+                <a class="card_link" href="#">Learn more</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card_image print_image">
+                <img src="./img/card-image3.svg" alt="print">
+              </div>
+              <div class="card_content card_print">
+                <h3 class="card_title">print out</h3>
+                <p class="card_description">Print out service gives you convenience if someday you need print data, just
+                  edit it all and just print it.</p>
+                <a class="card_link" href="#">Learn more</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card_image security_image">
+                <img src="./img/card-image4.svg" alt="security">
+              </div>
+              <div class="card_content card_security">
+                <h3 class="card_title">security code</h3>
+                <p class="card_description">Data Security is one of our best facilities. Allows for your files
+                  to be safer. The file can be secured with a code or password that 
+                  you created, so only you can open the file.</p>
+                <a class="card_link" href="#">Learn more</a>
+              </div>
+            </div>
+          </section>
+
         </div>
       </section>
     </main>
@@ -83,7 +179,13 @@
     <footer class="footer"></footer>
   </div>
 
-
+  <script>
+    function toggleMenu(event) {
+      document.querySelector('.hamburger').classList.toggle('is-active');
+      document.querySelector('.mobile_nav').classList.toggle('is-open');
+      document.querySelector('body').classList.toggle('lock');
+    }
+  </script>
 
 </body>
 
