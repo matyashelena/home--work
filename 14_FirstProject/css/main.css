@@ -487,7 +487,6 @@ html, body {
 
 .testimonials {
   margin-top: 7.5em;
-  margin-bottom: 7.5em;
 }
 .testimonials .container {
   border-radius: 50px;
@@ -552,9 +551,13 @@ html, body {
   margin-top: 1.2em;
 }
 
+.footer {
+  padding: 120px 0;
+}
 .footer_heading {
   display: flex;
   align-items: center;
+  row-gap: 20px;
 }
 .footer_heading .title {
   margin-bottom: 0.5em;
@@ -578,6 +581,7 @@ html, body {
 }
 .footer_nav {
   padding: 100px 0;
+  display: flex;
 }
 .footer_nav-contacts {
   width: 50%;
@@ -593,12 +597,6 @@ html, body {
   width: 49px;
   height: 35px;
 }
-.footer_nav-contacts .link_logo {
-  color: #212353;
-  font-size: 1.25em;
-  font-weight: 600;
-  line-height: 160%;
-}
 .footer_nav-contacts .info {
   display: flex;
   flex-direction: column;
@@ -611,12 +609,60 @@ html, body {
 .footer_nav-contacts .info a {
   font-weight: 400;
 }
+.footer_nav-list {
+  margin-left: auto;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 670px;
+}
+.footer_nav-categories .footer-title {
+  font-size: 1rem;
+  margin-bottom: 1.875em;
+  text-transform: capitalize;
+}
+.footer_nav-categories .footer-item {
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+}
+.footer_nav-categories .footer-item:hover {
+  color: #8A40EE;
+}
+.footer_social-list {
+  display: flex;
+  column-gap: 15px;
+}
+.footer-bottom {
+  width: 100%;
+  max-width: 275px;
+  color: #212353;
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 180%;
+  letter-spacing: 0.12px;
+}
+
+.footer-title {
+  color: #212353;
+  font-size: 1.25em;
+  font-weight: 600;
+  line-height: 160%;
+}
 
 .icon_social {
   width: 50px;
   height: 50px;
 }
 
+.social-item {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
 .social-item:hover {
   --socialCard: #00ACEE;
   --opacity: 1;
@@ -765,6 +811,31 @@ html, body {
   .reviews-cards .reviews-card_content {
     max-width: none;
   }
+
+  .footer {
+    padding: 40px 0;
+  }
+  .footer_heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer_heading-button {
+    margin-left: 0;
+  }
+  .footer_nav {
+    padding: 40px;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  .footer_nav .logo {
+    margin-bottom: 1.5em;
+  }
+  .footer_nav-list {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    column-gap: 50px;
+    row-gap: 20px;
+  }
 }
 @media screen and (max-width: 768px) {
   .title {
@@ -791,6 +862,10 @@ html, body {
     align-self: auto;
     padding: 1.5em;
   }
+
+  .footer_social-list {
+    column-gap: 20px;
+  }
 }
 @media screen and (max-width: 568px) {
   .hero_title {
@@ -808,5 +883,13 @@ html, body {
   .reviews-card {
     padding: 1.5em;
     flex-direction: column;
+  }
+
+  .footer_heading-button {
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .footer_heading-button .header_demo {
+    margin-left: 0;
   }
 }
