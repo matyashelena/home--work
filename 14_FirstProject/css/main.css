@@ -906,6 +906,10 @@ html, body {
     padding-bottom: 1.5em;
   }
 
+  .features {
+    text-align: left;
+  }
+
   .testimonials .container {
     padding: 1.5em;
   }
