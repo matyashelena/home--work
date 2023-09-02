@@ -584,7 +584,7 @@ html, body {
   display: flex;
 }
 .footer_nav-contacts {
-  width: 50%;
+  width: 100%;
   max-width: 300px;
 }
 .footer_nav-contacts .logo {
@@ -861,6 +861,10 @@ html, body {
     flex-direction: column;
     align-self: auto;
     padding: 1.5em;
+  }
+
+  .footer_nav {
+    padding-left: 0;
   }
 
   .footer_social-list {

@@ -474,7 +474,7 @@ line-height: 160%;
     padding: 100px 0;
     display: flex;
     &-contacts {
-      width: 50%;
+      width: 100%;
       max-width: 300px;
       .logo {
         display: flex;
@@ -751,6 +751,9 @@ line-height: 160%;
       align-self: auto;
       padding: 1.5em;
     }
+  }
+  .footer_nav {
+    padding-left: 0;
   }
   .footer_social-list {
     column-gap: 20px;
