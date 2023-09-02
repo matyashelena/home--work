@@ -664,6 +664,7 @@ line-height: 160%;
     padding-bottom: 2.5em;
     .title {
     font-size: 2rem;
+    margin-bottom: .8em;
     }
     .description {
       margin-bottom: 2em;
@@ -671,6 +672,12 @@ line-height: 160%;
   }
   .testimonials {
     padding-bottom: 2.5em;
+    .container {
+      padding: 3em;
+    }
+    .title {
+      margin-bottom: .8em;
+    }
   }
   .cards {
     row-gap: 1.1em;
@@ -752,13 +759,30 @@ line-height: 160%;
 }
 
 @media screen and (max-width: 568px) {
- 
+  .header {
+    .container {
+      padding: 10px 0;
+    }
+  } 
   .hero {
+    padding-top: 85px;
    &_title {
     font-size: 2rem;
     width: 80%;
     }
   }
+  .storage {
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+}
+  .card {
+    width: 100%;
+  }
+  .features,
+  .testimonials,
+  .footer {
+    padding-bottom: 1.5em;
+}
   .testimonials {
     .container {
       padding: 1.5em;
@@ -778,5 +802,8 @@ line-height: 160%;
       margin-left: 0;
     }
   }
+  .footer_nav {
+    padding: 1.5em 0;
+}
   
 }

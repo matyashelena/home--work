@@ -779,6 +779,7 @@ html, body {
   }
   .features .title {
     font-size: 2rem;
+    margin-bottom: 0.8em;
   }
   .features .description {
     margin-bottom: 2em;
@@ -786,6 +787,12 @@ html, body {
 
   .testimonials {
     padding-bottom: 2.5em;
+  }
+  .testimonials .container {
+    padding: 3em;
+  }
+  .testimonials .title {
+    margin-bottom: 0.8em;
   }
 
   .cards {
@@ -868,9 +875,31 @@ html, body {
   }
 }
 @media screen and (max-width: 568px) {
+  .header .container {
+    padding: 10px 0;
+  }
+
+  .hero {
+    padding-top: 85px;
+  }
   .hero_title {
     font-size: 2rem;
     width: 80%;
+  }
+
+  .storage {
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .features,
+.testimonials,
+.footer {
+    padding-bottom: 1.5em;
   }
 
   .testimonials .container {
@@ -891,5 +920,9 @@ html, body {
   }
   .footer_heading-button .header_demo {
     margin-left: 0;
+  }
+
+  .footer_nav {
+    padding: 1.5em 0;
   }
 }
