@@ -277,7 +277,7 @@ line-height: 160%;
 
 .card_search {
   position: relative;
-  background-color: #7edcd3;
+  background-color: #F0FAF9;
   &::before {
     content: '';
     display: block;
@@ -294,7 +294,7 @@ line-height: 160%;
 }
 .card_access {
   position: relative;
-  background-color: #8944d9;
+  background-color: #F6F0FD;
   &::before {
     content: '';
     display: block;
@@ -313,7 +313,7 @@ line-height: 160%;
 
 .card_print {
   position: relative;
-  background-color: #dd298f;
+  background-color: #FEF0F8;
   &::before {
     content: '';
     display: block;
@@ -331,7 +331,7 @@ line-height: 160%;
 
 .card_security {
   position: relative;
-  background-color: #dd298f;
+  background-color: #EAF6FC;
   &::before {
     content: '';
     display: block;
@@ -462,6 +462,10 @@ line-height: 160%;
         align-items: center;
         column-gap: 20px;
         margin-bottom: 3.75em;
+        transition: all .3s ease;
+        &:hover {
+          transform: scale(1.3);
+        }
       }
       .icon_logo {
         width: 49px;
