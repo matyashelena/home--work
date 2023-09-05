@@ -763,6 +763,9 @@ line-height: 160%;
 }
 
 @media screen and (max-width: 568px) {
+  .mobile {
+    top: 74px;
+  }
   .header {
     .container {
       padding: 10px 0;
