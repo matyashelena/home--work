@@ -879,6 +879,10 @@ html, body {
   }
 }
 @media screen and (max-width: 568px) {
+  html, body {
+    font-size: 14px;
+  }
+
   .mobile {
     top: 74px;
   }
