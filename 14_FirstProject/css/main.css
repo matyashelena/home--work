@@ -172,6 +172,7 @@ html, body {
 }
 .header_nav-list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   column-gap: 40px;
@@ -335,6 +336,7 @@ html, body {
 .card_content {
   margin-left: -100px;
   width: 100%;
+  max-width: 400px;
   min-height: 400px;
   display: flex;
   flex-direction: column;
@@ -654,9 +656,10 @@ html, body {
   transition: all 0.3s ease;
 }
 .social-item:hover {
-  --socialCard: #00ACEE;
   --opacity: 1;
-  --col1: #00ACEE;
+  --colTwitter: #00ACEE;
+  --colFacebook: #3B5998;
+  --colInstagram: #C13584;
 }
 
 .mobile {

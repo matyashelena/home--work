@@ -73,6 +73,7 @@ html, body {
 
   &-list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     column-gap: 40px;
@@ -214,7 +215,7 @@ line-height: 160%;
 .card {
   display: flex;
   align-items: center;
-  width: calc(50% - 15px);  
+  width: calc(50% - 15px);
   &_image {
     z-index: 1;
     width: 100%;
@@ -223,6 +224,7 @@ line-height: 160%;
   &_content {
     margin-left: -100px;
     width: 100%;
+    max-width: 400px;
     min-height: 400px;
     display: flex;
     flex-direction: column;
@@ -540,9 +542,11 @@ line-height: 160%;
   border: 1px solid transparent;
   transition: all .3s ease;
   &:hover {
-    --socialCard: #00ACEE;
     --opacity: 1;
-    --col1: #00ACEE;
+    --colTwitter: #00ACEE;
+    --colFacebook: #3B5998;
+    --colInstagram: #C13584;
+
   }
 }
 
