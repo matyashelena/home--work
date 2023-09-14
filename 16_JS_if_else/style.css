@@ -1,0 +1,30 @@
+.container {
+  width: 90%;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 20px 10px;
+  font-family: Oswald, sans-serif;
+  font-size: 18px;
+  color: #233744;
+  background-color: #c9ccef;
+}
+h2 {
+  font-size: 24px;
+}
+.button {
+  background-color: #7adad2;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 3px #97c0bc;
+  border: none;
+  padding: 20px;
+  font-size: inherit;
+  font-family: inherit;
+  color: #070067;
+  cursor: pointer;
+  margin: 10px;
+  transition: all .3s ease;
+}
+.button:hover {
+  transform: translateY(10px) scale(1.1);
+  background-color: #6eafa9;
+}
