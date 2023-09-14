@@ -219,7 +219,16 @@ function daysWeek() {
   }
 }
 
-function guessNumber() {}
+function guessNumber() {
+  var number = prompt();
+  var left = 0;
+  var right = number.length - 1;
+  var mid;
+
+  while (left <= right) {
+    mid = Math.round((right - left) / 2) + left;
+  }
+}
 
 function multiplicationTable() {
   for (var i = 2; i <= 9; i++) {

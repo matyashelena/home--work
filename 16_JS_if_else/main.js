@@ -192,6 +192,17 @@ function daysWeek() {
 }
 
 function guessNumber() {
+  let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  let number;
+  let left = 0;
+  let right = 100;
+  let mid;
+  while(left <= right) {
+    mid = Math.round((right - left)/2 + left);
+
+    if (number === )
+  }
+
 
 }
 
