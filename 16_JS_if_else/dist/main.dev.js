@@ -263,3 +263,35 @@ function multiplicationTable() {
     }
   }
 }
+
+function nextDay() {
+  var day = prompt('Enter the day');
+  var month = prompt('Enter the month');
+  var year = prompt('Enter the year');
+
+  if (!day || isNaN(day) || day <= 0 || day > 31) {
+    alert('Enter a day number from 1 to 31');
+    return false;
+  }
+
+  if (!month || isNaN(month) || month <= 0 || month > 12) {
+    alert('Enter a month number from 1 to 12');
+    return false;
+  }
+
+  if (!year || isNaN(year) || year <= 0) {
+    alert('Еnter the numeric correct value');
+    return false;
+  }
+
+  year < 2000 && year.length == 2 ? year = "19".concat(year) : "".concat(year);
+  var nextDay = new Date(year, month, day);
+  nextDay.setDate(nextDay.getDate() + 1);
+  var dayResult = nextDay.getDate();
+  dayResult < 10 ? dayResult = "0".concat(dayResult) : "".concat(dayResult);
+  var monthResult = nextDay.getMonth();
+  monthResult < 10 ? monthResult = "0".concat(monthResult) : "".concat(monthResult);
+  var yearResult = nextDay.getFullYear().toString();
+  alert("Next day is ".concat(dayResult, ".").concat(monthResult, ".").concat(yearResult));
+  console.log(dayResult, monthResult, yearResult); //all result in string
+}

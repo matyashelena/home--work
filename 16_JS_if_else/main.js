@@ -170,14 +170,14 @@ function countNumber() {
     } else {
       negative++;
     }
-    
+
   }
   if (!number) {
-    return false; 
+    return false;
   } else {
     alert(`You have entered ${positive} positive numbers, ${negative} negative numbers and ${zero} zeros. Of these, ${even} are even numbers and ${odd} are odd numbers.`);
   }
-  
+
 }
 
 function daysWeek() {
@@ -208,22 +208,20 @@ function guessNumber() {
   }
   let left = -1;
   let right = array.length;
-  while(right - left > 1) {
+  while (right - left > 1) {
     let middle = Math.floor((left + right) / 2);
-    if(searchNumber == array[middle]) {
+    if (searchNumber == array[middle]) {
       searchNumber == middle;
       alert(`Yay! Your number is ${middle}!`);
       break;
     }
-    if(confirm(`If the number you guessed is <${middle} press "OK"
+    if (confirm(`If the number you guessed is <${middle} press "OK"
     If the number you guessed is >${middle} press "Cancel"`)) {
       right = middle;
     } else {
       left = middle;
     }
   }
-
-
 }
 
 function multiplicationTable() {
@@ -232,4 +230,37 @@ function multiplicationTable() {
       console.log(`${i} * ${a} = ${i*a}`);
     }
   }
+}
+
+function nextDay() {
+  let day = prompt('Enter the day');
+  let month = prompt('Enter the month');
+  let year = prompt('Enter the year');
+  if (!day || isNaN(day) || day <= 0 || day > 31) {
+    alert('Enter a day number from 1 to 31');
+    return false;
+  }
+  if (!month || isNaN(month) || month <= 0 || month > 12) {
+    alert('Enter a month number from 1 to 12');
+    return false;
+  }
+  if (!year || isNaN(year) || year <= 0) {
+    alert('Еnter the numeric correct value');
+    return false;
+  }
+  (year < 2000) && (year.length == 2) ? year = `19${year}`: `${year}`;
+  
+  let nextDay = new Date(year, month, day);
+  nextDay.setDate(nextDay.getDate() + 1);
+
+  let dayResult = nextDay.getDate();
+  (dayResult < 10) ? (dayResult = `0${dayResult}`) : (`${dayResult}`);
+
+  let monthResult = nextDay.getMonth();
+  (monthResult < 10) ? (monthResult = `0${monthResult}`) : (`${monthResult}`);
+
+  let yearResult = nextDay.getFullYear().toString();
+
+  alert(`Next day is ${dayResult}.${monthResult}.${yearResult}`);
+  console.log(dayResult, monthResult, yearResult); //all result in string
 }
