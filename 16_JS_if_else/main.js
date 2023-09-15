@@ -82,7 +82,7 @@ function greatestCommonDivisor() {
     alert('Enter a numeric value');
     greatestCommonDivisor();
   }
-  while(a && b) {
+  while (a && b) {
     a > b ? (a %= b) : (b %= a);
   }
   a += b;
@@ -96,7 +96,7 @@ function allDivisorsNumber() {
   }
   let result = [];
   for (let i = 1; i <= number; i++) {
-    if (number%i === 0) {
+    if (number % i === 0) {
       result.push(i);
     }
   }
@@ -144,21 +144,20 @@ function discount() {
 }
 
 function countNumber() {
-  let positive = 0;
-    let negative = 0;
-    let zero = 0;
-    let even = 0;
-    let odd = 0;
-  
+
+
   for (let i = 1; i <= 10; i++) {
-    let number = prompt(`Enter ${i} number`);
-    if (isNaN(number) ) {
-      // не вдається перевірити на порожнє значення
-      alert('Enter a numeric value');
-      countNumber();
+    var number = prompt(`Enter ${i} number`);
+    if (isNaN(number) || (!number)) {
+      alert('Enter a numerical value');
+      break;
     }
-    
-    if (number%2 === 0) {
+    var positive = 0;
+    var negative = 0;
+    var zero = 0;
+    var even = 0;
+    var odd = 0;
+    if (number % 2 === 0) {
       even++;
     } else {
       odd++;
@@ -171,8 +170,14 @@ function countNumber() {
     } else {
       negative++;
     }
+    
   }
-  alert(`You have entered ${positive} positive numbers, ${negative} negative numbers and ${zero} zeros. Of these, ${even} are even numbers and ${odd} are odd numbers.`);
+  if (!number) {
+    return false; 
+  } else {
+    alert(`You have entered ${positive} positive numbers, ${negative} negative numbers and ${zero} zeros. Of these, ${even} are even numbers and ${odd} are odd numbers.`);
+  }
+  
 }
 
 function daysWeek() {
@@ -192,15 +197,30 @@ function daysWeek() {
 }
 
 function guessNumber() {
-  let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  let number;
-  let left = 0;
-  let right = 100;
-  let mid;
-  while(left <= right) {
-    mid = Math.round((right - left)/2 + left);
-
-    if (number === )
+  let array = [];
+  let start = 0;
+  while (start <= 100) {
+    array.push(start++);
+  }
+  let searchNumber = prompt('Guess the number from 0 to 100');
+  if (isNaN(searchNumber) || !searchNumber || searchNumber < 0 || searchNumber > 100) {
+    guessNumber();
+  }
+  let left = -1;
+  let right = array.length;
+  while(right - left > 1) {
+    let middle = Math.floor((left + right) / 2);
+    if(searchNumber == array[middle]) {
+      searchNumber == middle;
+      alert(`Yay! Your number is ${middle}!`);
+      break;
+    }
+    if(confirm(`If the number you guessed is <${middle} press "OK"
+    If the number you guessed is >${middle} press "Cancel"`)) {
+      right = middle;
+    } else {
+      left = middle;
+    }
   }
 
 

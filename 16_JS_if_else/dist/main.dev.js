@@ -175,20 +175,19 @@ function discount() {
 }
 
 function countNumber() {
-  var positive = 0;
-  var negative = 0;
-  var zero = 0;
-  var even = 0;
-  var odd = 0;
-
   for (var i = 1; i <= 10; i++) {
     var number = prompt("Enter ".concat(i, " number"));
 
-    if (isNaN(number)) {
-      // не вдається перевірити на порожнє значення
-      alert('Enter a numeric value');
-      countNumber();
+    if (isNaN(number) || !number) {
+      alert('Enter a numerical value');
+      break;
     }
+
+    var positive = 0;
+    var negative = 0;
+    var zero = 0;
+    var even = 0;
+    var odd = 0;
 
     if (number % 2 === 0) {
       even++;
@@ -207,7 +206,11 @@ function countNumber() {
     }
   }
 
-  alert("You have entered ".concat(positive, " positive numbers, ").concat(negative, " negative numbers and ").concat(zero, " zeros. Of these, ").concat(even, " are even numbers and ").concat(odd, " are odd numbers."));
+  if (!number) {
+    return false;
+  } else {
+    alert("You have entered ".concat(positive, " positive numbers, ").concat(negative, " negative numbers and ").concat(zero, " zeros. Of these, ").concat(even, " are even numbers and ").concat(odd, " are odd numbers."));
+  }
 }
 
 function daysWeek() {
@@ -220,13 +223,36 @@ function daysWeek() {
 }
 
 function guessNumber() {
-  var number = prompt();
-  var left = 0;
-  var right = number.length - 1;
-  var mid;
+  var array = [];
+  var start = 0;
 
-  while (left <= right) {
-    mid = Math.round((right - left) / 2) + left;
+  while (start <= 100) {
+    array.push(start++);
+  }
+
+  var searchNumber = prompt('Guess the number from 0 to 100');
+
+  if (isNaN(searchNumber) || !searchNumber || searchNumber < 0 || searchNumber > 100) {
+    guessNumber();
+  }
+
+  var left = -1;
+  var right = array.length;
+
+  while (right - left > 1) {
+    var middle = Math.floor((left + right) / 2);
+
+    if (searchNumber == array[middle]) {
+      searchNumber == middle;
+      alert("Yay! Your number is ".concat(middle, "!"));
+      break;
+    }
+
+    if (confirm("If the number you guessed is <".concat(middle, " press \"OK\"\n    If the number you guessed is >").concat(middle, " press \"Cancel\""))) {
+      right = middle;
+    } else {
+      left = middle;
+    }
   }
 }
 
