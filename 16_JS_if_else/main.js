@@ -224,6 +224,25 @@ function guessNumber() {
   }
 }
 
+const minValue = 0;
+const maxValue = 100;
+let steps = 0;
+
+function guessNumber1(from, to) {
+ const middle = parseInt(((to - from) / 2) + from);
+ const isSuccess = confirm(`Your number is ${middle}`);
+ 
+ if(isSuccess) {
+  console.log(`Thanks for a game! We spent ${steps} steps`);
+  return false;
+ } else {
+  steps++;
+  const isLarger = confirm(`Your number is larger than ${middle}`);
+
+  isLarger ? guessNumber1(middle, to) : guessNumber1(from, middle);
+ }
+}
+
 function multiplicationTable() {
   for (let i = 2; i <= 9; i++) {
     for (let a = 2; a <= 9; a++) {
@@ -263,4 +282,59 @@ function nextDay() {
 
   alert(`Next day is ${dayResult}.${monthResult}.${yearResult}`);
   console.log(dayResult, monthResult, yearResult); //all result in string
+}
+
+function caclDay() {
+  const userDate = prompt('add date');
+  const dateArray = userDate.split('.');
+  const day = +dateArray[0];
+  const month = +dateArray[1];
+  const year = +dateArray[2];
+  if(isNaN(day) || isNaN(month) || isNaN(year)) return false;
+  let nextDay = day+1;
+  let nextMonth = month;
+  let nextYear = year;
+  switch (month) {
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+      if(day >= 30) {
+        nextDay = 1;
+        nextMonth++;
+      }
+      break;
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+        if(day >= 31) {
+          nextDay = 1;
+          nextMonth++;
+        }
+        break;
+    case 2: //умова для вискосних років
+      if (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0)) {
+        if (day === 29) {
+          nextDay = 1;
+          nextMonth++;
+        } else {
+          if(day >= 28) {
+            nextDay = 1;
+            nextMonth++;
+          }
+        }
+        break;
+      } 
+  }
+if (nextMonth > 12) {
+  nextMonth = 1;
+  nextDay = 1;
+  nextYear++;
+}
+const addZero = n => n < 10 ? `0${n}` : n;
+console.log(`Next date ${addZero(nextDay)}.${addZero(nextMonth)}.${nextYear}`);
 }

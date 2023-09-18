@@ -256,6 +256,24 @@ function guessNumber() {
   }
 }
 
+var minValue = 0;
+var maxValue = 100;
+var steps = 0;
+
+function guessNumber1(from, to) {
+  var middle = parseInt((to - from) / 2 + from);
+  var isSuccess = confirm("Your number is ".concat(middle));
+
+  if (isSuccess) {
+    console.log("Thanks for a game! We spent ".concat(steps, " steps"));
+    return false;
+  } else {
+    steps++;
+    var isLarger = confirm("Your number is larger than ".concat(middle));
+    isLarger ? guessNumber1(middle, to) : guessNumber1(from, middle);
+  }
+}
+
 function multiplicationTable() {
   for (var i = 2; i <= 9; i++) {
     for (var a = 2; a <= 9; a++) {
@@ -294,4 +312,72 @@ function nextDay() {
   var yearResult = nextDay.getFullYear().toString();
   alert("Next day is ".concat(dayResult, ".").concat(monthResult, ".").concat(yearResult));
   console.log(dayResult, monthResult, yearResult); //all result in string
+}
+
+function caclDay() {
+  var userDate = prompt('add date');
+  var dateArray = userDate.split('.');
+  var day = +dateArray[0];
+  var month = +dateArray[1];
+  var year = +dateArray[2];
+  if (isNaN(day) || isNaN(month) || isNaN(year)) return false;
+  var nextDay = day + 1;
+  var nextMonth = month;
+  var nextYear = year;
+
+  switch (month) {
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+      if (day >= 30) {
+        nextDay = 1;
+        nextMonth++;
+      }
+
+      break;
+
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+      if (day >= 31) {
+        nextDay = 1;
+        nextMonth++;
+      }
+
+      break;
+
+    case 2:
+      //умова для вискосних років
+      if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
+        if (day === 29) {
+          nextDay = 1;
+          nextMonth++;
+        } else {
+          if (day >= 28) {
+            nextDay = 1;
+            nextMonth++;
+          }
+        }
+
+        break;
+      }
+
+  }
+
+  if (nextMonth > 12) {
+    nextMonth = 1;
+    nextDay = 1;
+    nextYear++;
+  }
+
+  var addZero = function addZero(n) {
+    return n < 10 ? "0".concat(n) : n;
+  };
+
+  console.log("Next date ".concat(addZero(nextDay), ".").concat(addZero(nextMonth), ".").concat(nextYear));
 }
