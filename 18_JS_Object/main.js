@@ -107,8 +107,8 @@ time.showTime();
 // Ділення 2-х об'єктів-дробів.
 // Скорочення об'єкта-дробу.
 const fraction = {
-  divisible1: 1,
-  divisor1: 2,
+  divisible1: 5,
+  divisor1: 50,
   resultFractional1() {
       result1 = `${this.divisible1}/${this.divisor1}`;
       console.log(result1);
@@ -150,6 +150,18 @@ const fraction = {
       return resultDivide;
   },
   reduce() {
+          let number1 = this.divisible1;
+          let number2 = this.divisor1;
+          let a = number1;
+          let b = number2;
+          let result = `${this.divisible1}/${this.divisor1} після скорочення на ${a} дорівнює ${this.divisible1/a}/${this.divisor1/a}`;
+          while (a && b) {
+            a > b ? (a %= b) : (b %= a);
+          }
+          a += b;
+          console.log(result);
+          return result;
+        
 
   }
 
@@ -159,19 +171,4 @@ console.log(fraction.sum());
 console.log(fraction.minus());
 console.log(fraction.multiplication());
 console.log(fraction.divide());
-
-// function greatestCommonDivisor() {
-//   let number1 = prompt('Enter the first number');
-//   let number2 = prompt('Enter the second number');
-//   let a = number1;
-//   let b = number2;
-//   if (isNaN(number1) || isNaN(number2)) {
-//     alert('Enter a numeric value');
-//     greatestCommonDivisor();
-//   }
-//   while (a && b) {
-//     a > b ? (a %= b) : (b %= a);
-//   }
-//   a += b;
-//   alert(`The greatest common divisor of ${number1} and ${number2} is ${a}`);
-// }
+console.log(fraction.reduce());

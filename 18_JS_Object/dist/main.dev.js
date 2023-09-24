@@ -111,8 +111,8 @@ time.showTime(); // Створи об'єкт, що описує звичайни
 // Скорочення об'єкта-дробу.
 
 var fraction = {
-  divisible1: 1,
-  divisor1: 2,
+  divisible1: 5,
+  divisor1: 50,
   resultFractional1: function resultFractional1() {
     result1 = "".concat(this.divisible1, "/").concat(this.divisor1);
     console.log(result1);
@@ -153,24 +153,25 @@ var fraction = {
     console.log("\u0414\u0456\u043B\u0435\u043D\u043D\u044F ".concat(result1, " \u043D\u0430 ").concat(result2, " \u0434\u043E\u0440\u0456\u0432\u043D\u044E\u0454 ").concat(resultDivide));
     return resultDivide;
   },
-  reduce: function reduce() {}
+  reduce: function reduce() {
+    var number1 = this.divisible1;
+    var number2 = this.divisor1;
+    var a = number1;
+    var b = number2;
+    var result = "".concat(this.divisible1, "/").concat(this.divisor1, " \u043F\u0456\u0441\u043B\u044F \u0441\u043A\u043E\u0440\u043E\u0447\u0435\u043D\u043D\u044F \u043D\u0430 ").concat(a, " \u0434\u043E\u0440\u0456\u0432\u043D\u044E\u0454 ").concat(this.divisible1 / a, "/").concat(this.divisor1 / a);
+
+    while (a && b) {
+      a > b ? a %= b : b %= a;
+    }
+
+    a += b;
+    console.log(result);
+    return result;
+  }
 };
 console.log(fraction.resultFractional1(), fraction.resultFractional2());
 console.log(fraction.sum());
 console.log(fraction.minus());
 console.log(fraction.multiplication());
-console.log(fraction.divide()); // function greatestCommonDivisor() {
-//   let number1 = prompt('Enter the first number');
-//   let number2 = prompt('Enter the second number');
-//   let a = number1;
-//   let b = number2;
-//   if (isNaN(number1) || isNaN(number2)) {
-//     alert('Enter a numeric value');
-//     greatestCommonDivisor();
-//   }
-//   while (a && b) {
-//     a > b ? (a %= b) : (b %= a);
-//   }
-//   a += b;
-//   alert(`The greatest common divisor of ${number1} and ${number2} is ${a}`);
-// }
+console.log(fraction.divide());
+console.log(fraction.reduce());
