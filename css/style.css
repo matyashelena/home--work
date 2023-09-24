@@ -16,11 +16,10 @@
   background-size: cover;
 }
 .list_works {
- display: flex;
- flex-wrap: wrap;
- justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   list-style-type: none;
-  /* font-size: 16px; */
 }
 .item_works {
   width: 100%;
