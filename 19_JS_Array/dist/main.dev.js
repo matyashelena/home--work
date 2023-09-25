@@ -1,5 +1,65 @@
 "use strict";
 
+// Створи масив «Список покупок». Кожен елемент масиву є об'єктом, який містить назву продукту, кількість і куплений він чи ні, ціну за одиницю товару, сума. Написати кілька функцій для роботи з таким масивом:
+// Виводити весь список на екран таким чином, щоб спочатку йшли продукти, що ще не придбані, а потім - ті, що вже придбали.
+// Покупка продукту. Функція приймає назву продукту і відзначає його як придбаний.
+var shoppingList = [{
+  productName: "banana",
+  quantity: 100,
+  added: true,
+  price: 44,
+  amount: 4400
+}, {
+  productName: "cucumber",
+  quantity: 50,
+  added: false,
+  price: 39,
+  amount: 1950
+}, {
+  productName: "tomato",
+  quantity: 20,
+  added: true,
+  price: 50,
+  amount: 1000
+}, {
+  productName: "pepper",
+  quantity: 25,
+  added: false,
+  price: 30,
+  amount: 750
+}, {
+  productName: "peach",
+  quantity: 10,
+  added: true,
+  price: 85,
+  amount: 850
+}, {
+  productName: "banana",
+  quantity: 100,
+  added: true,
+  price: 44,
+  amount: 4400
+}, {
+  productName: "candy",
+  quantity: 5,
+  added: false,
+  price: 200,
+  amount: 1000
+}];
+
+function sortShoppingList(name) {
+  return function (a, b) {
+    return a[name] > b[name] ? 1 : -1;
+  };
+}
+
+function purchaseProduct(name) {} // shoppingList.map((el) => el.productName) {
+//   shoppingList.added = true;
+//   console.log(shoppingList);
+// }
+
+
+console.log(shoppingList.sort(sortShoppingList('added')));
 var allProducts = [{
   name: "banana",
   uniqId: 74638,

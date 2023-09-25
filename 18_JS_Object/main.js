@@ -161,11 +161,9 @@ const fraction = {
           a += b;
           console.log(result);
           return result;
-        
-
-  }
-
-}
+        }
+    }
+    
 console.log(fraction.resultFractional1(), fraction.resultFractional2());
 console.log(fraction.sum());
 console.log(fraction.minus());
