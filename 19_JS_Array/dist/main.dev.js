@@ -34,11 +34,11 @@ var shoppingList = [{
   price: 85,
   amount: 850
 }, {
-  productName: "banana",
-  quantity: 100,
-  added: true,
-  price: 44,
-  amount: 4400
+  productName: "watermelon",
+  quantity: 3,
+  added: false,
+  price: 20,
+  amount: 60
 }, {
   productName: "candy",
   quantity: 5,
@@ -53,105 +53,71 @@ function sortShoppingList(name) {
   };
 }
 
-function purchaseProduct(name) {} // shoppingList.map((el) => el.productName) {
-//   shoppingList.added = true;
-//   console.log(shoppingList);
-// }
-
-
-console.log(shoppingList.sort(sortShoppingList('added')));
-var allProducts = [{
-  name: "banana",
-  uniqId: 74638,
-  price: 8,
-  quantity: 200,
-  discount: 0.03,
-  isDiscount: true
-}, {
-  name: "cucumber",
-  uniqId: 2334,
-  price: 4,
-  quantity: 100,
-  discount: 0,
-  isDiscount: false
-}, {
-  name: "pear",
-  uniqId: 234,
-  price: 18,
-  quantity: 0,
-  discount: 0.5,
-  isDiscount: true
-}, {
-  name: "apple",
-  uniqId: 3322,
-  price: 18,
-  quantity: 2,
-  discount: 0.1,
-  isDiscount: true
-}, {
-  name: "potato",
-  uniqId: 333,
-  price: 2,
-  quantity: 2000,
-  discount: 0,
-  isDiscount: false
-}, {
-  name: "coconut",
-  uniqId: 3498,
-  price: 80,
-  quantity: 10,
-  discount: 0.1,
-  isDiscount: true
-}];
-var userCart = [];
-
-function addToCard(id, quantity) {
-  var newProd = allProducts.find(function (el) {
-    return el.uniqId === id;
+function buyProduct(name) {
+  shoppingList.forEach(function (el) {
+    el.productName === name ? el.added = true : shoppingList.added;
+    console.log(el);
   });
-
-  if (!newProd) {
-    console.log("det finns inte");
-    return false;
-  }
-
-  if (newProd.quantity < quantity) {
-    console.log("Du kan inte k\xF6pa det");
-    return false;
-  }
-
-  userCart.push(newProd);
-  setQuantity(newProd.quantity - quantity, id); // console.log(newProd);
 }
 
-addToCard(333, 10);
+shoppingList.sort(sortShoppingList('added'));
+shoppingList.sort(sortShoppingList('price'));
+buyProduct("watermelon"); // 1. Видалення продукту зі списку (видалення повинно проводитися шляхом створення нового масиву, в якому продукт, що ми шукаємо, буде відсутнім)
+// 2. Додавання покупки в список. Враховуй, що при додаванні покупки з уже існуючим в списку продуктом, необхідно збільшувати кількість в існуючій покупці, а не додавати нову. При цьому також повинна змінитися сума, наприклад, якщо ціна за одиницю 12, а кількості товарів стало 2, то сума буде 24.
 
-function setQuantity(quantity, id) {
-  var newProd = allProducts.findIndex(function (el) {
-    return el.uniqId === id;
+var newArray = shoppingList.slice(0);
+
+function deleteProduct(name) {
+  var deletedProduct = newArray.findIndex(function (el) {
+    return el.productName === name;
   });
-  allProducts[newProd].quantity = quantity;
+  newArray.splice(deletedProduct, 1);
 }
 
-addToCard(3498, 2);
-addToCard(234, 3);
+deleteProduct("candy");
+console.log(newArray);
+deleteProduct("pepper");
+console.log(newArray);
+console.log(shoppingList);
 
-function deleteProduct(id) {
-  var deletedProduct = userCart.findIndex(function (el) {
-    return el.id === id;
+function addToCard(name, num) {
+  var addProduct = shoppingList.find(function (el) {
+    return el.productName === name;
   });
-  userCart.splice(deletedProduct, 1);
-} // deleteProduct(234);
+  addProduct.quantity = addProduct.quantity + num;
+  addProduct.amount = addProduct.amount + addProduct.price * num;
+}
 
+addToCard("candy", 10);
+addToCard("candy", 2);
+console.log(shoppingList); // 1. Підрахунок суми всіх продуктів (враховуючи кількість кожного) в списку.
+// 2. Підрахунок суми всіх (не) придбаних продуктів.
+// 3. Показання продуктів в залежності від суми, (від більшого до меншого / від меншого до більшого, в залежності від параметра функції, який вона приймає)
 
-function showCardProduct() {
-  var result = userCart.map(function (el) {
-    return {
-      name: el.name,
-      price: el.price
-    };
+function totalAmount() {
+  var arrAmount = shoppingList.map(function (el) {
+    return el.amount;
+  });
+  var result = arrAmount.reduce(function (acc, value) {
+    return acc + value;
   });
   console.log(result);
 }
 
-showCardProduct();
+totalAmount();
+
+function totalAmountBuy(name) {
+  var arrName = shoppingList.filter(function (el) {
+    return el.added == name;
+  });
+  var arrAmount = arrName.map(function (el) {
+    return el.amount;
+  });
+  var result = arrAmount.reduce(function (acc, value) {
+    return acc + value;
+  });
+  return result;
+}
+
+console.log(totalAmountBuy(true));
+console.log(totalAmountBuy(false));

@@ -2,8 +2,7 @@
 // Виводити весь список на екран таким чином, щоб спочатку йшли продукти, що ще не придбані, а потім - ті, що вже придбали.
 // Покупка продукту. Функція приймає назву продукту і відзначає його як придбаний.
 
-const shoppingList = [
-  {
+const shoppingList = [{
     productName: "banana",
     quantity: 100,
     added: true,
@@ -39,11 +38,11 @@ const shoppingList = [
     amount: 850
   },
   {
-    productName: "banana",
-    quantity: 100,
-    added: true,
-    price: 44,
-    amount: 4400
+    productName: "watermelon",
+    quantity: 3,
+    added: false,
+    price: 20,
+    amount: 60
   },
   {
     productName: "candy",
@@ -53,135 +52,64 @@ const shoppingList = [
     amount: 1000
   }
 ]
-console.log(shoppingList[3].added);
-// shoppingList[added]=false;
-// console.log(shoppingList);
-// console.log()
-// console.log(productName('candy'));
 
 function sortShoppingList(name) {
   return (a, b) => a[name] > b[name] ? 1 : -1;
 }
 
-// function purchaseProduct(name) {
-//   const buyProduct = shoppingList.map((el) => {
-//       if (el.productName === name) {
-//         console.log(buyProduct);
-//         return shoppingList[buyProduct].added = true;
-//       }
-//       // } else {
-//       //   return shoppingList[buyProduct].added = shoppingList[buyProduct].added;
-//       // }
-//   })
-// }
+function buyProduct(name) {
+  shoppingList.forEach((el) => {
+    el.productName === name ? el.added = true : shoppingList.added;
+    console.log(el);
+  });
+}
+
+shoppingList.sort(sortShoppingList('added'));
+shoppingList.sort(sortShoppingList('price'));
+buyProduct("watermelon");
+
+// 1. Видалення продукту зі списку (видалення повинно проводитися шляхом створення нового масиву, в якому продукт, що ми шукаємо, буде відсутнім)
+// 2. Додавання покупки в список. Враховуй, що при додаванні покупки з уже існуючим в списку продуктом, необхідно збільшувати кількість в існуючій покупці, а не додавати нову. При цьому також повинна змінитися сума, наприклад, якщо ціна за одиницю 12, а кількості товарів стало 2, то сума буде 24.
+
+const newArray = shoppingList.slice(0);
+
+function deleteProduct(name) {
+  const deletedProduct = newArray.findIndex(el => el.productName === name);
+  newArray.splice(deletedProduct, 1);
+}
+deleteProduct("candy");
+console.log(newArray);
+deleteProduct("pepper");
+console.log(newArray);
+console.log(shoppingList);
+
+function addToCard(name, num) {
+  const addProduct = shoppingList.find((el) => el.productName === name);
+  addProduct.quantity = addProduct.quantity + num;
+  addProduct.amount = addProduct.amount + addProduct.price * num;
+}
+addToCard("candy", 10);
+addToCard("candy", 2);
+console.log(shoppingList);
 
 
-  // console.log(buyProduct);
-  console.log(shoppingList);
-  // shoppingList[buyProduct].added = true;
+// 1. Підрахунок суми всіх продуктів (враховуючи кількість кожного) в списку.
+// 2. Підрахунок суми всіх (не) придбаних продуктів.
+// 3. Показання продуктів в залежності від суми, (від більшого до меншого / від меншого до більшого, в залежності від параметра функції, який вона приймає)
 
-  // purchaseProduct('candy');
+function totalAmount() {
+  let arrAmount = shoppingList.map(el => el.amount);
+  let result = arrAmount.reduce((acc, value) => acc + value);
+  console.log(result);
+}
+totalAmount();
 
-  function setQuantity(quantity, id) {
-    const newProd = allProducts.findIndex((el) => el.uniqId === id);
-    allProducts[newProd].quantity = quantity;
-  }
-  // shoppingList.map((el) => el.productName) {
-  //   shoppingList.added = true;
-  //   console.log(shoppingList);
-  // }
-  // console.log(shoppingList.sort(sortShoppingList('added')));
-  // console.log(shoppingList(purchaseProduct('candy')));
-  // console.log(buyProduct);
+function totalAmountBuy(name) {
+  const arrName = shoppingList.filter(el => el.added == name);
+  let arrAmount = arrName.map(el => el.amount);
+  let result = arrAmount.reduce((acc, value) => acc + value);
+  return result;
 
-
-  const allProducts = [{
-      name: "banana",
-      uniqId: 74638,
-      price: 8,
-      quantity: 200,
-      discount: 0.03,
-      isDiscount: true,
-    },
-    {
-      name: "cucumber",
-      uniqId: 2334,
-      price: 4,
-      quantity: 100,
-      discount: 0,
-      isDiscount: false,
-    },
-    {
-      name: "pear",
-      uniqId: 234,
-      price: 18,
-      quantity: 0,
-      discount: 0.5,
-      isDiscount: true,
-    },
-    {
-      name: "apple",
-      uniqId: 3322,
-      price: 18,
-      quantity: 2,
-      discount: 0.1,
-      isDiscount: true,
-    },
-    {
-      name: "potato",
-      uniqId: 333,
-      price: 2,
-      quantity: 2000,
-      discount: 0,
-      isDiscount: false,
-    },
-    {
-      name: "coconut",
-      uniqId: 3498,
-      price: 80,
-      quantity: 10,
-      discount: 0.1,
-      isDiscount: true,
-    },
-  ];
-  const userCart = [];
-
-  function addToCard(id, quantity) {
-    const newProd = allProducts.find((el) => el.uniqId === id);
-    if (!newProd) {
-      console.log(`det finns inte`);
-      return false;
-    }
-    if (newProd.quantity < quantity) {
-      console.log(`Du kan inte köpa det`);
-      return false;
-    }
-    userCart.push(newProd);
-    setQuantity(newProd.quantity - quantity, id);
-    // console.log(newProd);
-  }
-  addToCard(333, 10);
-
-  function setQuantity(quantity, id) {
-    const newProd = allProducts.findIndex((el) => el.uniqId === id);
-    allProducts[newProd].quantity = quantity;
-  }
-
-  addToCard(3498, 2);
-  addToCard(234, 3);
-
-  function deleteProduct(id) {
-    const deletedProduct = userCart.findIndex(el => el.id === id);
-    userCart.splice(deletedProduct, 1);
-  }
-  // deleteProduct(234);
-  function showCardProduct() {
-    const result = userCart.map(el => {
-      return {
-        name: el.name,
-        price: el.price
-      };
-    });
-    console.log(result);
-  }
-  showCardProduct();
+}
+console.log(totalAmountBuy(true));
+console.log(totalAmountBuy(false));
