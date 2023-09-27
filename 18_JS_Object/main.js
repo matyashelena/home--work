@@ -107,10 +107,10 @@ time.showTime();
 // Ділення 2-х об'єктів-дробів.
 // Скорочення об'єкта-дробу.
 const fraction = {
-    nominator1: 5,
-    denominator1: 50,
-    nominator2: 5,
-    denominator2: 7,
+    nominator1: 1,
+    denominator1: 2,
+    nominator2: 1,
+    denominator2: 2,
     showFraction() {
         fraction1 = `${this.nominator1}/${this.denominator1}`;
         fraction2 = `${this.nominator2}/${this.denominator2}`;
@@ -127,6 +127,9 @@ const fraction = {
         denominatorSum = this.denominator1 * this.denominator2;
         const gcd = this.findGCD(nominatorSum, denominatorSum);
         resultSum = `${nominatorSum/gcd}/${denominatorSum/gcd}`;
+        if(nominatorSum/gcd === denominatorSum/gcd) {
+            resultSum = 1
+        }
         console.log(`Сума ${fraction1} та ${fraction2} дорівнює ${resultSum}`);
         return resultSum;
     },
@@ -135,6 +138,12 @@ const fraction = {
         denominatorMinus = this.denominator1 * this.denominator2;
         const gcd = this.findGCD(nominatorMinus, denominatorMinus);
         resultMinus = `${nominatorMinus/gcd}/${denominatorMinus/gcd}`;
+        if(nominatorMinus/gcd === denominatorMinus/gcd) {
+            resultMinus = 1
+        }
+        if(nominatorMinus/gcd === 0 || denominatorMinus/gcd === 0) {
+            resultMinus = 0
+        }
         console.log(`Різниця ${fraction1} та ${fraction2} дорівнює ${resultMinus}`);
         return resultMinus;
     },
@@ -151,6 +160,9 @@ const fraction = {
         denominatorDivide = this.denominator1 * this.nominator2;
         const gcd = this.findGCD(nominatorDivide, denominatorDivide);
         resultDivide = `${nominatorDivide/gcd}/${denominatorDivide/gcd}`;
+        if(nominatorDivide/gcd === denominatorDivide/gcd) {
+            resultDivide = 1
+        }
         console.log(`Ділення ${fraction1} на ${fraction2} дорівнює ${resultDivide}`);
         return resultDivide;
     },

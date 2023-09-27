@@ -111,10 +111,10 @@ time.showTime(); // Створи об'єкт, що описує звичайни
 // Скорочення об'єкта-дробу.
 
 var fraction = {
-  nominator1: 5,
-  denominator1: 50,
-  nominator2: 5,
-  denominator2: 7,
+  nominator1: 1,
+  denominator1: 2,
+  nominator2: 1,
+  denominator2: 2,
   showFraction: function showFraction() {
     fraction1 = "".concat(this.nominator1, "/").concat(this.denominator1);
     fraction2 = "".concat(this.nominator2, "/").concat(this.denominator2);
@@ -132,6 +132,11 @@ var fraction = {
     denominatorSum = this.denominator1 * this.denominator2;
     var gcd = this.findGCD(nominatorSum, denominatorSum);
     resultSum = "".concat(nominatorSum / gcd, "/").concat(denominatorSum / gcd);
+
+    if (nominatorSum / gcd === denominatorSum / gcd) {
+      resultSum = 1;
+    }
+
     console.log("\u0421\u0443\u043C\u0430 ".concat(fraction1, " \u0442\u0430 ").concat(fraction2, " \u0434\u043E\u0440\u0456\u0432\u043D\u044E\u0454 ").concat(resultSum));
     return resultSum;
   },
@@ -140,6 +145,15 @@ var fraction = {
     denominatorMinus = this.denominator1 * this.denominator2;
     var gcd = this.findGCD(nominatorMinus, denominatorMinus);
     resultMinus = "".concat(nominatorMinus / gcd, "/").concat(denominatorMinus / gcd);
+
+    if (nominatorMinus / gcd === denominatorMinus / gcd) {
+      resultMinus = 1;
+    }
+
+    if (nominatorMinus / gcd === 0 || denominatorMinus / gcd === 0) {
+      resultMinus = 0;
+    }
+
     console.log("\u0420\u0456\u0437\u043D\u0438\u0446\u044F ".concat(fraction1, " \u0442\u0430 ").concat(fraction2, " \u0434\u043E\u0440\u0456\u0432\u043D\u044E\u0454 ").concat(resultMinus));
     return resultMinus;
   },
@@ -156,6 +170,11 @@ var fraction = {
     denominatorDivide = this.denominator1 * this.nominator2;
     var gcd = this.findGCD(nominatorDivide, denominatorDivide);
     resultDivide = "".concat(nominatorDivide / gcd, "/").concat(denominatorDivide / gcd);
+
+    if (nominatorDivide / gcd === denominatorDivide / gcd) {
+      resultDivide = 1;
+    }
+
     console.log("\u0414\u0456\u043B\u0435\u043D\u043D\u044F ".concat(fraction1, " \u043D\u0430 ").concat(fraction2, " \u0434\u043E\u0440\u0456\u0432\u043D\u044E\u0454 ").concat(resultDivide));
     return resultDivide;
   }
