@@ -111,67 +111,57 @@ time.showTime(); // Створи об'єкт, що описує звичайни
 // Скорочення об'єкта-дробу.
 
 var fraction = {
-  divisible1: 5,
-  divisor1: 50,
-  resultFractional1: function resultFractional1() {
-    result1 = "".concat(this.divisible1, "/").concat(this.divisor1);
-    console.log(result1);
-    return result1;
+  nominator1: 5,
+  denominator1: 50,
+  nominator2: 5,
+  denominator2: 7,
+  showFraction: function showFraction() {
+    fraction1 = "".concat(this.nominator1, "/").concat(this.denominator1);
+    fraction2 = "".concat(this.nominator2, "/").concat(this.denominator2);
+    console.log("\u041F\u0435\u0440\u0448\u0438\u0439 \u043E\u0431'\u0454\u043A\u0442-\u0434\u0440\u0456\u0431: ".concat(fraction1, ", \u0434\u0440\u0443\u0433\u0438\u0439 \u043E\u0431'\u0454\u043A\u0442-\u0434\u0440\u0456\u0431: ").concat(fraction2));
   },
-  divisible2: 5,
-  divisor2: 7,
-  resultFractional2: function resultFractional2() {
-    result2 = "".concat(this.divisible2, "/").concat(this.divisor2);
-    console.log(result2);
-    return result2;
+  findGCD: function findGCD(a, b) {
+    if (a == 0) {
+      return b;
+    }
+
+    return this.findGCD(b % a, a);
   },
   sum: function sum() {
-    divisibleSum = this.divisible1 * this.divisor2 + this.divisible2 * this.divisor1;
-    divisorSum = this.divisor1 * this.divisor2;
-    resultSum = "".concat(divisibleSum, "/").concat(divisorSum);
-    console.log("\u0421\u0443\u043C\u0430 ".concat(result1, " \u0442\u0430 ").concat(result2, " \u0434\u043E\u0440\u0456\u0432\u043D\u044E\u0454 ").concat(resultSum));
+    nominatorSum = this.nominator1 * this.denominator2 + this.nominator2 * this.denominator1;
+    denominatorSum = this.denominator1 * this.denominator2;
+    var gcd = this.findGCD(nominatorSum, denominatorSum);
+    resultSum = "".concat(nominatorSum / gcd, "/").concat(denominatorSum / gcd);
+    console.log("\u0421\u0443\u043C\u0430 ".concat(fraction1, " \u0442\u0430 ").concat(fraction2, " \u0434\u043E\u0440\u0456\u0432\u043D\u044E\u0454 ").concat(resultSum));
     return resultSum;
   },
   minus: function minus() {
-    divisibleMinus = this.divisible1 * this.divisor2 - this.divisible2 * this.divisor1;
-    divisorMinus = this.divisor1 * this.divisor2;
-    resultMinus = "".concat(divisibleMinus, "/").concat(divisorMinus);
-    console.log("\u0420\u0456\u0437\u043D\u0438\u0446\u044F ".concat(result1, " \u0442\u0430 ").concat(result2, " \u0434\u043E\u0440\u0456\u0432\u043D\u044E\u0454 ").concat(resultMinus));
+    nominatorMinus = this.nominator1 * this.denominator2 - this.nominator2 * this.denominator1;
+    denominatorMinus = this.denominator1 * this.denominator2;
+    var gcd = this.findGCD(nominatorMinus, denominatorMinus);
+    resultMinus = "".concat(nominatorMinus / gcd, "/").concat(denominatorMinus / gcd);
+    console.log("\u0420\u0456\u0437\u043D\u0438\u0446\u044F ".concat(fraction1, " \u0442\u0430 ").concat(fraction2, " \u0434\u043E\u0440\u0456\u0432\u043D\u044E\u0454 ").concat(resultMinus));
     return resultMinus;
   },
   multiplication: function multiplication() {
-    divisibleMultiplication = this.divisible1 * this.divisible2;
-    divisorMultiplication = this.divisor1 * this.divisor2;
-    resultMultiplication = "".concat(divisibleMultiplication, "/").concat(divisorMultiplication);
-    console.log("\u041C\u043D\u043E\u0436\u0435\u043D\u043D\u044F ".concat(result1, " \u0442\u0430 ").concat(result2, " \u0434\u043E\u0440\u0456\u0432\u043D\u044E\u0454 ").concat(resultMultiplication));
+    nominatorMultiplication = this.nominator1 * this.nominator2;
+    denominatorMultiplication = this.denominator1 * this.denominator2;
+    var gcd = this.findGCD(nominatorMultiplication, denominatorMultiplication);
+    resultMultiplication = "".concat(nominatorMultiplication / gcd, "/").concat(denominatorMultiplication / gcd);
+    console.log("\u041C\u043D\u043E\u0436\u0435\u043D\u043D\u044F ".concat(fraction1, " \u0442\u0430 ").concat(fraction2, " \u0434\u043E\u0440\u0456\u0432\u043D\u044E\u0454 ").concat(resultMultiplication));
     return resultMultiplication;
   },
   divide: function divide() {
-    divisibleDivide = this.divisible1 * this.divisor2;
-    divisorDivide = this.divisor1 * this.divisible2;
-    resultDivide = "".concat(divisibleDivide, "/").concat(divisorDivide);
-    console.log("\u0414\u0456\u043B\u0435\u043D\u043D\u044F ".concat(result1, " \u043D\u0430 ").concat(result2, " \u0434\u043E\u0440\u0456\u0432\u043D\u044E\u0454 ").concat(resultDivide));
+    nominatorDivide = this.nominator1 * this.denominator2;
+    denominatorDivide = this.denominator1 * this.nominator2;
+    var gcd = this.findGCD(nominatorDivide, denominatorDivide);
+    resultDivide = "".concat(nominatorDivide / gcd, "/").concat(denominatorDivide / gcd);
+    console.log("\u0414\u0456\u043B\u0435\u043D\u043D\u044F ".concat(fraction1, " \u043D\u0430 ").concat(fraction2, " \u0434\u043E\u0440\u0456\u0432\u043D\u044E\u0454 ").concat(resultDivide));
     return resultDivide;
-  },
-  reduce: function reduce() {
-    var number1 = this.divisible1;
-    var number2 = this.divisor1;
-    var a = number1;
-    var b = number2;
-    var result = "".concat(this.divisible1, "/").concat(this.divisor1, " \u043F\u0456\u0441\u043B\u044F \u0441\u043A\u043E\u0440\u043E\u0447\u0435\u043D\u043D\u044F \u043D\u0430 ").concat(a, " \u0434\u043E\u0440\u0456\u0432\u043D\u044E\u0454 ").concat(this.divisible1 / a, "/").concat(this.divisor1 / a);
-
-    while (a && b) {
-      a > b ? a %= b : b %= a;
-    }
-
-    a += b;
-    console.log(result);
-    return result;
   }
 };
-console.log(fraction.resultFractional1(), fraction.resultFractional2());
-console.log(fraction.sum());
-console.log(fraction.minus());
-console.log(fraction.multiplication());
-console.log(fraction.divide());
-console.log(fraction.reduce());
+fraction.showFraction();
+fraction.sum();
+fraction.minus();
+fraction.multiplication();
+fraction.divide();
