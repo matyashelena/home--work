@@ -53,35 +53,44 @@ const shoppingList = [{
   }
 ]
 
-function sortShoppingList(name) {
-  return (a, b) => a[name] > b[name] ? 1 : -1;
+function sortByAdded() {
+  const sortArray = shoppingList.slice()
+  sortArray.sort((a, b) => {
+    return  a.added - b.added   
+  })
+  console.log(sortArray);
 }
+sortByAdded();
 
 function buyProduct(name) {
   shoppingList.forEach((el) => {
     el.productName === name ? el.added = true : shoppingList.added;
-    console.log(el);
   });
+  console.log(shoppingList);
 }
+buyProduct("candy");
 
-shoppingList.sort(sortShoppingList('added'));
-shoppingList.sort(sortShoppingList('price'));
-buyProduct("watermelon");
 
-// 1. Видалення продукту зі списку (видалення повинно проводитися шляхом створення нового масиву, в якому продукт, що ми шукаємо, буде відсутнім)
-// 2. Додавання покупки в список. Враховуй, що при додаванні покупки з уже існуючим в списку продуктом, необхідно збільшувати кількість в існуючій покупці, а не додавати нову. При цьому також повинна змінитися сума, наприклад, якщо ціна за одиницю 12, а кількості товарів стало 2, то сума буде 24.
+// // 1. Видалення продукту зі списку (видалення повинно проводитися шляхом створення нового масиву, в якому продукт, що ми шукаємо, буде відсутнім)
+// // 2. Додавання покупки в список. Враховуй, що при додаванні покупки з уже існуючим в списку продуктом, необхідно збільшувати кількість в існуючій покупці, а не додавати нову. При цьому також повинна змінитися сума, наприклад, якщо ціна за одиницю 12, а кількості товарів стало 2, то сума буде 24.
 
-const newArray = shoppingList.slice(0);
+const newArray = shoppingList.slice(0); //початковий масив, з якого будемо видаляти продукти
 
 function deleteProduct(name) {
   const deletedProduct = newArray.findIndex(el => el.productName === name);
   newArray.splice(deletedProduct, 1);
+  console.log(newArray);
 }
 deleteProduct("candy");
 console.log(newArray);
-deleteProduct("pepper");
-console.log(newArray);
-console.log(shoppingList);
+// функція для подальшого видалення продуктів з масива, з якого вже почали видаляти продукти
+function deleteProductElse(name) {
+  const deletedProduct = newArray.findIndex(el => el.productName === name);
+  newArray.splice(deletedProduct, 1);
+  console.log(newArray);
+}
+deleteProductElse("watermelon");
+deleteProductElse("pepper");
 
 function addToCard(name, num) {
   const addProduct = shoppingList.find((el) => el.productName === name);
@@ -109,7 +118,6 @@ function totalAmountBuy(name) {
   let arrAmount = arrName.map(el => el.amount);
   let result = arrAmount.reduce((acc, value) => acc + value);
   return result;
-
 }
 console.log(totalAmountBuy(true));
 console.log(totalAmountBuy(false));

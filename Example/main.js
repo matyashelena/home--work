@@ -84,8 +84,31 @@ function showCartProducts() {
 }
 showCartProducts();
 
-function showTotalCard() {
-  console.log(userCart);
+function showCartsProducts() {
+  const result = userCart.map((el) => {
+    console.log(el);
+    return { name: el.name, price: el.price };
+  });
+  console.log(result);
+}
+showCartProducts();
+​
+function getAmountOfProduct(){
+  const amount = userCart.reduce((acc,el)=>{
+    acc=(el.quantity*el.price)+acc
+    return acc
+  },0)
+  return amount
+}
+getAmountOfProduct();
+​
+function sortByPrice() {
+  const sorted = allProducts.slice()
+  sorted.sort((a, b) => {
+    return  b.quantity - a.quantity    
+  })
+  console.log(sorted);
+​
 }
 
 
