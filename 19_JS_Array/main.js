@@ -62,14 +62,18 @@ function sortByAdded() {
 }
 sortByAdded();
 
-function buyProduct(name) {
-  shoppingList.forEach((el) => {
-    el.productName === name ? el.added = true : shoppingList.added;
-  });
+
+function addProduct(productName) {
+  const addProd = shoppingList.findIndex((el) => el.productName === productName);
+  if(shoppingList[addProd].added === true) {
+    console.log(`Ви вже придбали ${productName}`);
+  } else {
+    shoppingList[addProd].added = true;  
+  } 
   console.log(shoppingList);
 }
-buyProduct("candy");
-
+addProduct('candy');
+addProduct('peach');
 
 // // 1. Видалення продукту зі списку (видалення повинно проводитися шляхом створення нового масиву, в якому продукт, що ми шукаємо, буде відсутнім)
 // // 2. Додавання покупки в список. Враховуй, що при додаванні покупки з уже існуючим в списку продуктом, необхідно збільшувати кількість в існуючій покупці, а не додавати нову. При цьому також повинна змінитися сума, наприклад, якщо ціна за одиницю 12, а кількості товарів стало 2, то сума буде 24.
