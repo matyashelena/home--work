@@ -106,6 +106,7 @@ console.log(shoppingList);
 // 2. Підрахунок суми всіх (не) придбаних продуктів.
 // 3. Показання продуктів в залежності від суми, (від більшого до меншого / від меншого до більшого, в залежності від параметра функції, який вона приймає)
 
+// Підрахунок суми всіх продуктів (враховуючи кількість кожного) в списку.
 function totalAmount() {
   let arrAmount = shoppingList.map(el => el.amount);
   let result = arrAmount.reduce((acc, value) => acc + value);
@@ -113,11 +114,32 @@ function totalAmount() {
 }
 totalAmount();
 
+// Підрахунок суми всіх (не) придбаних продуктів.
 function totalAmountBuy(name) {
   const arrName = shoppingList.filter(el => el.added == name);
   let arrAmount = arrName.map(el => el.amount);
-  let result = arrAmount.reduce((acc, value) => acc + value);
+  let result = arrAmount.reduce(((acc, value) => acc + value), 0);
   return result;
 }
 console.log(totalAmountBuy(true));
 console.log(totalAmountBuy(false));
+
+// Показання продуктів в залежності від суми, (від меншого до більшого)
+function sortByPriceDown() {
+  const sortArray = shoppingList.slice()
+  sortArray.sort((a, b) => {
+    return  a.price - b.price   
+  })
+  console.log(sortArray);
+}
+sortByPriceDown();
+
+// Показання продуктів в залежності від суми, (від більшого до меншого)
+function sortByPriceUp() {
+  const sortArray = shoppingList.slice()
+  sortArray.sort((a, b) => {
+    return  b.price - a.price   
+  })
+  console.log(sortArray);
+}
+sortByPriceUp();
