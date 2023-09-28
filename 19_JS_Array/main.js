@@ -53,6 +53,8 @@ const shoppingList = [{
   }
 ]
 
+// Виводити весь список на екран таким чином, щоб спочатку йшли продукти, що ще не придбані, а потім - ті, що вже придбали.
+// 1 варіант
 function sortByAdded() {
   const sortArray = shoppingList.slice()
   sortArray.sort((a, b) => {
@@ -62,7 +64,20 @@ function sortByAdded() {
 }
 sortByAdded();
 
+// 2 варіант
+function showSortByAdded() {
+  const sortArray = shoppingList.slice();
+  sortArray.sort((a, b) => {
+    return  a.added - b.added;  
+  });
+  const result = sortArray.map((el) => {
+    return { name: el.productName, added: el.added };
+  });
+  console.log(result);
+}
+showSortByAdded();
 
+// Покупка продукту. Функція приймає назву продукту і відзначає його як придбаний.
 function addProduct(productName) {
   const addProd = shoppingList.findIndex((el) => el.productName === productName);
   if(shoppingList[addProd].added === true) {
@@ -132,7 +147,7 @@ console.log(totalAmountBuy(false));
 function sortByPriceDown() {
   const sortArray = shoppingList.slice()
   sortArray.sort((a, b) => {
-    return  a.price - b.price   
+    return  a.price - b.price;
   })
   console.log(sortArray);
 }
@@ -142,7 +157,7 @@ sortByPriceDown();
 function sortByPriceUp() {
   const sortArray = shoppingList.slice()
   sortArray.sort((a, b) => {
-    return  b.price - a.price   
+    return  b.price - a.price;
   })
   console.log(sortArray);
 }
