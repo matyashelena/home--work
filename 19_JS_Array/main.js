@@ -64,13 +64,16 @@ function sortByAdded() {
 }
 sortByAdded();
 
-// 2 варіант
-function showSortByAdded() {
+// 2 варіант 
+function sortArraybyAdded() {
   const sortArray = shoppingList.slice();
   sortArray.sort((a, b) => {
     return  a.added - b.added;  
   });
-  const result = sortArray.map((el) => {
+  return sortArray;
+}
+function showSortByAdded() {
+  const result = sortArraybyAdded().map((el) => {
     return { name: el.productName, added: el.added };
   });
   console.log(result);
