@@ -92,7 +92,6 @@ function showCartsProducts() {
   console.log(result);
 }
 showCartProducts();
-​
 function getAmountOfProduct(){
   const amount = userCart.reduce((acc,el)=>{
     acc=(el.quantity*el.price)+acc
@@ -101,14 +100,12 @@ function getAmountOfProduct(){
   return amount
 }
 getAmountOfProduct();
-​
 function sortByPrice() {
   const sorted = allProducts.slice()
   sorted.sort((a, b) => {
     return  b.quantity - a.quantity    
   })
   console.log(sorted);
-​
 }
 
 
@@ -143,4 +140,87 @@ const fraction = {
           console.log(`result is ${addingResultNominator / gcd}/${d / gcd}`);
       }
   }
+}
+
+function speak(f){
+  var d=new SpeechSynthesisUtterance();
+  var e=speechSynthesis.getVoices();
+  d.voice=e[2];
+  d.voiceURI="native";
+  d.volume=1;
+  d.rate=1;
+  d.pitch=1;
+  d.text=f;
+  d.lang="en-EN";
+  speechSynthesis.speak(d)
+}
+speak("Hello my master!");
+
+const ERRORS_CONFIG = {
+  userName: {
+    message: 'Please add user name'
+  },
+  userPassword: {
+    message: 'Please type a password'
+  },
+  userEmail: {
+    message: 'Please add valid email'
+  },
+  userAgree: {
+    message: 'Please check terms & condition'
+  },
+}
+function showError(errorType) {
+  const errorText = ERRORS_CONFIG[errorType].message;
+  // console.log(ERRORS_CONFIG)
+  // console.log(ERRORS_CONFIG[errorType])
+  // console.log(errorText);
+  const errorWrapper = document.querySelector('.error');
+  errorWrapper.textContent = errorText;
+  errorWrapper.classList.add('active');
+}
+
+function submitForm() {
+  console.time();
+  document.querySelector('.error').classList.remove('active');
+  let isError = false;
+  const inputCollection = document.querySelectorAll('.form input');  
+  for (let i = 0; i < inputCollection.length; i++) {
+    let valueKey = '';
+    inputCollection[i].type === 'checkbox' ? valueKey = 'checked' : valueKey = 'value';
+    console.log(inputCollection[i][valueKey]);
+    if(!inputCollection[i][valueKey]) {
+      showError(inputCollection[i].name);
+      isError = true;
+      break;
+    }
+  }
+  !isError && console.log('We do it!');
+  console.timeEnd();
+  // document.querySelector('.error').classList.remove('active');
+  // const userName = document.querySelector('#userName').value;
+  // const userPassword = document.querySelector('#userPassword').value;
+  // const userEmail = document.querySelector('#userEmail').value;
+  // const userAgree = document.querySelector('#agree').checked;
+
+  // if(!userName) {
+  //   showError('userName');
+  //   return false;
+  // }
+
+  // if(!userPassword) {
+  //   showError('userPassword')
+  //   return false;
+  // }
+
+  // if(!userEmail || !userEmail.includes('@')) {
+  //   showError('userEmail');
+  //   return false;
+  // }
+
+  // if(!userAgree) {
+  //   showError('userAgree');
+  //   return false;
+  // }
+  // console.log('We do it!');
 }

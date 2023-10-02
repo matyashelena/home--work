@@ -4,8 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+  <div class="container">
+    <div class="form">
+      <h2>Create Account</h2>
+      <div class="error"></div>
+      <input type="text" name="userName" id="userName" placeholder="Helen">
+      <input type="password" name="userPassword" id="userPassword" placeholder="12345">
+      <input type="email" name="userEmail" id="userEmail" placeholder="mail@mail.com">
+
+      <label for="">
+        <p>I have read terms & condition</p>
+        <input type="checkbox" name="userAgree" id="userAgree">
+      </label>
+      <button type="button" onclick="submitForm()">Create Account</button>
+    </div>
+  </div>
+  <button onclick="speak(f)" type="button">Click</button>
   <script src="./main.js"></script>
 </body>
 </html>
