@@ -1,3 +1,5 @@
+// 1. Створити сторінку, що показує нумерований список пісень:
+
 const playList = [{
     author: "LED ZEPPELIN",
     song: "STAIRWAY TO HEAVEN"
@@ -51,10 +53,11 @@ function createPlayList() {
   boxSong.innerHTML = insert;
 }
 
+
+// 2. Створити HTML-сторінку з кнопкою "Відкрити" і модальним вікном. На модальном вікні повинен бути текст і кнопка "Закрити". Спочатку модальне вікно не відображається. При кліку на кнопку "Відкрити" з'являється модальне вікно, на кнопку "Закрити" — зникає.
+
 const openModalButton = document.querySelector('.modal');
-console.log(openModalButton);
 const closeModalButton = document.querySelector('.button_close');
-console.log(closeModalButton);
 const overlay = document.querySelector('.overlay');
 
 function openModal() {
@@ -65,4 +68,18 @@ function openModal() {
 function closeModal() {
   openModalButton.classList.remove('active');
   overlay.classList.remove('active');
+}
+
+// 3. Створити HTML-сторінку зі світлофором і кнопкою, яка перемикає світлофор на наступний колір.
+
+const light = document.querySelectorAll('.traffic_light div');
+let activeColor = 0;
+
+function getChangeLight() {
+  const traffic = light[activeColor];  
+  traffic.classList.toggle('active');
+  activeColor++;
+  if (activeColor > 2) {
+    activeColor = 0;
+  }
 }

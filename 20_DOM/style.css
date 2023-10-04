@@ -73,6 +73,7 @@ html {
   width: 50vw;
   min-height: 50vh;
   padding: 10px;
+  opacity: 0;
 }
 .modal p {
   width: 80%;
@@ -80,6 +81,7 @@ html {
 }
 .modal.active {
   transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
 }
 .overlay {
   position: fixed;
@@ -109,15 +111,25 @@ html {
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  opacity: .3;
 }
 .red {
   background-color: red;
+  box-shadow: 0 0 25px red;
 }
+
 .yellow {
   background-color: yellow;
+  box-shadow: 0 0 25px yellow;
 }
 .green {
   background-color: green;
+  box-shadow: 0 0 25px rgb(59, 245, 59);
+}
+.red.active,
+.yellow.active,
+.green.active {
+  opacity: 1;
 }
 .traffic_button {
   display: inline-block;
