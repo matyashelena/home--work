@@ -29,6 +29,10 @@ html {
   text-transform: uppercase;
   cursor: pointer;
   margin-bottom: 50px;
+  transition: all .3s ease;
+}
+.button:hover {
+  transform: scale(1.2);
 }
 
 .list {
@@ -130,6 +134,7 @@ html {
 .yellow.active,
 .green.active {
   opacity: 1;
+  transform: scale(1.1);
 }
 .traffic_button {
   display: inline-block;
@@ -139,5 +144,10 @@ html {
   border-radius: 50%;
   background-color: red;
   cursor: pointer;
+  text-transform: uppercase;
   color: beige;
+  transition: all .3s ease;
+}
+.traffic_button:hover {
+  transform: scale(1.2);
 }
