@@ -76,10 +76,19 @@ const light = document.querySelectorAll('.traffic_light div');
 let activeColor = 0;
 
 function getChangeLight() {
-  const traffic = light[activeColor];  
+  clear();
+  const traffic = light[activeColor];
   traffic.classList.toggle('active');
   activeColor++;
   if (activeColor > 2) {
     activeColor = 0;
+  }
+}
+
+function clear() {
+  for (let i = 0; i < light.length; i++) {
+    if (light[i].className.includes('active')) {
+      light[i].classList.remove('active');
+    }
   }
 }
