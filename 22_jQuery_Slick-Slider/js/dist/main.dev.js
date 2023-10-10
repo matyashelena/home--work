@@ -91,3 +91,9 @@ $(document).ready(function () {
   $('.slick-next.slick-arrow').append('<svg class="arrow-svg"><use xlink:href="./assets/sprite.svg#arrow-next" /></svg>');
   $('.slick-prev.slick-arrow').append('<svg class="arrow-svg"><use xlink:href="./assets/sprite.svg#arrow-prev" /></svg>'); // $('<svg class="icon_social youtube-icon"><use xlink:href="./assets/sprite.svg#arrow-next" /></svg>')
 });
+
+function toggleMenu(event) {
+  document.querySelector('.hamburger').classList.toggle('is-active');
+  document.querySelector('.header_nav-list').classList.toggle('is-open');
+  document.querySelector('body').classList.toggle('lock');
+}
