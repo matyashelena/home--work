@@ -18,8 +18,6 @@ document.addEventListener('keydown', function (event) {
 
     if (event.ctrlKey) {
       divText.replaceWith(textArea);
-      console.log('it work');
-      console.log(event);
       textArea.textContent += divText.textContent;
     }
   }
@@ -34,7 +32,6 @@ document.addEventListener('keydown', function (event) {
 
     if (event.ctrlKey) {
       textArea.replaceWith(newDiv);
-      console.log('hello');
     }
   }
 }); // 2. Створити HTML-сторінку з великою таблицею. При кліку на заголовок стовпця, необхідно відсортувати дані цього стовпця. Врахуй, що числові значення повинні сортуватися як числа, а не як рядки.
@@ -43,37 +40,73 @@ var tableSort = document.getElementById('table_sort');
 
 tableSort.onclick = function (elem) {
   if (elem.target.tagName != 'TH') return;
-  var columnName = elem.target; // якщо клітинка TH, тоді сортувати
-  // cellIndex -- це номер клітинки th:
-  // 0 для першого стовпця
-  // 1 для другого і т.д.
-
+  var columnName = elem.target;
   dataSort(columnName.cellIndex, columnName.dataset.type);
 };
 
-function dataSort(colNum, type) {
+function dataSort(colIndex, type) {
   var tbody = tableSort.querySelector('tbody');
-  var rowsArray = Array.from(tbody.rows); // compare(a, b) порівнює два рядки, необхідно для сортування
+  var arrayCollection = Array.from(tbody.rows); // match(a, b) порівнює два рядки, необхідно для сортування
 
-  var compare;
+  var match;
 
   switch (type) {
     case 'number':
-      compare = function compare(rowA, rowB) {
-        return rowA.cells[colNum].innerHTML - rowB.cells[colNum].innerHTML;
+      match = function match(rowA, rowB) {
+        return rowA.cells[colIndex].innerHTML - rowB.cells[colIndex].innerHTML;
       };
 
       break;
 
     case 'string':
-      compare = function compare(rowA, rowB) {
-        return rowA.cells[colNum].innerHTML > rowB.cells[colNum].innerHTML ? 1 : -1;
+      match = function match(rowA, rowB) {
+        return rowA.cells[colIndex].innerHTML > rowB.cells[colIndex].innerHTML ? 1 : -1;
       };
 
       break;
   } // сортування
 
 
-  rowsArray.sort(compare);
-  tbody.append.apply(tbody, _toConsumableArray(rowsArray));
+  arrayCollection.sort(match);
+  tbody.append.apply(tbody, _toConsumableArray(arrayCollection));
+} // 3. Створити HTML-сторінку з блоком тексту в рамці. Реалізувати можливість змінювати розмір блоку, якщо затиснути мишку в правому нижньому кутку і тягнути її далі.
+
+
+var arrow = document.querySelector('.arrow');
+var border = document.querySelector('.border');
+var computedStyle = getComputedStyle(border);
+var borderWidth = parseInt(computedStyle.width);
+var borderHeight = parseInt(computedStyle.height);
+var x0;
+var y0;
+var xLast;
+var yLast;
+var differenceX;
+var differenceY;
+
+function pointerMove(event) {
+  xLast = event.x;
+  yLast = event.y;
+  differenceX = xLast - x0;
+  differenceY = yLast - y0;
+
+  if (differenceX > 0) {
+    border.style.width = borderWidth + differenceX + 'px';
+  }
+
+  if (differenceY > 0) {
+    border.style.height = borderHeight + differenceY + 'px';
+  }
+
+  document.addEventListener('pointerup', function () {
+    document.removeEventListener('pointermove', pointerMove);
+  });
 }
+
+function pointerDown(event) {
+  x0 = event.x;
+  y0 = event.y;
+  document.addEventListener('pointermove', pointerMove);
+}
+
+arrow.addEventListener('pointerdown', pointerDown);

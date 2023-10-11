@@ -1,61 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events DOM</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <div class="container">
-    <div class="edit_text">some text</div>
-</div>
 
-<div class="container">
-<table id="table_sort">
-<thead>
-  <tr>
-    <th data-type="number">Вік</th>
-    <th data-type="string">Ім’я</th>
-    <th data-type="number">Вік</th>
-    <th data-type="string">Ім’я</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>5</td>
-    <td>Іван</td>
-    <td>10</td>
-    <td>Іван</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>Петро</td>
-    <td>33</td>
-    <td>Іван</td>
-  </tr>
-  <tr>
-    <td>12</td>
-    <td>Ганна</td>
-    <td>5</td>
-    <td>Іван</td>
-  </tr>
-  <tr>
-    <td>9</td>
-    <td>Євген</td>
-    <td>5</td>
-    <td>Іван</td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>Ілля</td>
-    <td>5</td>
-    <td>Іван</td>
-  </tr>
-</tbody>
-</table>
-</div>
+    <div class="container">
+        <div class="edit_text">some text</div>
+    </div>
 
-<script src="./main.js"></script>
+   <div class="container">
+    <table id="table_sort">
+    <thead>
+      <tr>
+        <th data-type="string">Назва фільму</th>
+        <th data-type="string">Жанр</th>
+        <th data-type="number">Рік випуску</th>
+        <th data-type="number">IMDB</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Красотка</td>
+        <td>Мелодрама</td>
+        <td>1990</td>
+        <td>7.1</td>
+      </tr>
+      <tr>
+        <td>Гра престолів</td>
+        <td>Фентезі</td>
+        <td>2011</td>
+        <td>9.2</td>
+      </tr>
+      <tr>
+        <td>Вік Аделайн</td>
+        <td>Мелодрама</td>
+        <td>2015</td>
+        <td>7.2</td>
+      </tr>
+      <tr>
+        <td>Аквамен</td>
+        <td>Пригоди</td>
+        <td>2018</td>
+        <td>6.8</td>
+      </tr>
+      <tr>
+        <td>Памфір</td>
+        <td>Драма</td>
+        <td>2022</td>
+        <td>7.5</td>
+      </tr>
+    </tbody>
+  </table>
+   </div>
+
+   <div class="container">
+    <div class="content">
+      <div class="border">
+        some text
+        <span class="arrow"><img src="./img/arrow.png" alt=""></span>
+      </div>
+    </div>
+   </div>
+
+    <script src="./main.js"></script>
 </body>
+
 </html>

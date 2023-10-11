@@ -4,15 +4,12 @@ const divText = document.querySelector('.edit_text');
 const textArea = document.createElement('textarea');
 textArea.classList.add('edit_text');
 
-
 document.addEventListener('keydown', function (event) {
 
   if (event.key === 'e') {
     event.preventDefault();
     if (event.ctrlKey) {
       divText.replaceWith(textArea);
-      console.log('it work');
-      console.log(event)
       textArea.textContent += divText.textContent;
     }
   }
@@ -24,49 +21,82 @@ document.addEventListener('keydown', function (event) {
     event.preventDefault();
     if (event.ctrlKey) {
       textArea.replaceWith(newDiv);
-      console.log('hello');
     }
   }
 });
 
 // 2. Створити HTML-сторінку з великою таблицею. При кліку на заголовок стовпця, необхідно відсортувати дані цього стовпця. Врахуй, що числові значення повинні сортуватися як числа, а не як рядки.
 const tableSort = document.getElementById('table_sort');
+
 tableSort.onclick = function (elem) {
   if (elem.target.tagName != 'TH') return;
 
   let columnName = elem.target;
-  // якщо клітинка TH, тоді сортувати
-  // cellIndex -- це номер клітинки th:
-  // 0 для першого стовпця
-  // 1 для другого і т.д.
   dataSort(columnName.cellIndex, columnName.dataset.type);
 };
 
-function dataSort(colNum, type) {
+function dataSort(colIndex, type) {
   let tbody = tableSort.querySelector('tbody');
-
-  let rowsArray = Array.from(tbody.rows);
-
-  // compare(a, b) порівнює два рядки, необхідно для сортування
-  let compare;
-
+  let arrayCollection = Array.from(tbody.rows);
+  // match(a, b) порівнює два рядки, необхідно для сортування
+  let match;
   switch (type) {
     case 'number':
-      compare = function (rowA, rowB) {
-        return rowA.cells[colNum].innerHTML - rowB.cells[colNum].innerHTML;
+      match = function (rowA, rowB) {
+        return rowA.cells[colIndex].innerHTML - rowB.cells[colIndex].innerHTML;
       };
       break;
     case 'string':
-      compare = function (rowA, rowB) {
-        return rowA.cells[colNum].innerHTML > rowB.cells[colNum].innerHTML ? 1 : -1;
+      match = function (rowA, rowB) {
+        return rowA.cells[colIndex].innerHTML > rowB.cells[colIndex].innerHTML ? 1 : -1;
       };
       break;
   }
 
   // сортування
-  rowsArray.sort(compare);
+  arrayCollection.sort(match);
 
-  tbody.append(...rowsArray);
+  tbody.append(...arrayCollection);
 }
 
+// 3. Створити HTML-сторінку з блоком тексту в рамці. Реалізувати можливість змінювати розмір блоку, якщо затиснути мишку в правому нижньому кутку і тягнути її далі.
 
+const arrow = document.querySelector('.arrow')
+const border = document.querySelector('.border');
+let computedStyle = getComputedStyle(border);
+let borderWidth = parseInt(computedStyle.width);
+let borderHeight = parseInt(computedStyle.height)
+
+let x0;
+let y0;
+let xLast;
+let yLast;
+let differenceX;
+let differenceY;
+
+function pointerMove(event) {
+  xLast = event.x;
+  yLast = event.y;
+
+  differenceX = xLast - x0;
+  differenceY = yLast - y0;
+
+  if(differenceX > 0) {
+    border.style.width = borderWidth + differenceX +'px';
+  }
+  if(differenceY > 0) {
+    border.style.height = borderHeight + differenceY + 'px';
+  }
+
+  document.addEventListener('pointerup', function() {
+    document.removeEventListener('pointermove', pointerMove)
+  });
+}
+
+function pointerDown(event) {
+  x0 = event.x;
+  y0 = event.y;
+  document.addEventListener('pointermove', pointerMove)
+}
+
+arrow.addEventListener('pointerdown', pointerDown);

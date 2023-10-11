@@ -1,19 +1,28 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+img {
+  width: 100%;
+}
+
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 .edit_text {
-  font-size: 20px;
-  /* text-align: center; */
   width: 100%;
   max-width: 500px;
-  border: 2px solid lightcoral;
+  border: 1px solid #f08080;
   border-radius: 20px;
-  margin: 20px;
+  margin: 20px 0;
   padding: 30px;
 }
+
 textarea {
   font-family: inherit;
   color: inherit;
@@ -21,14 +30,43 @@ textarea {
 
 table {
   border-collapse: collapse;
+  margin: 20px 0;
+  width: 100%;
+  max-width: 500px;
 }
-th, td {
-  border: 1px solid black;
-  padding: 4px;
+
+th,
+td {
+  border: 1px solid #f08080;
+  padding: 10px;
 }
+
 th {
   cursor: pointer;
 }
+
 th:hover {
-  background: yellow;
+  background: #f08080;
+}
+
+.border {
+  width: 300px;
+  border-radius: 20px;
+  border: 1px solid #f08080;
+  padding: 15px;
+  position: relative;
+}
+
+.content {
+  width: 100%;
+  max-width: 500px;
+}
+.arrow {
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  cursor: se-resize;
 }
