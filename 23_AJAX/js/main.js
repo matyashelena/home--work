@@ -10,7 +10,7 @@ function searchMovie() {
     if (movieName) {
         axios.get(BASE_URL + `&s=${movieName}&page=${PAGE}`)
             .then(function (res) {
-                console.log(res.data.Search);
+                console.log(res.data);
                 lastPage = Math.ceil(res.data.totalResults / 10);
                 generateSearchResult(res.data.Search);
 
@@ -38,6 +38,11 @@ function nextPage(event) {
     PAGE++;
     goToPage(PAGE);
 }
+function prevPage(event) {
+    event.preventDefault();
+    PAGE--;
+    goToPage(PAGE);
+}
 function goToPage(page) {
     PAGE = page;
     searchMovie();
@@ -45,5 +50,10 @@ function goToPage(page) {
 function goToLast(event) {
     event.preventDefault();
     PAGE = lastPage;
+    goToPage(PAGE);
+}
+function goToFirst(event) {
+    event.preventDefault();
+    PAGE = 1;
     goToPage(PAGE);
 }

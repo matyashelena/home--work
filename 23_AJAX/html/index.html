@@ -24,7 +24,7 @@
                     placeholder="Enter movie title"
                     id="searchText"
                     onchange="searchMovie()"
-                    value="pretty woman">
+                    value="star wars">
 
                     <button type="button" class="input_button" id="btn_search" onclick="searchMovie()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="" viewBox="0 0 16 16">
@@ -53,11 +53,11 @@
             <ul class="list-group m-5" id="watchlist">
             </ul>
             <div class="list-search_result" id="list"></div>
-            <nav class="m-5 d-none" id="nav">
+            <nav class="" id="nav">
                 <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="first">First</a></li>
-                    <li class="page-item"><a class="page-link" href="prev">Prev</a></li>
-                    <li class="page-item"><a class="page-link" href="page" id="page"></a></li>
+                    <li class="page-item"><a class="page-link" href="first" onclick="goToFirst(event)">First</a></li>
+                    <li class="page-item"><a class="page-link" href="prev" onclick="prevPage(event)">Prev</a></li>
+                    <li class="page-item" hidden><a class="page-link" href="page" id="page"></a></li>
                     <li class="page-item"><a class="page-link" href="next" onclick="nextPage(event)">Next</a></li>
                     <li class="page-item"><a class="page-link" href="last" onclick=" goToLast(event)">Last</a></li>
                 </ul>

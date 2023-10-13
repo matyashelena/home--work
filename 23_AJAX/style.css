@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
 }
+
 img {
     width: 100%;
 }
@@ -14,34 +15,41 @@ img {
     text-align: center;
     color: #c16060;
 }
+
 .title_h1 {
     font-size: 34px;
     text-align: center;
     text-transform: capitalize;
 }
+
 .search_input {
     position: relative;
     width: 80%;
     margin: 0 auto;
     margin-bottom: 20px;
 }
+
 .input_text {
     width: 100%;
-   border: 1px solid #c16060;
-   border-radius: 10px;
+    border: 1px solid #c16060;
+    border-radius: 10px;
     padding: 10px 30px 10px 10px;
     outline: none;
 }
+
 .input_text:focus {
     border: 1px solid blue;
     box-shadow: 10px 10px 10px 0px blue;
 }
+
 .input_text[value] {
     color: #c16060;
 }
+
 .input_text[value]:focus {
     color: blue;
 }
+
 .input_button {
     display: inline-block;
     position: absolute;
@@ -55,14 +63,17 @@ img {
     padding: 5px;
     background-color: transparent;
 }
+
 .input_button:hover {
     color: blue;
 }
+
 .input_radio {
     position: absolute;
-    clip: rect(0,0,0,0);
+    clip: rect(0, 0, 0, 0);
     pointer-events: none;
 }
+
 .input_radio-btn {
     display: inline-block;
     padding: 10px;
@@ -74,12 +85,13 @@ img {
     text-transform: uppercase;
     margin: 5px;
 }
+
 .input_radio-btn:hover {
     border: 1px solid blue;
     color: blue;
 }
 
-.list-search_result li{
+.list-search_result li {
     display: flex;
     /* align-items: flex-end; */
     gap: 30px;
@@ -95,10 +107,12 @@ img {
     height: auto;
     object-fit: contain;
 }
+
 .title_search,
 .year_search {
     padding-top: 20px;
 }
+
 .pagination {
     display: flex;
     list-style: none;
@@ -106,16 +120,24 @@ img {
     justify-content: center;
     align-items: center;
 }
+
 .page-item {
     border: 1px solid #c16060;
     border-radius: 10px;
 }
+
+.page-item:hover {
+    border: 1px solid blue;
+    color: blue;
+}
+
 .page-link {
     text-decoration: none;
     color: inherit;
     display: inline-block;
     padding: 10px;
 }
+
 /* @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 body {
