@@ -1,4 +1,83 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+* {
+    box-sizing: border-box;
+}
+img {
+    width: 100%;
+}
+
+.container {
+    padding-top: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #c16060;
+}
+.title_h1 {
+    font-size: 34px;
+    text-align: center;
+    text-transform: capitalize;
+}
+.search_input {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.input_text {
+    width: 100%;
+   border: 1px solid #c16060;
+   border-radius: 10px;
+    padding: 10px 30px 10px 10px;
+    outline: none;
+}
+.input_text:focus {
+    border: 1px solid blue;
+    box-shadow: 10px 10px 10px 0px blue;
+}
+.input_text[value] {
+    color: #c16060;
+}
+.input_text[value]:focus {
+    color: blue;
+}
+.input_button {
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    color: #c16060;
+    padding: 5px;
+}
+.input_button:hover {
+    color: blue;
+}
+.input_radio {
+    position: absolute;
+    clip: rect(0,0,0,0);
+    pointer-events: none;
+}
+.input_radio-btn {
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #c16060;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 100px;
+    text-transform: uppercase;
+}
+.input_radio-btn:hover {
+    border: 1px solid blue;
+    color: blue;
+}
+
+/* @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 body {
     font-family: 'Lato', sans-serif;
@@ -133,4 +212,4 @@ body {
 #card_block {
     max-width: 800px;
     width: 100%;
-}
+} */
