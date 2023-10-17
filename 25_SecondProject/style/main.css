@@ -120,6 +120,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .button_link {
   display: inline-block;
+  text-transform: uppercase;
   color: #000;
   font-size: 14px;
   padding: 16px 41px 17px;
@@ -393,11 +394,15 @@ h1, h2, h3, h4, h5, h6 {
 .gallery {
   padding: 150px 0;
 }
+.gallery .container {
+  text-align: center;
+}
 .gallery_grid {
   display: grid;
-  grid-template-rows: 214px;
+  grid-template-rows: repeat(auto-fit, minmax(214px));
   grid-template-columns: repeat(auto-fit, minmax(25%, 50%));
   gap: 10px;
+  margin-bottom: 60px;
 }
 .gallery_grid-one {
   grid-row: 1/span 2;
@@ -420,17 +425,32 @@ h1, h2, h3, h4, h5, h6 {
   grid-column: 3/span 1;
 }
 .gallery_grid-img {
-  position: relative;
   height: 100%;
-  object-fit: cover;
+  position: relative;
 }
 .gallery_grid-img::after {
   content: "";
-  position: fixed;
+  position: absolute;
   display: block;
   width: 70px;
   height: 70px;
-  background-color: #3b0505;
-  top: 20px;
-  left: 5px;
+  background-image: url(../assets/bi_zoom-in.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.gallery_grid-img:hover::after {
+  opacity: 1;
+}
+.gallery_grid-img img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.map {
+  aspect-ratio: 16/9;
 }

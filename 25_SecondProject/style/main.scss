@@ -8,6 +8,7 @@ $mainColor: #2C4058;
 
 @mixin button {
   display: inline-block;
+  text-transform: uppercase;
   color: #000;
   font-size: 14px;
   padding: 16px 41px 17px;
@@ -451,65 +452,75 @@ $mainColor: #2C4058;
 
 .gallery {
   padding: 150px 0;
+  .container {
+    text-align: center;
+  }
 
   &_grid {
     display: grid;
-    grid-template-rows: 214px;
+    grid-template-rows: repeat(auto-fit, minmax(214px));
     grid-template-columns: repeat(auto-fit, minmax(25%, 50%));
     gap: 10px;
-
+    margin-bottom: 60px;
+    
     &-one {
-      // object-fit: cover;
       grid-row: 1 / span 2;
       grid-column: 1 / span 1;
     }
 
     &-two {
-      // object-fit: cover;
       grid-row: 1 / span 1;
       grid-column: 2 / span 1;
     }
 
     &-tree {
-      // object-fit: cover;
       grid-row: 1 / span 1;
       grid-column: 3 / span 1;
     }
 
     &-four {
-      // object-fit: cover;
       grid-row: 2 / span 1;
       grid-column: 2 / span 1;
     }
 
     &-five {
-      // object-fit: cover;
       grid-row: 2 / span 1;
       grid-column: 3 / span 1;
     }
 
     &-img {
-      position: relative;
       height: 100%;
-      object-fit: cover;
+      position: relative;
 
       &::after {
         content: '';
-        position: fixed;
+        position: absolute;
         display: block;
         width: 70px;
         height: 70px;
-        background-color: #3b0505;
-        top: 20px;
-        left: 5px;
-        // background-image: url(../img/author-img1.jpg);
-        // background-position: center;
-        // background-repeat: no-repeat;
-        // background-size: contain;
-        // top: 50%;
-        // left: 50%;
-        // transform: translate(-50%, -50%);
+        background-image: url(../assets/bi_zoom-in.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+      }
+      &:hover {
+        &::after {
+          opacity: 1;
+        }
+        
+      }
+      img {
+        height: 100%;
+        object-fit: cover;
       }
     }
   }
+}
+.map {
+  aspect-ratio: 16/9;
+//   min-height: 60vh;
 }
