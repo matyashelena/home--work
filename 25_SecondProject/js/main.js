@@ -54,4 +54,14 @@ $(document).ready(function() {
       // instead of a settings object
     ]
   });
+
+  // $("#lightgalery").lightGallery({
+  //   // plugins: [lgZoom, lgThumbnail],
+	// });
+});
+lightGallery(document.getElementById('lightgallery'), {
+  plugins: [lgZoom, lgThumbnail],
+  // licenseKey: 'your_license_key',
+  speed: 500,
+  // ... other settings
 });
