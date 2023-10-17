@@ -10,12 +10,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:ital@0;1&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="./style/slick.css">
-  <link rel="stylesheet" href="./style/slick-theme.css">
+  
   <link type="text/css" rel="stylesheet" href="./style/lightgallery-bundle.css" />
   <link type="text/css" rel="stylesheet" href="./style/lightgallery.css">
   <link type="text/css" rel="stylesheet" href="./style/lg-zoom.css">
   <link type="text/css" rel="stylesheet" href="./style/lg-thumbnail.css">
+  <link rel="stylesheet" href="./style/slick.css">
+  <link rel="stylesheet" href="./style/slick-theme.css">
   <link rel="stylesheet" href="./style/leaflet.css">
   <link rel="stylesheet" href="./style/main.min.css">
 </head>
@@ -134,7 +135,7 @@
       </div>
     </div>
 
-    <section class="projects">
+    <section id="projects" class="projects">
       <div class="container">
         <h2 class="main_title">WHAT we DO</h2>
         <div class="project after_blue">
@@ -173,7 +174,7 @@
       </div>
     </section>
 
-    <section class="news">
+    <section id="news" class="news">
       <div class="container">
         <h2 class="main_title">LATEST news</h2>
         <div class="news_wrapper">
@@ -270,19 +271,19 @@
       <div class="container">
         <h2 class="main_title">GALLEry</h2>
         <div id="lightgallery" class="gallery_grid">
-          <a href="./img/gallery_1.jpg" class="big_img gallery_grid-one gallery_grid-img">
+          <a href="./img/gallery_1.jpg" data-lg-size=1600-1067 class="big_img gallery_grid-one gallery_grid-img">
             <img src="./img/gallery_1.jpg" alt="">
           </a>
-          <a href="./img/gallery_2.jpg" class="small_img gallery_grid-two gallery_grid-img">
+          <a href="./img/gallery_2.jpg" data-lg-size=1600-1067 class="small_img gallery_grid-two gallery_grid-img">
             <img src="./img/gallery_2.jpg" alt="">
           </a>
-          <a href="./img/gallery_3.jpg" class="small_img gallery_grid-three gallery_grid-img">
+          <a href="./img/gallery_3.jpg" data-lg-size=1600-1067 class="small_img gallery_grid-three gallery_grid-img">
             <img src="./img/gallery_3.jpg" alt="">
           </a>
-          <a href="./img/gallery_4.jpg" class="small_img gallery_grid-four gallery_grid-img">
+          <a href="./img/gallery_4.jpg" data-lg-size=1600-1067 class="small_img gallery_grid-four gallery_grid-img">
             <img class="gallery_grid-four gallery_grid-img" src="./img/gallery_4.jpg" alt="">
           </a>
-          <a href="./img/gallery_5.jpg" class="small_img gallery_grid-five gallery_grid-img">
+          <a href="./img/gallery_5.jpg" data-lg-size=1600-1067 class="small_img gallery_grid-five gallery_grid-img">
             <img src="./img/gallery_5.jpg" alt="">
           </a>
 
@@ -297,6 +298,35 @@
 
     <footer class="footer">
       <div class="container_small">
+        <nav class="footer_nav">
+          <a href="#" class="logo">
+            <img src="./img/Logo.png" alt="">
+          </a>
+          <ul class="social_list">
+            <li class="social_item">
+              <a href="#" class="social_link">
+                <svg class="social-icon">
+                  <use xlink:href="./assets/sprite.svg#facebook" />
+                </svg>
+              </a>
+            </li>
+            <li class="social_item">
+              <a href="#" class="social_link">
+                <svg class="social-icon">
+                  <use xlink:href="./assets/sprite.svg#twitter" />
+                </svg>
+              </a>
+            </li>
+            <li class="social_item">
+              <a href="#" class="social_link">
+                <svg class="social-icon">
+                  <use xlink:href="./assets/sprite.svg#instagram" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <p class="footer_copy">Copyrights © 2020 Montichello</p>
         
       </div>
     </footer>

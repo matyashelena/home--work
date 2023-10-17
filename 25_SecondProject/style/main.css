@@ -50,6 +50,10 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-block;
   width: 100%;
   max-width: 241px;
+  transition: all 0.3s ease;
+}
+.logo:hover {
+  transform: scale(1.2);
 }
 
 .header {
@@ -75,11 +79,25 @@ h1, h2, h3, h4, h5, h6 {
   color: #FFF;
   font-size: 14px;
 }
+.header_menu-item {
+  transition: all 0.3s ease;
+}
+.header_menu-item:hover {
+  transform: scale(1.2);
+}
+
 .social_list {
   display: flex;
   column-gap: 20px;
   align-items: center;
   justify-content: center;
+}
+
+.social_item {
+  transition: all 0.3s ease;
+}
+.social_item:hover {
+  transform: scale(1.2);
 }
 
 .social_link {
@@ -125,15 +143,26 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 14px;
   padding: 16px 41px 17px;
   border: 1px solid #2C4058;
+  transition: all 0.3s ease;
+}
+.button_link:hover {
+  background-color: #60A6FF;
+  color: #fff;
+  border: 1px solid #60A6FF;
 }
 
 .scrool_map {
   display: block;
   margin-top: 60px;
   margin-bottom: 20px;
+  transition: all 0.3s ease;
+  color: #000;
+}
+.scrool_map:hover {
+  color: #60A6FF;
+  --col_scroll-map: #60A6FF;
 }
 .scrool_map-desc {
-  color: #000;
   font-family: "Open Sans", sans-serif;
   font-size: 15px;
   font-style: italic;
@@ -233,8 +262,11 @@ h1, h2, h3, h4, h5, h6 {
   align-items: flex-end;
 }
 .projects .project_img {
-  width: 100%;
+  width: calc(50% - 35px);
   max-width: 630px;
+}
+.projects .project_content {
+  width: calc(50% - 35px);
 }
 .projects .project_content-sub {
   font-size: 22px;
@@ -315,6 +347,9 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   margin-bottom: 15px;
 }
+.news_card-title:hover::before {
+  opacity: 0.3;
+}
 .news_card-title::before {
   position: absolute;
   content: "";
@@ -324,6 +359,8 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   bottom: 0;
+  background-color: #a1d5ed;
+  opacity: 0;
 }
 .news_card-description {
   font-size: 18px;
@@ -446,11 +483,32 @@ h1, h2, h3, h4, h5, h6 {
 .gallery_grid-img:hover::after {
   opacity: 1;
 }
-.gallery_grid-img img {
-  height: 100%;
-  object-fit: cover;
-}
-
 .map {
   aspect-ratio: 16/9;
+  background-image: url(../img/map.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.footer {
+  color: #fff;
+  background-image: url(../img/footer_bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 150px 0;
+}
+.footer .container_small {
+  width: 90%;
+  max-width: 770px;
+  margin: 0 auto;
+}
+.footer_nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.footer_copy {
+  font-size: 14px;
 }
