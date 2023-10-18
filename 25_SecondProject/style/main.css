@@ -57,12 +57,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header {
+  padding: 30px 0;
   z-index: 2;
   position: fixed;
-  top: 50px;
+  top: 20px;
   right: 0;
   left: 0;
   width: 100%;
+}
+.header.active {
+  backdrop-filter: blur(10px);
+  background-color: rgba(85, 183, 255, 0.8);
+  top: 0;
+  transition: all 0.3s ease;
 }
 .header_nav {
   display: flex;
@@ -246,6 +253,11 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 70px;
   left: 50%;
   transform: translatex(-50%);
+  transform: scale(1);
+  transition: all 0.3s ease;
+}
+.hero .scroll_down:hover {
+  transform: scale(1.4);
 }
 .hero .scroll_down-svg {
   width: 42px;
@@ -332,6 +344,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   max-width: 370px;
   position: relative;
+  min-height: 514px;
   margin: 0px 10px;
 }
 .news_card-img img {
@@ -491,17 +504,43 @@ h1, h2, h3, h4, h5, h6 {
   background-position: center;
 }
 
+.container_small {
+  width: 90%;
+  max-width: 770px;
+  margin: 0 auto;
+}
+
+.contacts {
+  position: relative;
+}
+.contacts .container_small {
+  padding: 90px 40px 60px;
+  background-color: #fff;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.contacts .main_title {
+  margin-bottom: 42px;
+}
+.contacts i {
+  color: #7E5AFF;
+  font-size: 18px;
+  line-height: 28px;
+}
+.contacts span {
+  font-size: 18px;
+  line-height: 28px;
+  color: #000;
+}
+
 .footer {
   color: #fff;
   background-image: url(../img/footer_bg.png);
   background-repeat: no-repeat;
   background-size: cover;
   padding: 150px 0;
-}
-.footer .container_small {
-  width: 90%;
-  max-width: 770px;
-  margin: 0 auto;
 }
 .footer_nav {
   display: flex;
