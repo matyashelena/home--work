@@ -31,7 +31,9 @@ $iconColor: #7E5AFF;
   max-width: 1170px;
   margin: 0 auto;
 }
-
+.pading_section {
+  padding: 130px 0;
+}
 .logo {
   display: inline-block;
   width: 100%;
@@ -56,12 +58,10 @@ $iconColor: #7E5AFF;
     backdrop-filter: blur(10px);
     background-color: rgba(85, 183, 255, .8);
     top: 0;
-
-    transition: all .3s ease;
+    transition: all .6s ease;
   }
 
   &_nav {
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -279,7 +279,7 @@ $iconColor: #7E5AFF;
 }
 
 .projects {
-  padding: 150px 0;
+  // padding: 150px 0;
 
   .project {
     margin-top: 20%;
@@ -354,7 +354,7 @@ $iconColor: #7E5AFF;
 }
 
 .news {
-  padding: 150px 0;
+  // padding: 150px 0;
   background-image: url(../img/latest_news_bg.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -509,7 +509,7 @@ $iconColor: #7E5AFF;
 }
 
 .gallery {
-  padding: 150px 0;
+  // padding: 150px 0;
 
   .container {
     text-align: center;
@@ -518,40 +518,24 @@ $iconColor: #7E5AFF;
   &_grid {
     display: grid;
     grid-template-rows: repeat(auto-fit, minmax(214px));
-    grid-template-columns: repeat(auto-fit, minmax(25%, 50%));
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     margin-bottom: 60px;
 
-    &-one {
-      grid-row: 1 / span 2;
-      grid-column: 1 / span 1;
-    }
-
-    &-two {
-      grid-row: 1 / span 1;
-      grid-column: 2 / span 1;
-    }
-
-    &-tree {
-      grid-row: 1 / span 1;
-      grid-column: 3 / span 1;
-    }
-
-    &-four {
-      grid-row: 2 / span 1;
-      grid-column: 2 / span 1;
-    }
-
-    &-five {
-      grid-row: 2 / span 1;
-      grid-column: 3 / span 1;
+    &-big {
+      grid-row: span 2;
+      grid-column: span 2;
     }
 
     &-img {
       height: 100%;
       position: relative;
+      img {
+        object-fit: cover;
+        height: 100%;
+      }
 
-      &::after {
+      &:hover:after {
         content: '';
         position: absolute;
         display: block;
@@ -564,16 +548,16 @@ $iconColor: #7E5AFF;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        opacity: 0;
+        // opacity: 0;
         transition: all .3s ease;
       }
 
-      &:hover {
-        &::after {
-          opacity: 1;
-        }
+      // &:hover {
+      //   &::after {
+      //     opacity: 1;
+      //   }
 
-      }
+      // }
     }
   }
 }
@@ -595,9 +579,8 @@ $iconColor: #7E5AFF;
 }
 
 .contacts {
-  // position: relative;
     padding: 90px 60px 60px;
-    margin-bottom: 50px;
+    // margin-bottom: 50px;
     background-color: #fff;
     top: -450px;
     position: absolute;
@@ -682,7 +665,7 @@ $iconColor: #7E5AFF;
   background-image: url(../img/footer_bg.png);
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 150px 0;
+  
 
 
 
@@ -690,7 +673,7 @@ $iconColor: #7E5AFF;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 40px;
+    padding-top: 100px;
   }
 
   &_copy {

