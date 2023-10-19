@@ -58,14 +58,15 @@ $(document).ready(function () {
   //   plugins: [lgZoom, lgThumbnail],
   // });
 
-  var scrollToSection = function scrollToSection() {
+  var scrollToSection = function scrollToSection(event) {
+    event.preventDefault();
     var el = $(this);
     var dest = el.attr('href'); // получаем направление
 
     if (dest !== undefined && dest !== '') {
       // проверяем существование
       $('html').animate({
-        scrollTop: $(dest).offset().top // прокручиваем страницу к требуемому элементу
+        scrollTop: $(dest).offset().top - 100 // прокручиваем страницу к требуемому элементу
 
       }, 1000 // скорость прокрутки
       );
@@ -77,22 +78,19 @@ $(document).ready(function () {
   $('.header_menu-link').on("click", scrollToSection);
   $('.scroll_down').on("click", scrollToSection);
   $('.scrool_map').on("click", scrollToSection);
-  var element = document.getElementById('hero').getBoundingClientRect(); // let positionInfo = element.
+  var element = document.getElementById('hero').getBoundingClientRect();
+  var height = element.height - 80; // зміна bg на header при скролінгу сторінки
 
-  var height = element.height - 80;
-  console.log(element);
-  console.log(height); // let element = document.getElementById('hero').getBoundingClientRect();
-  // let height = element.height / 5;
-
-  $(window).on("scroll", function () {
-    if ($(window).scrollTop() > height) {
-      $(".header").addClass("active"); // console.log(window.screenTop());
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > height) {
+      $('.header').addClass("active");
     } else {
-      //remove the background property so it comes transparent again (defined in your css)
-      $(".header").removeClass("active");
+      $('.header').removeClass("active");
     }
-  });
+  }); // ініциалізаціяф карти після кліку на секцію з картою
+
   $('.map').on('click', function initMap() {
+    $('.contacts').css('position', 'static');
     var map = L.map('my-map').setView([50.00317690860705, 36.226601536338116], 15);
     L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> contributors'
@@ -104,19 +102,18 @@ $(document).ready(function () {
     });
     L.marker([50.00181420905747, 36.23288158444743], {
       icon: customIcon
-    }).addTo(map).bindPopup('My Lovely Location').openPopup(); // $('.map').off('click', function initMap());
+    }).addTo(map).bindPopup('My Lovely Location').openPopup();
+    $('.map').off('click');
+  }); // $('#lightgallery').lightGallery();
+
+  lightGallery(document.getElementById('lightgallery'), {
+    plugins: [lgZoom, lgThumbnail],
+    thumbnail: true,
+    // licenseKey: 'your_license_key',
+    speed: 500,
+    animateThumb: false,
+    allowMediaOverlap: true,
+    toggleThumb: true // ... other settings
+
   });
 });
-lightGallery(document.getElementById('lightgallery'), {
-  plugins: [lgZoom, lgThumbnail],
-  // licenseKey: 'your_license_key',
-  speed: 500 // ... other settings
-
-}); // MAP
-// const customIcon = L.icon({
-//   iconBorderRadius: [50],
-//   iconUrl: 'https://static-00.iconduck.com/assets.00/map-pin-icon-384x512-m24sswd5.png',
-//   iconSize: [106, 106], // size of the icon
-//   iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-//   popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
-// });
