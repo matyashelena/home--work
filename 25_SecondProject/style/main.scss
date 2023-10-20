@@ -624,7 +624,7 @@ $iconColor: #7E5AFF;
         font-size: 18px;
         line-height: 27px;
       width: 100%;
-      padding: 14px 0;
+      padding: 10px 0;
       border-bottom: 1px solid rgba(44, 64, 88, .2);
 
       &::placeholder {
@@ -679,4 +679,19 @@ $iconColor: #7E5AFF;
   &_copy {
     font-size: 14px;
   }
+}
+.form-text {
+  color: rgb(94, 89, 89);
+  align-self: flex-start;
+  font-size: 14px;
+  & span {
+    color: inherit;
+    font-size: inherit;
+  }
+}
+.red {
+  color: #ff0000;
+}
+.d-none {
+  opacity: 0;
 }

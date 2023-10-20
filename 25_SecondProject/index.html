@@ -324,12 +324,15 @@
                   <span>From 07:05AM to 19:30PM</span>
                 </div>
               </div>
-              <div class="form">
-                <div class="error"></div>
-                <input class="form_input" type="text" name="userName" id="userName" placeholder="Mollie Medina">
-                <input class="form_input" type="email" name="userEmail" id="userEmail" placeholder="Email">
-                <button class="button_link" type="button" onclick="submitForm()">sUBMIT</button>
-              </div>
+              <form id="loginForm" class="form">
+                <input class="form_input" type="text" name="inputName" id="inputName" placeholder="Mollie Medina">
+                <p id="namelHelp" class="form-text red d-none">Add valid name</p>
+                <p id="nameLenghtHelp" class="form-text d-none">You need to add at least <span id="nameDiffCount">0</span> symbols</p>
+                <input class="form_input" type="email" name="inputEmail" id="inputEmail" placeholder="Email">
+                <p id="emailHelp" class="form-text red d-none">Add valid email</p>
+                <p id="emailLenghtHelp" class="form-text d-none">Email should contain:  letters @ dot and letters after dot</p>
+                <button class="button_link" type="submit">sUBMIT</button>
+              </form>
             </div>
         
         </section>
