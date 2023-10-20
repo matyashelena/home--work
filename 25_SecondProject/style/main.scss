@@ -270,12 +270,12 @@ body.lock {
     position: absolute;
     bottom: 70px;
     left: 50%;
-    transform: translatex(-50%);
-    transform: scale(1);
+    transform: translatex(-50%) scale(1);
+    // transform: scale(1);
     transition: all .3s ease;
 
     &:hover {
-      transform: scale(1.4);
+      transform: translatex(-50%) scale(1.4);
     }
 
     &-svg {
@@ -739,17 +739,19 @@ body.lock {
     font-size: 50px;
   }
 
-  .hero_content-description {}
 
   .hero_slider-vertical .slick-dots {
     right: 5px;
   }
+
   .projects .project {
     margin-top: 0;
   }
+
   .projects.pading_section {
-    padding: 30px 0;
+    padding: 20px 0 0;
   }
+
   .project {
     flex-wrap: wrap;
     justify-content: center;
@@ -765,6 +767,7 @@ body.lock {
       max-width: none;
     }
   }
+
   .after_blue::after {
     left: -10%;
     right: 10%;
@@ -772,22 +775,85 @@ body.lock {
     bottom: 2%;
     width: 900px;
   }
-  .after_purple::after  {
+
+  .after_purple::after {
     left: -10%;
     right: 10%;
     top: -2%;
     bottom: 2%;
     width: 900px;
   }
-.pading_section {
-  padding: 80px 0;
-}
-.main_title {
-  font-size: 30px;
-  margin-bottom: 30px;
-}
-.gallery_grid {
-  grid-template-rows: auto;
-}
 
+  .pading_section {
+    padding: 80px 0;
+  }
+
+  .main_title {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  .sub_title {
+    font-size: 25px;
+  }
+  .projects .project_content-sub  {
+    font-size: 18px;
+  }
+  .projects .project_content-desc {
+    margin-bottom: 20px;
+  }
+  .scrool_map {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .gallery_grid {
+    grid-template-rows: auto;
+    margin-bottom: 20px;
+  }
+
+  .contacts {
+    padding: 20px 30px;
+    position: static;
+    .contacts_wrapper {
+      display: block;
+      .form {
+        width: 100%;
+      }
+      .conacts_block {
+        width: 100%;
+        margin-bottom: 20px;
+        gap: 10px;
+      }
+    }
+    .main_title {
+      // margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    
+  }
+  .footer_nav {
+    padding-top: 20px;
+    display: block;
+    .social_list {
+      margin-top: 20px;
+      justify-content: flex-start;
+    }
+  }
+  .footer_copy {
+    margin-top: 20px;
+  }
+  
+
+
+}
+@media screen and (max-width: 468px) {
+  .news_card {
+    max-width: none;
+  }
+  .main_title::before {
+    top: -10px;
+  }
+  .pading_section {
+    padding: 30px 0;
+  }
 }

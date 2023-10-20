@@ -1257,12 +1257,11 @@ body.lock {
   position: absolute;
   bottom: 70px;
   left: 50%;
-  transform: translatex(-50%);
-  transform: scale(1);
+  transform: translatex(-50%) scale(1);
   transition: all 0.3s ease;
 }
 .hero .scroll_down:hover {
-  transform: scale(1.4);
+  transform: translatex(-50%) scale(1.4);
 }
 .hero .scroll_down-svg {
   width: 42px;
@@ -1659,7 +1658,7 @@ body.lock {
   }
 
   .projects.pading_section {
-    padding: 30px 0;
+    padding: 20px 0 0;
   }
 
   .project {
@@ -1698,10 +1697,73 @@ body.lock {
 
   .main_title {
     font-size: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+  }
+
+  .sub_title {
+    font-size: 25px;
+  }
+
+  .projects .project_content-sub {
+    font-size: 18px;
+  }
+
+  .projects .project_content-desc {
+    margin-bottom: 20px;
+  }
+
+  .scrool_map {
+    margin-top: 20px;
+    margin-bottom: 10px;
   }
 
   .gallery_grid {
     grid-template-rows: auto;
+    margin-bottom: 20px;
+  }
+
+  .contacts {
+    padding: 20px 30px;
+    position: static;
+  }
+  .contacts .contacts_wrapper {
+    display: block;
+  }
+  .contacts .contacts_wrapper .form {
+    width: 100%;
+  }
+  .contacts .contacts_wrapper .conacts_block {
+    width: 100%;
+    margin-bottom: 20px;
+    gap: 10px;
+  }
+  .contacts .main_title {
+    margin-bottom: 20px;
+  }
+
+  .footer_nav {
+    padding-top: 20px;
+    display: block;
+  }
+  .footer_nav .social_list {
+    margin-top: 20px;
+    justify-content: flex-start;
+  }
+
+  .footer_copy {
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: 468px) {
+  .news_card {
+    max-width: none;
+  }
+
+  .main_title::before {
+    top: -10px;
+  }
+
+  .pading_section {
+    padding: 30px 0;
   }
 }
