@@ -1,17 +1,6 @@
 $(document).ready(function () {
   $('.hero_slider-vertical').slick({
-    // dots: true,
     infinite: true,
-    // speed: 1000,
-    // fade: true,
-    // vertical: true,
-    // verticalSwiping: true,
-    // cssEase: 'linear',
-    // arrows:false,
-    // dots: true,
-    // autoplay: true,
-    // speed: 3000,
-    // autoplaySpeed: 2000,
     dots: true,
     vertical: true,
     slidesToShow: 1,
@@ -51,15 +40,9 @@ $(document).ready(function () {
           slidesToScroll: 1
         }
       }
-      // You can unslick at a given breakpoint now by adding:
-      // settings: "unslick"
-      // instead of a settings object
     ]
   });
 
-  // $('#lightgallery').lightGallery({
-  //   plugins: [lgZoom, lgThumbnail],
-  // });
   let section = document.querySelector('.section_id');
   let sectionPadding = window.getComputedStyle(section);
   let paddingScroll = parseFloat(sectionPadding.paddingTop);
@@ -233,3 +216,10 @@ async function formSubmit(event) {
 console.log();
 
 window.loginForm.addEventListener('submit', formSubmit);
+
+
+function toggleMenu(event) {
+  document.querySelector('.hamburger').classList.toggle('is-active');
+  document.querySelector('.header_menu-list').classList.toggle('is-open');
+  document.querySelector('body').classList.toggle('lock');
+}
