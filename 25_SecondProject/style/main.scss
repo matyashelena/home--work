@@ -19,7 +19,6 @@ $iconColor: #7E5AFF;
 }
 
 .page_wrapper {
-  // background-color: #053747;
   font-family: $mainFamily;
   font-weight: 400;
   color: $mainColor;
@@ -31,9 +30,11 @@ $iconColor: #7E5AFF;
   max-width: 1170px;
   margin: 0 auto;
 }
+
 .pading_section {
   padding: 130px 0;
 }
+
 .logo {
   display: inline-block;
   width: 100%;
@@ -47,7 +48,7 @@ $iconColor: #7E5AFF;
 
 .header {
   padding: 30px 0;
-  z-index: 2;
+  z-index: 1000;
   position: fixed;
   top: 20px;
   right: 0;
@@ -237,7 +238,6 @@ $iconColor: #7E5AFF;
   &_content {
     text-align: center;
     width: 100%;
-    // max-width: 920px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -279,14 +279,11 @@ $iconColor: #7E5AFF;
 }
 
 .projects {
-  // padding: 150px 0;
 
   .project {
     margin-top: 20%;
-    // margin-bottom: 60px;
     display: flex;
     justify-content: space-between;
-    // column-gap: 60px;
     align-items: flex-end;
 
     &_img {
@@ -296,8 +293,6 @@ $iconColor: #7E5AFF;
 
     &_content {
       width: calc(50% - 35px);
-      // width: 100%;
-      // max-width: 480px;
 
       &-sub {
         font-size: 22px;
@@ -354,7 +349,6 @@ $iconColor: #7E5AFF;
 }
 
 .news {
-  // padding: 150px 0;
   background-image: url(../img/latest_news_bg.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -383,10 +377,6 @@ $iconColor: #7E5AFF;
     position: relative;
     min-height: 514px;
     margin: 0px 10px;
-
-    // &:hover {
-    //   transform: scale(1.1);
-    // }
     &-img {
 
       img {
@@ -475,9 +465,6 @@ $iconColor: #7E5AFF;
 
   .slick-next {
     right: -5%;
-
-    // width: 40px;
-    // height: 40px;
     &::before {
       content: '';
       display: block;
@@ -509,7 +496,6 @@ $iconColor: #7E5AFF;
 }
 
 .gallery {
-  // padding: 150px 0;
 
   .container {
     text-align: center;
@@ -517,7 +503,7 @@ $iconColor: #7E5AFF;
 
   &_grid {
     display: grid;
-    grid-template-rows: repeat(auto-fit, minmax(214px));
+    grid-template-rows: 214px;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     margin-bottom: 60px;
@@ -530,6 +516,7 @@ $iconColor: #7E5AFF;
     &-img {
       height: 100%;
       position: relative;
+
       img {
         object-fit: cover;
         height: 100%;
@@ -548,16 +535,9 @@ $iconColor: #7E5AFF;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        // opacity: 0;
         transition: all .3s ease;
       }
 
-      // &:hover {
-      //   &::after {
-      //     opacity: 1;
-      //   }
-
-      // }
     }
   }
 }
@@ -579,17 +559,12 @@ $iconColor: #7E5AFF;
 }
 
 .contacts {
-    padding: 90px 60px 60px;
-    // margin-bottom: 50px;
-    background-color: #fff;
-    top: -450px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    // bottom: -100px;
-    // left: 50%;
-    // transform: translateX(-50%);
-  
+  padding: 90px 60px 60px;
+  background-color: #fff;
+  top: -450px;
+  position: absolute;
+  left: 0;
+  right: 0;
 
   .main_title {
     margin-top: 40px;
@@ -616,13 +591,15 @@ $iconColor: #7E5AFF;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
+
     .error {
       display: none;
     }
+
     .form_input {
       color: #000;
-        font-size: 18px;
-        line-height: 27px;
+      font-size: 18px;
+      line-height: 27px;
       width: 100%;
       padding: 10px 0;
       border-bottom: 1px solid rgba(44, 64, 88, .2);
@@ -633,15 +610,10 @@ $iconColor: #7E5AFF;
         font-size: inherit;
         line-height: inherit;
       }
+
       &:focus {
         border-bottom: 1px solid rgba(44, 64, 88, 1);
       }
-
-      // &[value] {
-      //   color: #000;
-      //   font-size: 18px;
-      //   line-height: 27px;
-      // }
     }
   }
 
@@ -657,17 +629,22 @@ $iconColor: #7E5AFF;
     line-height: 28px;
     color: #000;
   }
+
+  .span_link {
+    transition: all .3s ease;
+
+    &:hover {
+      color: $iconColor;
+    }
+
+  }
 }
 
 .footer {
-  // position: relative;
   color: #fff;
   background-image: url(../img/footer_bg.png);
   background-repeat: no-repeat;
   background-size: cover;
-  
-
-
 
   &_nav {
     display: flex;
@@ -678,20 +655,25 @@ $iconColor: #7E5AFF;
 
   &_copy {
     font-size: 14px;
+    margin-top: 40px;
   }
 }
+
 .form-text {
   color: rgb(94, 89, 89);
   align-self: flex-start;
   font-size: 14px;
+
   & span {
     color: inherit;
     font-size: inherit;
   }
 }
+
 .red {
   color: #ff0000;
 }
+
 .d-none {
   opacity: 0;
 }

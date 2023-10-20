@@ -62,7 +62,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .header {
   padding: 30px 0;
-  z-index: 2;
+  z-index: 1000;
   position: fixed;
   top: 20px;
   right: 0;
@@ -447,7 +447,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .gallery_grid {
   display: grid;
-  grid-template-rows: repeat(auto-fit, minmax(214px));
+  grid-template-rows: 214px;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   margin-bottom: 60px;
@@ -558,6 +558,12 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 28px;
   color: #000;
 }
+.contacts .span_link {
+  transition: all 0.3s ease;
+}
+.contacts .span_link:hover {
+  color: #7E5AFF;
+}
 
 .footer {
   color: #fff;
@@ -573,6 +579,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .footer_copy {
   font-size: 14px;
+  margin-top: 40px;
 }
 
 .form-text {

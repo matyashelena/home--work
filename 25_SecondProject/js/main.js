@@ -67,11 +67,11 @@ $(document).ready(function () {
   let scrollToSection = function (event) {
     event.preventDefault();
     var el = $(this);
-    var dest = el.attr('href'); // получаем направление
-    if (dest !== undefined && dest !== '') { // проверяем существование
+    var dest = el.attr('href'); // отримуємо напрямок
+    if (dest !== undefined && dest !== '') { // перевіряємо наявність
       $('html').animate({
-          scrollTop: $(dest).offset().top-paddingScroll+30 // прокручиваем страницу к требуемому элементу
-        }, 1000 // скорость прокрутки
+          scrollTop: $(dest).offset().top-paddingScroll+30 // scrool до необхідного елеиенту +30=top для елемента before
+        }, 1000 // швидкість прокрутки
       );
     }
     return false;
@@ -92,7 +92,7 @@ $(document).ready(function () {
 
   
   
-  // зміна bg на header при скролінгу сторінки
+  // зміна bg header при скролінгу сторінки
   $(window).scroll(function () {
     if ($(this).scrollTop() > height) {
       $('.header').addClass("active");
@@ -101,7 +101,7 @@ $(document).ready(function () {
     }
   });
 
-  // ініциалізаціяф карти після кліку на секцію з картою
+  // ініциалізація карти після кліку на секцію з картою
   $('.map').on('click', function initMap() {
 
     $('.contacts').css('position', 'static');
@@ -115,7 +115,6 @@ $(document).ready(function () {
 
     let customIcon = L.icon({
       iconUrl: './img/marker.svg',
-
       iconSize: [106, 106], // size of the icon
 
     });
@@ -128,7 +127,6 @@ $(document).ready(function () {
     $('.map').off('click');
   });
 
-  // $('#lightgallery').lightGallery();
   lightGallery(document.getElementById('lightgallery'), {
     plugins: [lgZoom, lgThumbnail],
     thumbnail: true,
@@ -149,7 +147,7 @@ const emailRegex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
 function testEmailRegex(value) {
   return emailRegex.test(value);
 }
-
+// перевірка на довжину імені
 function checkNameLenght() {
   const valueLength = window.inputName.value.length;
   const diff = valueLength < NAME_MIN_LENGTH ? NAME_MIN_LENGTH - valueLength : 0;
@@ -161,12 +159,14 @@ function checkNameLenght() {
   }
 };
 
+// очищення підказки після відпраки даних
 function resetValidation() {
   window.namelHelp.classList.add('d-none');
   window.emailHelp.classList.add('d-none');
   window.emailLenghtHelp.classList.add('d-none');
-  
 }
+
+// текст з підказками для заповнення полей форми
 function validateForm(event) {
   event.preventDefault();
   resetValidation();
@@ -195,6 +195,7 @@ window.inputName.addEventListener('input', checkNameLenght);
 window.loginForm.addEventListener('submit', validateForm);
 document.addEventListener("DOMContentLoaded", checkNameLenght);
 
+// відправка даних в чат-бот telegram
 async function formSubmit(event) {
     event.preventDefault();
     const email = window.inputEmail.value;

@@ -65,14 +65,14 @@ $(document).ready(function () {
   var scrollToSection = function scrollToSection(event) {
     event.preventDefault();
     var el = $(this);
-    var dest = el.attr('href'); // получаем направление
+    var dest = el.attr('href'); // отримуємо напрямок
 
     if (dest !== undefined && dest !== '') {
-      // проверяем существование
+      // перевіряємо наявність
       $('html').animate({
-        scrollTop: $(dest).offset().top - paddingScroll + 30 // прокручиваем страницу к требуемому элементу
+        scrollTop: $(dest).offset().top - paddingScroll + 30 // scrool до необхідного елеиенту +30=top для елемента before
 
-      }, 1000 // скорость прокрутки
+      }, 1000 // швидкість прокрутки
       );
     }
 
@@ -86,7 +86,7 @@ $(document).ready(function () {
   var headerStyle = window.getComputedStyle(header);
   var headerHeight = parseFloat(headerStyle.height);
   var element = document.getElementById('hero').getBoundingClientRect();
-  var height = element.height - headerHeight; // зміна bg на header при скролінгу сторінки
+  var height = element.height - headerHeight; // зміна bg header при скролінгу сторінки
 
   $(window).scroll(function () {
     if ($(this).scrollTop() > height) {
@@ -94,7 +94,7 @@ $(document).ready(function () {
     } else {
       $('.header').removeClass("active");
     }
-  }); // ініциалізаціяф карти після кліку на секцію з картою
+  }); // ініциалізація карти після кліку на секцію з картою
 
   $('.map').on('click', function initMap() {
     $('.contacts').css('position', 'static');
@@ -111,8 +111,7 @@ $(document).ready(function () {
       icon: customIcon
     }).addTo(map).bindPopup('My Lovely Location').openPopup();
     $('.map').off('click');
-  }); // $('#lightgallery').lightGallery();
-
+  });
   lightGallery(document.getElementById('lightgallery'), {
     plugins: [lgZoom, lgThumbnail],
     thumbnail: true,
@@ -130,7 +129,8 @@ var emailRegex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
 
 function testEmailRegex(value) {
   return emailRegex.test(value);
-}
+} // перевірка на довжину імені
+
 
 function checkNameLenght() {
   var valueLength = window.inputName.value.length;
@@ -144,13 +144,14 @@ function checkNameLenght() {
   }
 }
 
-;
+; // очищення підказки після відпраки даних
 
 function resetValidation() {
   window.namelHelp.classList.add('d-none');
   window.emailHelp.classList.add('d-none');
   window.emailLenghtHelp.classList.add('d-none');
-}
+} // текст з підказками для заповнення полей форми
+
 
 function validateForm(event) {
   event.preventDefault();
@@ -179,7 +180,7 @@ function validateForm(event) {
 ;
 window.inputName.addEventListener('input', checkNameLenght);
 window.loginForm.addEventListener('submit', validateForm);
-document.addEventListener("DOMContentLoaded", checkNameLenght);
+document.addEventListener("DOMContentLoaded", checkNameLenght); // відправка даних в чат-бот telegram
 
 function formSubmit(event) {
   var email, userName, apiToken, chatId, text, urlString, response, resp;
