@@ -1564,6 +1564,10 @@ body.lock {
   color: #7E5AFF;
 }
 
+button.button_link:disabled {
+  opacity: 0.5;
+}
+
 .footer {
   color: #fff;
   background-image: url(../img/footer_bg.png);
@@ -1765,5 +1769,9 @@ body.lock {
 
   .pading_section {
     padding: 30px 0;
+  }
+
+  .lg-thumb.lg-group {
+    display: none;
   }
 }

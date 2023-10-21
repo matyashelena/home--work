@@ -55,7 +55,7 @@ $(document).ready(function () {
     var dest = el.attr('href'); // отримуємо напрямок
     if (dest !== undefined && dest !== '') { // перевіряємо наявність
       $('html').animate({
-          scrollTop: $(dest).offset().top-paddingScroll+30 // scrool до необхідного елеиенту +30=top для елемента before
+          scrollTop: $(dest).offset().top-paddingScroll+30 // scrool до необхідного елементу +30=top для елемента before
         }, 1000 // швидкість прокрутки
       );
     }
@@ -84,12 +84,31 @@ $(document).ready(function () {
     } else {
       $('.header').removeClass("active");
     }
+
+
+    // function toggleMenu(event) {
+    //   document.querySelector('.hamburger').classList.toggle('is-active');
+    //   document.querySelector('.header_menu-list').classList.toggle('is-open');
+    //   document.querySelector('body').classList.toggle('lock');
+    // }
+    // $('.hamburger').on( "click", function() {
+    //   $( this ).toggleClass('is-active');
+    //   $('.header_menu-list').toggleClass('is-open');
+    //   $('.body').toggleClass('lock');
+    // });
+
+    // $('.hamburger').on( "click", function() {
+    //   $('header_menu-list').toggleClass('is-open');
+    // });
+    
+  //  $( ".header_menu-list" ).toggleClass( 'is-open', addOrRemove );
   });
 
   // ініциалізація карти після кліку на секцію з картою
   $('.map').on('click', function initMap() {
 
     $('.contacts').css('position', 'static');
+    $('.map').css('background-image', 'none');
 
     const map = L.map('my-map').setView([50.00317690860705, 36.226601536338116], 15);
 
@@ -158,8 +177,6 @@ function validateForm(event) {
   
   const name = window.inputName.value;
   const email = window.inputEmail.value;
-  console.log(name);
-  console.log(email);
 
   if(!name) {
     window.namelHelp.classList.remove('d-none');
@@ -182,7 +199,9 @@ document.addEventListener("DOMContentLoaded", checkNameLenght);
 
 // відправка даних в чат-бот telegram
 async function formSubmit(event) {
+  
     event.preventDefault();
+    document.querySelector('button.button_link').setAttribute('disabled', '');
     const email = window.inputEmail.value;
     const userName = window.inputName.value;
 
@@ -212,11 +231,13 @@ async function formSubmit(event) {
       })
     });
     const resp = await response.json();
-    console.log(resp);
+    
+    if(response.ok) {
+      document.querySelector('button.button_link').removeAttribute('disabled');
+      alert('Thank you for your request. We will contact you within 24 hours')
+    }
    
 }
-console.log();
-
 window.loginForm.addEventListener('submit', formSubmit);
 
 

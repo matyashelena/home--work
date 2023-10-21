@@ -646,6 +646,9 @@ body.lock {
 
   }
 }
+button.button_link:disabled {
+  opacity: .5;
+}
 
 .footer {
   color: #fff;
@@ -855,5 +858,8 @@ body.lock {
   }
   .pading_section {
     padding: 30px 0;
+  }
+  .lg-thumb.lg-group {
+    display: none;
   }
 }

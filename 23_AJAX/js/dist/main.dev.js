@@ -1,5 +1,13 @@
 "use strict";
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 var API_KEY = '8adb89b7'; // http://www.omdbapi.com/?i=tt389618&apikey=8adb89b7
 
 var BASE_URL = "http://www.omdbapi.com/?apikey=".concat(API_KEY);
@@ -56,3 +64,40 @@ function goToFirst(event) {
   PAGE = 1;
   goToPage(PAGE);
 }
+
+var page = 1;
+var totalResults = 0;
+var currentPage = 1;
+var countPages = 0;
+var nav = document.getElementById('nav');
+var pagination = document.getElementsByClassName('page-link');
+
+_toConsumableArray(pagination).forEach(function (item) {
+  item.addEventListener('click', function (event) {
+    event.preventDefault();
+    var toPage = item.getAttribute('href');
+
+    switch (toPage) {
+      case 'first':
+        page = 1;
+        break;
+
+      case 'prev':
+        page > 1 ? page -= 1 : page = 1;
+        break;
+
+      case 'page':
+        break;
+
+      case 'next':
+        page < countPages ? page += 1 : page = countPages;
+        break;
+
+      case 'last':
+        page = countPages;
+        break;
+    }
+
+    searchFilms(page);
+  });
+});

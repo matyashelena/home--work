@@ -57,3 +57,38 @@ function goToFirst(event) {
     PAGE = 1;
     goToPage(PAGE);
 }
+
+let page = 1;
+let totalResults = 0;
+let currentPage = 1;
+let countPages = 0;
+const nav = document.getElementById('nav');
+
+let pagination = document.getElementsByClassName('page-link');
+
+[...pagination].forEach(item => {
+    item.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        const toPage = item.getAttribute('href');
+
+        switch (toPage) {
+            case 'first':
+                page = 1;
+                break;
+            case 'prev':
+                page > 1 ? page -= 1 : page = 1;
+                break;
+            case 'page':
+                break;
+            case 'next':
+                page < countPages ? page += 1 : page = countPages;
+                break;
+            case 'last':
+                page = countPages;
+                break;
+        }
+
+        searchFilms(page);
+    });
+});

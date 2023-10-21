@@ -55,7 +55,7 @@ $(document).ready(function () {
     if (dest !== undefined && dest !== '') {
       // перевіряємо наявність
       $('html').animate({
-        scrollTop: $(dest).offset().top - paddingScroll + 30 // scrool до необхідного елеиенту +30=top для елемента before
+        scrollTop: $(dest).offset().top - paddingScroll + 30 // scrool до необхідного елементу +30=top для елемента before
 
       }, 1000 // швидкість прокрутки
       );
@@ -78,11 +78,26 @@ $(document).ready(function () {
       $('.header').addClass("active");
     } else {
       $('.header').removeClass("active");
-    }
+    } // function toggleMenu(event) {
+    //   document.querySelector('.hamburger').classList.toggle('is-active');
+    //   document.querySelector('.header_menu-list').classList.toggle('is-open');
+    //   document.querySelector('body').classList.toggle('lock');
+    // }
+    // $('.hamburger').on( "click", function() {
+    //   $( this ).toggleClass('is-active');
+    //   $('.header_menu-list').toggleClass('is-open');
+    //   $('.body').toggleClass('lock');
+    // });
+    // $('.hamburger').on( "click", function() {
+    //   $('header_menu-list').toggleClass('is-open');
+    // });
+    //  $( ".header_menu-list" ).toggleClass( 'is-open', addOrRemove );
+
   }); // ініциалізація карти після кліку на секцію з картою
 
   $('.map').on('click', function initMap() {
     $('.contacts').css('position', 'static');
+    $('.map').css('background-image', 'none');
     var map = L.map('my-map').setView([50.00317690860705, 36.226601536338116], 15);
     L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> contributors'
@@ -143,8 +158,6 @@ function validateForm(event) {
   resetValidation();
   var name = window.inputName.value;
   var email = window.inputEmail.value;
-  console.log(name);
-  console.log(email);
 
   if (!name) {
     window.namelHelp.classList.remove('d-none');
@@ -174,22 +187,23 @@ function formSubmit(event) {
       switch (_context.prev = _context.next) {
         case 0:
           event.preventDefault();
+          document.querySelector('button.button_link').setAttribute('disabled', '');
           email = window.inputEmail.value;
           userName = window.inputName.value;
 
           if (!(!email || !userName)) {
-            _context.next = 5;
+            _context.next = 6;
             break;
           }
 
           return _context.abrupt("return", false);
 
-        case 5:
+        case 6:
           apiToken = "6412142701:AAFqsqMVnxL0I3awtWVuK4_1i8gHEF-7zl0";
           chatId = "-1001923473956";
           text = "\n    <b>Email: </b> ".concat(email, "\n    <b>userName: </b> ").concat(userName, "\n    ");
           urlString = "https://api.telegram.org/bot".concat(apiToken, "/sendMessage");
-          _context.next = 11;
+          _context.next = 12;
           return regeneratorRuntime.awrap(fetch(urlString, {
             method: 'post',
             headers: {
@@ -203,16 +217,20 @@ function formSubmit(event) {
             })
           }));
 
-        case 11:
+        case 12:
           response = _context.sent;
-          _context.next = 14;
+          _context.next = 15;
           return regeneratorRuntime.awrap(response.json());
 
-        case 14:
+        case 15:
           resp = _context.sent;
-          console.log(resp);
 
-        case 16:
+          if (response.ok) {
+            document.querySelector('button.button_link').removeAttribute('disabled');
+            alert('Thank you for your request. We will contact you within 24 hours');
+          }
+
+        case 17:
         case "end":
           return _context.stop();
       }
@@ -220,7 +238,6 @@ function formSubmit(event) {
   });
 }
 
-console.log();
 window.loginForm.addEventListener('submit', formSubmit);
 
 function toggleMenu(event) {
