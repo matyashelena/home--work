@@ -92,7 +92,7 @@ function showCard(movie) {
         const score = document.getElementById('score');
         if (movie.imdbRating !== "N/A") {
             score.classList.remove('d-none');
-            score.textContent = movie.imdbRating || ''
+            score.textContent = movie.imdbRating
         } else {
             score.classList.add('d-none');
         }

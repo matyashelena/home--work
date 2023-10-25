@@ -53,16 +53,18 @@ img {
 }
 
 .input_text:focus {
-    border: 1px solid blue;
-    box-shadow: 10px 10px 10px 0px blue;
+    border: 1px solid #7fd1d8;
+    box-shadow: 10px 10px 10px 0px #7fd1d8;
 }
 
 .input_text[value] {
     color: #872349;
+    font-size: 16px;
 }
 
 .input_text[value]:focus {
-    color: blue;
+    color: #17282a;
+    
 }
 
 .input_button {
@@ -80,7 +82,7 @@ img {
 }
 
 .input_button:hover {
-    color: blue;
+    color: #7fd1d8;
 }
 
 .input_radio {
@@ -102,8 +104,8 @@ img {
 }
 
 .input_radio-btn:hover {
-    border: 1px solid blue;
-    color: blue;
+    border: 1px solid #7fd1d8;
+    color: #7fd1d8;
 }
 
 .list-search_result li {
@@ -134,8 +136,8 @@ img {
 }
 
 .page-item:hover {
-    border: 1px solid blue;
-    color: blue;
+    border: 1px solid #7fd1d8;
+    color:#7fd1d8;
 }
 
 .page-link {
@@ -201,7 +203,7 @@ img {
     display: inline-block;
 }
 
-.percent {
+.score {
     display: block;
     width: 100px;
     height: 100px;
@@ -215,4 +217,7 @@ img {
     position: absolute;
     top: 5px;
     right: 5px;
+}
+.score.d-none {
+    display: none;
 }
