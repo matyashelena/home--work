@@ -1,5 +1,5 @@
 const API_KEY = '8adb89b7';
-const BASE_URL = `http://www.omdbapi.com/?apikey=${API_KEY}`;
+const BASE_URL = `https://www.omdbapi.com/?apikey=${API_KEY}`;
 
 let PAGE = 1;
 let lastPage = 1;
@@ -24,11 +24,9 @@ function addCardBlockToDocument() {
 
 function searchMovie(PAGE = 1) {
     const movieName = document.getElementById('searchText').value;
-    console.log(movieName);
     if (movieName) {
         axios.get(BASE_URL + `&s=${movieName}&page=${PAGE}`)
             .then(function (res) {
-                console.log(res.data);
                 totalResults = res.data.totalResults;
                 countPages = Math.ceil(totalResults / 10);
                 generateSearchResult(res.data.Search);
@@ -58,7 +56,6 @@ function generateSearchResult(result) {
 
 function getMovie(event) {
     id = event.target.getAttribute('id');
-    console.log(id);
     getFilmById(id);
 }
 
@@ -68,7 +65,6 @@ function getFilmById(id) {
     axios.get(`${BASE_URL}&i=${id}`)
         .then(function (response) {
             findMovie = response.data;
-            console.log(findMovie);
             showCard(findMovie);
         });
 }
@@ -82,13 +78,18 @@ function showCard(movie) {
         document.getElementById('title').textContent = movie.Title || '';
         document.getElementById('poster').setAttribute('src', `${movie.Poster}`);
         document.getElementById('year').textContent = '(' + (movie.Year + ')' || '');
-        document.getElementById('awards').textContent = 'Awards: ' + movie.Awards || '';
+        // document.getElementById('awards').textContent = 'Awards: ' + movie.Awards || '';
         document.getElementById('country').textContent = 'Country: ' + movie.Country || '';
         document.getElementById('description').textContent = 'Description: ' + movie.Plot || '';
         document.getElementById('time').textContent = 'Time: ' + movie.Runtime;
         document.getElementById('languages').textContent = 'Language: ' + movie.Language || '';
         document.getElementById('genre').textContent = 'Genre: ' + movie.Genre || '';
-
+        const awards = document.getElementById('awards');
+        if (movie.imdbRating !== "N/A") {
+            awards.textContent = 'Awards: ' + movie.Awards;
+        } else {
+            awards.textContent = '';
+        }
         const score = document.getElementById('score');
         if (movie.imdbRating !== "N/A") {
             score.classList.remove('d-none');
