@@ -78,18 +78,12 @@ function showCard(movie) {
         document.getElementById('title').textContent = movie.Title || '';
         document.getElementById('poster').setAttribute('src', `${movie.Poster}`);
         document.getElementById('year').textContent = '(' + (movie.Year + ')' || '');
-        // document.getElementById('awards').textContent = 'Awards: ' + movie.Awards || '';
         document.getElementById('country').textContent = 'Country: ' + movie.Country || '';
         document.getElementById('description').textContent = 'Description: ' + movie.Plot || '';
         document.getElementById('time').textContent = 'Time: ' + movie.Runtime;
         document.getElementById('languages').textContent = 'Language: ' + movie.Language || '';
         document.getElementById('genre').textContent = 'Genre: ' + movie.Genre || '';
-        const awards = document.getElementById('awards');
-        if (movie.imdbRating !== "N/A") {
-            awards.textContent = 'Awards: ' + movie.Awards;
-        } else {
-            awards.textContent = '';
-        }
+        document.getElementById('awards').textContent = 'Awards: ' + movie.Awards;
         const score = document.getElementById('score');
         if (movie.imdbRating !== "N/A") {
             score.classList.remove('d-none');
@@ -97,7 +91,6 @@ function showCard(movie) {
         } else {
             score.classList.add('d-none');
         }
-
 
     }
 }

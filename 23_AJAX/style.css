@@ -82,7 +82,8 @@ img {
 }
 
 .input_button:hover {
-    color: #7fd1d8;
+    color: #17282a;
+    
 }
 
 .input_radio {
@@ -101,11 +102,13 @@ img {
     max-width: 100px;
     text-transform: uppercase;
     margin: 5px;
+    transition: all 0.5s ease-out;
 }
 
 .input_radio-btn:hover {
-    border: 1px solid #7fd1d8;
-    color: #7fd1d8;
+    border: 1px solid #17282a;
+    color: #17282a;
+    background-color: #7fd1d8;
 }
 
 .list-search_result li {
@@ -124,6 +127,7 @@ img {
 
 .pagination {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     column-gap: 20px;
     justify-content: center;
@@ -133,11 +137,13 @@ img {
 .page-item {
     border: 1px solid #872349;
     border-radius: 10px;
+    transition: all 0.5s ease-out;
 }
 
 .page-item:hover {
-    border: 1px solid #7fd1d8;
-    color:#7fd1d8;
+    border: 1px solid #17282a;
+    color: #17282a;
+    background-color: #7fd1d8;
 }
 
 .page-link {
@@ -158,6 +164,12 @@ img {
     width: 100%;
     max-width: 100px;
     text-transform: uppercase;
+    transition: all 0.5s ease-out;
+}
+.button_details:hover {
+    border: 1px solid #17282a;
+    color: #17282a;
+    background-color: #7fd1d8;
 }
 
 .my_card {
