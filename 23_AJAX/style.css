@@ -126,12 +126,14 @@ img {
 }
 
 .pagination {
+    padding: 0 0 10px 0;
     display: flex;
     flex-wrap: wrap;
     list-style: none;
     column-gap: 20px;
     justify-content: center;
     align-items: center;
+    margin-bottom: 0;
 }
 
 .page-item {

@@ -129,5 +129,6 @@ let pagination = document.getElementsByClassName('page-link');
 function addPagination(PAGE) {
     if (totalResults > 10) {
         (document.getElementById('page')).text = PAGE;
+        document.getElementById('nav').classList.remove('d-none');
     }
 }

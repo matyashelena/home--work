@@ -12,11 +12,16 @@
     <main class="main">
         <div class="container">
             <h1 class="title_h1">movie search</h1>
+            <p id="try" class="d-none try_again">Opps! Something went wrong... Try again</p>
 
             <form class="form_search" action="">
                 <div class="search_input">
-                    <input type="text" class="input_text" placeholder="Enter movie title" id="searchText"
-                        onchange="searchMovie()" value="star wars">
+                    <input type="text"
+                    class="input_text"
+                    placeholder="Enter movie title"
+                    id="searchText"
+                    onchange="searchMovie()"
+                    value="star wars">
 
                     <button type="button" class="input_button" id="btn_search" onclick="searchMovie()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class=""
@@ -41,7 +46,7 @@
             <ul class="list-group" id="watchlist">
             </ul>
             <div class="list-search_result" id="list"></div>
-            <nav class="" id="nav">
+            <nav class="d-none" id="nav">
                 <ul class="pagination">
                     <li class="page-item"><a class="page-link" href="first">First</a></li>
                     <li class="page-item"><a class="page-link" href="prev">Prev</a></li>
