@@ -18,7 +18,6 @@ img {
 
 .main {
     background-image: url(./img/bg.jpg);
-    padding: 10px;
 }
 
 .container {
@@ -29,6 +28,7 @@ img {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     color: #872349;
+    min-height: 100vh;
 }
 
 .title_h1 {
