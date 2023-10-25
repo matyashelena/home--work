@@ -1,0 +1,38 @@
+.circle_wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 10px;
+}
+.circle_block {
+  padding: 10px;
+}
+.circle {
+  background-color: #154b58;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #0b2809;
+}
+.circle_description {
+  color: #0b2809;
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+.circle_description p {
+  margin: 5px 0;
+  font-size: 18px;
+}
+.input {
+  outline: none;
+  width: auto;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 10px #0b2809;
+}
+.buffer {
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  visibility: hidden;
+  white-space: nowrap;
+}

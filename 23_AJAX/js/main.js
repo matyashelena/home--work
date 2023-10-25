@@ -1,67 +1,106 @@
 const API_KEY = '8adb89b7';
-// http://www.omdbapi.com/?i=tt389618&apikey=8adb89b7
 const BASE_URL = `http://www.omdbapi.com/?apikey=${API_KEY}`;
+
 let PAGE = 1;
 let lastPage = 1;
+let totalResults = 0;
+let countPages = 0;
 
-function searchMovie() {
+let card;
+let cardBlock;
+
+const cardUrl = './card.html';
+
+axios.get(cardUrl)
+    .then(function (response) {
+        card = response.data;
+        addCardBlockToDocument();
+    });
+
+function addCardBlockToDocument() {
+    cardBlock = document.getElementById('#card_block');
+    cardBlock.innerHTML = card;
+}
+
+function searchMovie(PAGE = 1) {
     const movieName = document.getElementById('searchText').value;
     console.log(movieName);
     if (movieName) {
         axios.get(BASE_URL + `&s=${movieName}&page=${PAGE}`)
             .then(function (res) {
                 console.log(res.data);
-                lastPage = Math.ceil(res.data.totalResults / 10);
+                totalResults = res.data.totalResults;
+                countPages = Math.ceil(totalResults / 10);
                 generateSearchResult(res.data.Search);
+                addPagination(PAGE);
 
             });
     }
 
 }
+
 function generateSearchResult(result) {
     let html = `<ul class="result_list">`;
-   
+
 
     result.forEach(element => {
-         html = html + `<li>
+        html = html + `<li>
          <img alt="poster" class="poster_search" src="${element.Poster}"/>
          <span class="title_search">${element.Title}</span>
          <span class="year_search">${element.Year}</span>
+         <button id="${element.imdbID}" type="button" class="button_details" onclick="getMovie(event)">Details</button>
          </li>`;
     });
     html = html + `</ul>`;
     document.getElementById('list').innerHTML = html;
 }
 
-function nextPage(event) {
-    event.preventDefault();
-    PAGE++;
-    goToPage(PAGE);
-}
-function prevPage(event) {
-    event.preventDefault();
-    PAGE--;
-    goToPage(PAGE);
-}
-function goToPage(page) {
-    PAGE = page;
-    searchMovie();
-}
-function goToLast(event) {
-    event.preventDefault();
-    PAGE = lastPage;
-    goToPage(PAGE);
-}
-function goToFirst(event) {
-    event.preventDefault();
-    PAGE = 1;
-    goToPage(PAGE);
+
+function getMovie(event) {
+    id = event.target.getAttribute('id');
+    console.log(id);
+    getFilmById(id);
 }
 
-let page = 1;
-let totalResults = 0;
-let currentPage = 1;
-let countPages = 0;
+function getFilmById(id) {
+    findMovie = {};
+
+    axios.get(`${BASE_URL}&i=${id}`)
+        .then(function (response) {
+            findMovie = response.data;
+            console.log(findMovie);
+            showCard(findMovie);
+        });
+}
+
+
+
+function showCard(movie) {
+    if (movie) {
+        cardBlock.classList.remove('d-none');
+        document.getElementById('actors').textContent = 'Actors: ' + movie.Actors || "";
+        document.getElementById('title').textContent = movie.Title || '';
+        document.getElementById('poster').setAttribute('src', `${movie.Poster}`);
+        document.getElementById('year').textContent = '(' + (movie.Year + ')' || '');
+        document.getElementById('awards').textContent = 'Awards: ' + movie.Awards || '';
+        document.getElementById('country').textContent = 'Country: ' + movie.Country || '';
+        document.getElementById('description').textContent = 'Description: ' + movie.Plot || '';
+        document.getElementById('time').textContent = 'Time: ' + movie.Runtime;
+        document.getElementById('languages').textContent = 'Language: ' + movie.Language || '';
+        document.getElementById('genre').textContent = 'Genre: ' + movie.Genre || '';
+
+        const score = document.getElementById('score');
+        if (movie.imdbRating !== "N/A") {
+            score.classList.remove('d-none');
+            score.textContent = movie.imdbRating || ''
+        } else {
+            score.classList.add('d-none');
+        }
+
+
+    }
+}
+
 const nav = document.getElementById('nav');
 
 let pagination = document.getElementsByClassName('page-link');
@@ -74,21 +113,27 @@ let pagination = document.getElementsByClassName('page-link');
 
         switch (toPage) {
             case 'first':
-                page = 1;
+                PAGE = 1;
                 break;
             case 'prev':
-                page > 1 ? page -= 1 : page = 1;
+                PAGE > 1 ? PAGE -= 1 : PAGE = 1;
                 break;
             case 'page':
                 break;
             case 'next':
-                page < countPages ? page += 1 : page = countPages;
+                PAGE < countPages ? PAGE += 1 : PAGE = countPages;
                 break;
             case 'last':
-                page = countPages;
+                PAGE = countPages;
                 break;
         }
 
-        searchFilms(page);
+        searchMovie(PAGE);
     });
 });
+
+function addPagination(PAGE) {
+    if (totalResults > 10) {
+        (document.getElementById('page')).text = PAGE;
+    }
+}

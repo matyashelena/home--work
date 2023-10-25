@@ -16,7 +16,6 @@ function saveResponceData(data) {
   localStorage.setItem('weather', JSON.stringify(data));
   document.cookie = "timer=true; max-age=7200";
   showWeather(data);
-  console.log(JSON.stringify(data));
 }
 
 function showWeather(data) {
@@ -44,8 +43,6 @@ function showWeather(data) {
 function getWeather() {
   axios.get(API_URL).then(res => {
     saveResponceData(res.data);
-   
-    console.log(res.data);
   })
 }
 
