@@ -1,5 +1,6 @@
 "use strict";
 
+// Отримай прогноз погоди з оpen weather API. Зроби так, щоб запит про погоду відбувався не частіше ніж раз на 2 години. При повторному відвідуванні погода відображається з localStorage, до тих пір поки не пройде 2 години після останнього запиту.
 var API_KEY = 'aaa362ec11316d74bc1716de935b46d2';
 var API_URL = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=Kyiv&appid=".concat(API_KEY);
 var block = document.querySelector('#weather_list');
@@ -12,6 +13,7 @@ function getCookie(name) {
 function saveResponceData(data) {
   localStorage.setItem('weather', JSON.stringify(data));
   document.cookie = "timer=true; max-age=7200";
+  showWeather(data);
   console.log(JSON.stringify(data));
 }
 
