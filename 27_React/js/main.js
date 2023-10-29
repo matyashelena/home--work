@@ -106,7 +106,7 @@ function Card(props) {
   return (
     <div className={width}>
       <p className="card-title">{city}</p>
-      <span className="card_temp">{temp} &#8451;</span>
+      <span className="card_temp">{temp} &#8451;  </span>
       <i className={icon}></i>
       <a target="_blank" className="link_city" href={link}></a>
     </div> 
