@@ -1,0 +1,130 @@
+@font-face {
+  font-family: "LucidaSansUnicode";
+  src: url("../font/LucidaSansUnicode.ttf") format("ttf"),
+  url("../font/LucidaSansUnicode.woff") format("woff"),
+  url("../font/LucidaSansUnicode.woff2") format("woff2");
+  }
+
+  *, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+
+.container {
+  width: 100%;
+  height: 100vh; 
+  background-color: #3399CC;
+  border: 25px solid #2B81AC;
+  color: #fff;
+  font-size: 1.5vw;
+  font-family: 'LucidaSansUnicode';
+}
+.main_box {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+.title {
+  font-size: 21px;
+  margin: 3% 0;
+}
+.description_bottom {
+  font-size: 16px;
+  margin: 5% 0;
+}
+.grid_box {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  background-color: #fff;
+  padding: 5px;
+  width: 100%;
+}
+
+.w-50{
+  grid-column: span 2;
+}
+.w-25 {
+  grid-column: span 1;
+}
+.w-100 {
+  grid-column: span 4;
+}
+.w-50,
+.w-25,
+.w-100 {
+  text-align: center;
+  padding: 2vh 0;
+}
+.grid_box div {
+  position: relative;
+  opacity: 1;
+}
+.grid_box div:hover {
+  opacity: .8;
+}
+.link_city {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+}
+.grid_box div:nth-child(1) {
+  background-color: #70B8DB;
+}
+
+.grid_box div:nth-child(2) {
+  background-color: #33CCCC;
+}
+
+.grid_box div:nth-child(3) {
+  background-color: #B894B8;
+}
+
+.grid_box div:nth-child(4) {
+  background-color: #C24747;
+}
+
+.grid_box div:nth-child(5) {
+  background-color: #E2674A;
+}
+
+.grid_box div:nth-child(6) {
+  background-color: #FFCC66;
+}
+
+.grid_box div:nth-child(7) {
+  background-color: #99CC99;
+}
+
+.grid_box div:nth-child(8) {
+  background-color: #669999;
+}
+
+.grid_box div:nth-child(9) {
+  background-color: #CC6699;
+}
+
+.grid_box div:nth-child(10) {
+  background-color: #339966;
+}
+
+.grid_box div:nth-child(11) {
+  background-color: #666699;
+}
