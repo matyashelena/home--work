@@ -39,9 +39,9 @@ const news_aside = [
 
 function App() {
   return (
-      <div className="container">
+      <div className="page_wrapper">
         <Header/>
-        <Banner/>
+        <div className="banner_img"></div>
         <Main/>
       </div>
   )
@@ -50,6 +50,7 @@ function App() {
 function Header() {
   return (
     <header className="header">
+      <div className="container">
       <a href="#" className="logo">
         <img src="./img/logo.png" alt="" className="logo_img" />
       </a>
@@ -74,23 +75,18 @@ function Header() {
 
         </ul>
       </nav>
+      </div>
     </header>
-  )
-}
-
-function Banner() {
-  return (
-    <div className="banner_img">
-      <h2>my cat</h2>
-    </div>
   )
 }
 
 function Main() {
   return (
     <section className="main">
-      <Article/>
-      <Aside/>
+      <div className="container">
+        <Article/>
+        <Aside/>
+      </div>
     </section>
     
   )
