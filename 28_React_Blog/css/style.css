@@ -107,7 +107,12 @@ a {
   position: relative;
   border-radius: 10px;
   overflow: hidden;
+  height: 250px;
   transition: all .3s ease-out;
+}
+.news_card img {
+  object-fit: cover;
+  height: 100%;
 }
 .news_card:last-child {
   margin-bottom: 0;
