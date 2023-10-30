@@ -27,6 +27,7 @@ a {
 }
 .blog_name {
   text-transform: capitalize;
+  font-size: 40px;
 }
 .nav_list {
   display: flex;
