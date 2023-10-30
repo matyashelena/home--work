@@ -92,6 +92,7 @@ a {
 }
 .blog_card:hover {
   color: #476d01;
+  background-color: #93b1d5e6;
 }
 .blog_link {
   position: absolute;
@@ -128,7 +129,10 @@ a {
   left: 50%;
   transform: translateX(-50%);
   bottom: 10px;
-  background-color: rgba(147, 213, 205, .4);
+  background-color: rgba(147, 177, 213, .3);
   border-radius: 5px;
   font-size: 16px;
+}
+.news_card:hover .news_card-desc {
+  background-color: rgba(147, 177, 213, .8);
 }
