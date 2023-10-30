@@ -1,0 +1,120 @@
+body {
+  padding: 20px 0;
+}
+a {
+  display: inline-block;
+}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: #021709;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+  background-color: #93d5cd;
+}
+.logo {
+  display: inline-block;
+  max-width: 100px;
+  transition: all .3s ease;
+}
+.logo:hover {
+  transform: scale(1.2);
+}
+.blog_name {
+  text-transform: capitalize;
+}
+.nav_list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.nav_item {
+  transition: all .3s ease;
+}
+.nav_item:hover {
+  transform: scale(1.2);
+}
+.banner_img {
+  background: linear-gradient(rgba(56, 52, 60, 0.3), rgba(47, 231, 225, 0.3)),
+    0 -40px / cover no-repeat url('../img/bg_banner.webp');
+  padding: 50px 0;
+  font-size: 40px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.banner_img h2 {
+  opacity: 0;
+}
+.main {
+  display: flex;
+  column-gap: 10px;
+  background-color: #93d5cd;
+  padding: 30px 20px;
+}
+.section_main {
+  width: 60%;
+  padding: 20px;
+  background-color: #1bd1ce;
+  border-radius: 10px;
+}
+.blog_title {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.blog_card {
+  margin-bottom: 20px;
+  background-color: #93d5cd;
+  border-radius: 10px;
+  padding: 20px 0px 20px 10px;
+  position: relative;
+  font-size: 18px;
+  line-height: 22px;
+  transition: all .3s ease;
+}
+.blog_card:hover {
+  color: #476d01;
+}
+.blog_link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+}
+.aside {
+  width: 40%;
+}
+.news_card {
+  position: relative;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all .3s ease-out;
+}
+.news_card:hover {
+  transform: scale(1.02);
+}
+.news_card-desc {
+  position: absolute;
+  padding: 5px;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  background-color: rgba(147, 213, 205, .3);
+  border-radius: 5px;
+  font-size: 16px;
+}
