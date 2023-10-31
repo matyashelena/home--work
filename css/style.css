@@ -34,12 +34,22 @@
   color: #352901;
   transition: all .3 ease;
   cursor: pointer;
+  position: relative;
 }
 .link_works {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   font-size: 1.5em;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   
 }
 .item_works:hover {
