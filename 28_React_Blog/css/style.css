@@ -79,7 +79,7 @@ a {
 .blog_card {
   background-color: #93d5cd;
   border-radius: 10px;
-  padding: 20px 0px 20px 10px;
+  padding: 20px;
   position: relative;
   font-size: 18px;
   line-height: 22px;
@@ -91,8 +91,14 @@ a {
   margin-bottom: 20px;
 }
 .blog_card:hover {
-  color: #476d01;
+  /* color: #476d01; */
   background-color: #93b1d5e6;
+}
+.blog_card-title {
+  margin-bottom: 10px;
+}
+.blog_card-desc {
+  font-size: 16px;
 }
 .blog_link {
   position: absolute;

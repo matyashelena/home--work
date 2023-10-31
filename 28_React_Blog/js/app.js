@@ -2,18 +2,22 @@
 const blog_news = [
   {
     main: 'Top 10 Cutest Cat Pictures of All Time + Honorable Mentions',
+    text: "I've been a cat lover all my life. Why do I love cats? Contrary to popular belief, cats are sweet. Sometimes, they can be too sweet. They somehow know when you're sad or having a bad day at work...",
     link: 'https://pethelpful.com/cats/Top-10-Cutest-Cat-Photos-of-All-Time'
   },
   {
     main: '‘Belling The Cat’ – Popular Moral Story For Kids',
+    text: "People have always transmitted wisdom through short stories that are popular across cultures. The stories not only contain a moral lesson, but are amusing to read for kids and adults alike. For children, it introduces new concepts...",
     link: 'https://www.firstcry.com/intelli/articles/belling-the-cat-story-with-moral-for-children/'
   },
   {
     main: 'The Cat by Banjo Paterson',
+    text: "Most people think that the cat is an unintelligent animal, fond of ease, and caring little for anything but mice and milk. But a cat has really more character than most human beings, and gets a great deal more satisfaction out of life. Of all the animal kingdom, the cat has the most many-sided character...",
     link: 'https://americanliterature.com/author/banjo-paterson/short-story/the-cat'
   },
   {
     main: 'Moral Story – Cat and Rabbit Friends',
+    text: "One day the rabbit said, “I don’t like those foxes. I neither said ” the cat. Then the rabbit said, “Do you know dear friend cat, I know so many tricks to hide from those foxes”.  The cat said, really!! can you show me those tricks? Sure, said the rabbit...",
     link: 'https://anyaanand.com/moral-story-cat-and-rabbit-friends/'
   }
 ]
@@ -112,10 +116,11 @@ function BlogCard() {
 }
 
 function BlogCardBuild(props) {
-  const { main, link } = props.item;
+  const { main, text, link } = props.item;
   return (
     <section className="blog_card">
-      <h4 className="blog_desc">{main}</h4>
+      <h4 className="blog_card-title">{main}</h4>
+      <p className="blog_card-desc">{text}</p>
       <a target="_blank" className="blog_link" href={link}></a>
     </section>
   )

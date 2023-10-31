@@ -85,14 +85,14 @@ circle.showREsult(); // Створюємо коло в html
 // метод для вводу (приймає рядок і виводить текст відповідним кольором; текст виводиться доти, доки в маркері є чорнило; один не пробільний символ — це 0,5 % чорнил у маркері).
 // Реалізуй клас, що описує маркер, який можна перезаправляти. Успадкуй цей клас від простого маркера й додай метод для заправки.
 // Продемонструй роботу написаних методів.
-// ширина поля input залежно выд контенту
 
-var input = document.querySelectorAll('.input');
-var buffer = [];
+var input = document.querySelectorAll('.input'),
+    buffer = [];
 
 for (var i = 0; input.length > i; i++) {
+  console.log(input[i].value);
   buffer[i] = document.createElement('div');
-  buffer[i].className = "buffer"; //вставляемо hidden div.buffer
+  buffer[i].className = "buffer"; //вставляем скрытый div.buffer
 
   input[i].parentNode.insertBefore(buffer[i], input[i].nextSibling);
 
@@ -105,129 +105,200 @@ for (var i = 0; input.length > i; i++) {
 var Marker =
 /*#__PURE__*/
 function () {
-  function Marker(color, pircent) {
+  function Marker(color, level) {
     _classCallCheck(this, Marker);
 
     this.color = color;
-    this.pircent = pircent; // Відсотки чорнила
+    this.level = level; // Відсотки чорнила
   }
 
   _createClass(Marker, [{
     key: "write",
-    value: function write(text) {
-      var writeText = document.getElementById('par'); // let writtenText = '';
+    value: function write(text, outputElement) {
+      var writtenText = '';
 
       for (var _i = 0; _i < text.length; _i++) {
-        if (text[_i] !== ' ' && this.pircent >= 0.5) {
-          writeText += text[_i];
-          this.pircent -= 0.5; // Видаляємо 0.5% чорнила за кожен не пробільний символ
+        if (text[_i] !== ' ' && this.level >= 0.5) {
+          writtenText += text[_i];
+          this.level -= 0.5; // Видаляємо 0.5% чорнила за кожен не пробільний символ
         } else {
-          writeText += ' '; // Додаємо пробіл, якщо немає чорнила або символ - пробільний
+          writtenText += ' '; // Додаємо пробіл, якщо немає чорнила або символ - пробільний
         }
       }
 
-      document.getElementById('inputContent').value = text;
-    }
-  }, {
-    key: "showREsult",
-    value: function showREsult() {
-      var desc = "\n        <p>\u041A\u043E\u043B\u0456\u0440 \u043C\u0430\u0440\u043A\u0435\u0440\u0430: ".concat(this.color, "</p>\n        <p>\u0417\u0430\u043B\u0438\u0448\u0438\u043B\u043E\u0441\u044C \u0447\u043E\u0440\u043D\u0438\u043B: ").concat(this.pircent, "%</p>\n    ");
-      document.getElementById('marker_desc').innerHTML = desc;
-      document.getElementById('marker_desc').style.color = this.color;
+      outputElement.textContent += writtenText;
+      outputElement.style.color = this.color;
+      document.getElementById('level_marker').innerHTML = "\u0417\u0430\u043B\u0438\u0448\u0438\u043B\u043E\u0441\u044C \u0447\u043E\u0440\u043D\u0438\u043B: ".concat(this.level, "%");
     }
   }]);
 
   return Marker;
-}(); // Приклад використання класу Marker
+}();
 
-
-var marker = new Marker("pink", 100);
-marker.write('Hello my friend');
-marker.showREsult(); // Створюємо маркер з 100% чорнила
-
-var refillInk =
+var RefillableMarker =
 /*#__PURE__*/
 function (_Marker) {
-  _inherits(refillInk, _Marker);
+  _inherits(RefillableMarker, _Marker);
 
-  function refillInk() {
-    _classCallCheck(this, refillInk);
+  function RefillableMarker(color, level, maxLevel) {
+    var _this;
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(refillInk).apply(this, arguments));
+    _classCallCheck(this, RefillableMarker);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(RefillableMarker).call(this, color, level));
+    _this.maxLevel = maxLevel;
+    return _this;
   }
 
-  _createClass(refillInk, [{
+  _createClass(RefillableMarker, [{
     key: "refill",
-    value: function refill(addInk) {
-      if (addInk > 0) {
-        this.pircent = Math.min(100, this.pircent + addInk); // Обмежуємо до 100%
-
-        document.getElementById('new_marker').style.color = this.color;
-        document.getElementById('new_marker').innerHTML = "\u041C\u0430\u0440\u043A\u0435\u0440 \u0431\u0443\u0432 \u0443\u0441\u043F\u0456\u0448\u043D\u043E \u0437\u0430\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0439. \u041D\u043E\u0432\u0438\u0439 \u0432\u0456\u0434\u0441\u043E\u0442\u043E\u043A \u0447\u043E\u0440\u043D\u0438\u043B\u0430: ".concat(this.pircent, "%");
+    value: function refill(amount) {
+      if (amount > 0) {
+        this.level = Math.min(this.maxLevel, this.level + amount); // Обмежуємо до максимального рівня
       }
     }
   }]);
 
-  return refillInk;
-}(Marker); // Приклад використання класу refillInk
+  return RefillableMarker;
+}(Marker); // HTML-елементи
 
 
-var refill = new refillInk("blue", 5);
-refill.write("Текст для написання.");
-console.log("\u041A\u043E\u043B\u0456\u0440 \u043C\u0430\u0440\u043A\u0435\u0440\u0430: ".concat(refill.color));
-console.log("\u0412\u0456\u0434\u0441\u043E\u0442\u043E\u043A \u0447\u043E\u0440\u043D\u0438\u043B\u0430: ".concat(refill.pircent, "%"));
-console.log("\u0412\u0456\u0434\u0441\u043E\u0442\u043E\u043A \u0447\u043E\u0440\u043D\u0438\u043B\u0430 \u043F\u0456\u0441\u043B\u044F \u043D\u0430\u043F\u0438\u0441\u0430\u043D\u043D\u044F: ".concat(refill.pircent, "%"));
-refill.refill(60); // Заправляємо маркер
-// refill.showREsult() 
-// class Employee {
-//   constructor(id, name, position) {
-//       this.id = id;
-//       this.name = name;
-//       this.position = position;
-//   }
-// }
-// class EmpTable {
-//   constructor(employees) {
-//       this.employees = employees;
-//   }
-//   getHtml() {
-//       let tableHtml = '<table>';
-//       tableHtml += '<tr><th>ID</th><th>Name</th><th>Position</th></tr>';
-//       for (const employee of this.employees) {
-//           tableHtml += `<tr><td>${employee.id}</td><td>${employee.name}</td><td>${employee.position}</td></tr>`;
-//       }
-//       tableHtml += '</table>';
-//       return tableHtml;
-//   }
-// }
-// // Створення масиву працівників банку
-// const employees = [
-//   new Employee(1, 'John Doe', 'Manager'),
-//   new Employee(2, 'Jane Smith', 'Teller'),
-//   new Employee(3, 'Bob Johnson', 'Accountant'),
-// ];
-// // Створення об'єкта класу EmpTable і генерація HTML-коду таблиці
-// const empTable = new EmpTable(employees);
-// const htmlTable = empTable.getHtml();
-// // Виведення HTML-коду на екран
-// document.body.innerHTML = htmlTable;
-// class Circle {
-//   constructor (name) {
-//     this.radius = radius;
-//     this.diameter = this.diameter;
-//   }
-//   get radiusName() {
-//     return this.radius;
-//   }
-//   // set radiusInfo(newRadius) {
-//   //   this.radius = this.radiusInfo;
-//   // }
-//   square() {
-//     return Math.floor(Math.PI * (this.radius ** 2));
-//   }
-//   circumference() {
-//     return Math.ceil(2 * Math.PI * this.radius);
-//   }
-// }
-// let circle = new Circle(10);
-// console.log(circle);
+var outputElement = document.getElementById('output');
+var writeButton = document.getElementById('write');
+var refillButton = document.getElementById('refill'); // Створення маркера
+
+var marker = new RefillableMarker("blue", 100, 200); // Створюємо маркер з 100% чорнила і максимальним об'ємом 200%
+// Обробники подій для кнопок
+
+writeButton.addEventListener('click', function () {
+  var inputText = document.getElementById('input').value;
+  marker.write(inputText, outputElement);
+});
+refillButton.addEventListener('click', function () {
+  marker.refill(100); // Заправляємо маркер на 100%
+}); // 3) Реалізуй клас Employee, що описує працівника, і створи масив працівників банку.
+// Реалізуй клас EmpTable для генерації HTML-коду таблиці зі списком працівників банку. Масив працівників необхідно передавати через конструктор, а отримувати HTML-код за допомогою методу getHtml ().
+// Створи об’єкт класу EmpTable і виведи на екран результат роботи методу getHtml ().
+
+var User =
+/*#__PURE__*/
+function () {
+  function User(name, role) {
+    _classCallCheck(this, User);
+
+    if (role !== 'admin' && role !== 'user') {
+      alert('Некоректна роль! Роль може бути або admin, або user.');
+    }
+
+    this.name = name;
+    this.role = role;
+  }
+
+  _createClass(User, [{
+    key: "getName",
+    value: function getName() {
+      return this.name;
+    }
+  }, {
+    key: "getRole",
+    value: function getRole() {
+      return this.role;
+    }
+  }, {
+    key: "login",
+    value: function login() {
+      console.log("".concat(this.name, " \u0443\u0432\u0456\u0439\u0448\u043E\u0432 \u0432 \u0441\u0438\u0441\u0442\u0435\u043C\u0443."));
+    }
+  }, {
+    key: "logout",
+    value: function logout() {
+      console.log("".concat(this.name, " \u0432\u0438\u0439\u0448\u043E\u0432 \u0456\u0437 \u0441\u0438\u0441\u0442\u0435\u043C\u0438."));
+    }
+  }, {
+    key: "changeName",
+    value: function changeName(newName) {
+      this.name = newName;
+      console.log("\u0406\u043C'\u044F \u043A\u043E\u0440\u0438\u0441\u0442\u0443\u0432\u0430\u0447\u0430 \u0431\u0443\u043B\u043E \u0437\u043C\u0456\u043D\u0435\u043D\u043E \u043D\u0430 ".concat(newName, "."));
+    }
+  }, {
+    key: "changePassword",
+    value: function changePassword(newPassword) {
+      console.log("\u041F\u0430\u0440\u043E\u043B\u044C \u043A\u043E\u0440\u0438\u0441\u0442\u0443\u0432\u0430\u0447\u0430 ".concat(this.name, " \u0431\u0443\u043B\u043E \u0437\u043C\u0456\u043D\u0435\u043D\u043E."));
+    }
+  }]);
+
+  return User;
+}();
+
+var Admin =
+/*#__PURE__*/
+function (_User) {
+  _inherits(Admin, _User);
+
+  function Admin(name) {
+    var _this2;
+
+    _classCallCheck(this, Admin);
+
+    _this2 = _possibleConstructorReturn(this, _getPrototypeOf(Admin).call(this, name, 'admin'));
+    _this2.users = [];
+    return _this2;
+  }
+
+  _createClass(Admin, [{
+    key: "addUser",
+    value: function addUser(newUser) {
+      this.users.push(newUser);
+      console.log("\u041A\u043E\u0440\u0438\u0441\u0442\u0443\u0432\u0430\u0447 ".concat(newUser.getName(), " \u0431\u0443\u0432 \u0434\u043E\u0434\u0430\u043D\u0438\u0439."));
+    }
+  }, {
+    key: "removeUser",
+    value: function removeUser(userToRemove) {
+      var index = this.users.findIndex(function (user) {
+        return user.getName() === userToRemove.getName();
+      });
+
+      if (index !== -1) {
+        this.users.splice(index, 1);
+        console.log("\u041A\u043E\u0440\u0438\u0441\u0442\u0443\u0432\u0430\u0447 ".concat(userToRemove.getName(), " \u0431\u0443\u0432 \u0432\u0438\u0434\u0430\u043B\u0435\u043D\u0438\u0439."));
+      }
+    }
+  }, {
+    key: "changeUserRole",
+    value: function changeUserRole(user, newRole) {
+      if (newRole === 'admin' || newRole === 'user') {
+        user.role = newRole;
+        console.log("\u0420\u043E\u043B\u044C \u043A\u043E\u0440\u0438\u0441\u0442\u0443\u0432\u0430\u0447\u0430 ".concat(user.getName(), " \u0431\u0443\u043B\u0430 \u0437\u043C\u0456\u043D\u0435\u043D\u0430 \u043D\u0430 ").concat(newRole, "."));
+      } else {
+        alert('Некоректна роль! Роль може бути або admin, або user.');
+      }
+    }
+  }, {
+    key: "getAllUsers",
+    value: function getAllUsers() {
+      return this.users;
+    }
+  }, {
+    key: "removeAllUsers",
+    value: function removeAllUsers() {
+      this.users = [];
+      console.log('Усі користувачі були видалені.');
+    }
+  }]);
+
+  return Admin;
+}(User); // Приклад використання класів
+
+
+var user1 = new User('Petro', 'user');
+var user2 = new User('Ivan', 'user');
+var admin = new Admin('AdminUser');
+admin.addUser(user1);
+admin.addUser(user2);
+console.log(admin.getAllUsers());
+admin.changeUserRole(user1, 'admin');
+console.log(user1.getRole());
+admin.removeUser(user2);
+console.log(admin.getAllUsers());
+admin.removeAllUsers();
+console.log(admin.getAllUsers());

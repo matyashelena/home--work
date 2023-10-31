@@ -66,142 +66,171 @@ circle.showREsult(); // Створюємо коло в html
 
 // Продемонструй роботу написаних методів.
 
-
-// ширина поля input залежно выд контенту
-const input = document.querySelectorAll('.input');
-let buffer = [];
-for (var i = 0; input.length > i; i++) {
+const input = document.querySelectorAll('.input'),
+  buffer = [];
+for (let i = 0; input.length > i; i++) {
+  console.log(input[i].value);
   buffer[i] = document.createElement('div');
   buffer[i].className = "buffer";
-  //вставляемо hidden div.buffer
+  //вставляем скрытый div.buffer
   input[i].parentNode.insertBefore(buffer[i], input[i].nextSibling);
 
-  input[i].oninput = function () {
+  input[i].oninput = function() {
     this.nextElementSibling.innerHTML = this.value;
     this.style.width = this.nextElementSibling.clientWidth + 'px';
   };
 }
 
 class Marker {
-  constructor(color, pircent) {
+  constructor(color, level) {
       this.color = color;
-      this.pircent = pircent; // Відсотки чорнила
+      this.level = level; // Відсотки чорнила
   }
 
-  write(text) {
-    let writeText = document.getElementById('par');
-      // let writtenText = '';
+  write(text, outputElement) {
+      let writtenText = '';
       for (let i = 0; i < text.length; i++) {
-          if (text[i] !== ' ' && this.pircent >= 0.5) {
-              writeText += text[i];
-              this.pircent -= 0.5; // Видаляємо 0.5% чорнила за кожен не пробільний символ
+          if (text[i] !== ' ' && this.level >= 0.5) {
+              writtenText += text[i];
+              this.level -= 0.5; // Видаляємо 0.5% чорнила за кожен не пробільний символ
           } else {
-              writeText += ' '; // Додаємо пробіл, якщо немає чорнила або символ - пробільний
+              writtenText += ' '; // Додаємо пробіл, якщо немає чорнила або символ - пробільний
           }
+          
       }
-      document.getElementById('inputContent').value = text;
-  }
-  showREsult() {
-    let desc = `
-        <p>Колір маркера: ${this.color}</p>
-        <p>Залишилось чорнил: ${this.pircent}%</p>
-    `;
-
-    document.getElementById('marker_desc').innerHTML = desc;
-    document.getElementById('marker_desc').style.color = this.color;
+      outputElement.textContent += writtenText;
+      outputElement.style.color = this.color;
+      document.getElementById('level_marker').innerHTML = `Залишилось чорнил: ${this.level}%`;
+      
   }
 }
 
-// Приклад використання класу Marker
-const marker = new Marker("pink", 100);
-marker.write('Hello my friend');
-marker.showREsult();// Створюємо маркер з 100% чорнила
+class RefillableMarker extends Marker {
+  constructor(color, level, maxLevel) {
+      super(color, level);
+      this.maxLevel = maxLevel;
+  }
 
-
-class refillInk extends Marker {
-  refill(addInk) {
-      if (addInk > 0) {
-          this.pircent = Math.min(100, this.pircent + addInk); // Обмежуємо до 100%
-          document.getElementById('new_marker').style.color = this.color;
-          document.getElementById('new_marker').innerHTML = `Маркер був успішно заправлений. Новий відсоток чорнила: ${this.pircent}%`;
+  refill(amount) {
+      if (amount > 0) {
+          this.level = Math.min(this.maxLevel, this.level + amount); // Обмежуємо до максимального рівня
       }
   }
 }
 
-// Приклад використання класу refillInk
-const refill = new refillInk("blue", 5);
-refill.write("Текст для написання.");
-
-console.log(`Колір маркера: ${refill.color}`);
-console.log(`Відсоток чорнила: ${refill.pircent}%`);
-console.log(`Відсоток чорнила після написання: ${refill.pircent}%`);
-
-refill.refill(60); // Заправляємо маркер
-// refill.showREsult() 
-
-// class Employee {
-//   constructor(id, name, position) {
-//       this.id = id;
-//       this.name = name;
-//       this.position = position;
-//   }
-// }
-
-// class EmpTable {
-//   constructor(employees) {
-//       this.employees = employees;
-//   }
-
-//   getHtml() {
-//       let tableHtml = '<table>';
-//       tableHtml += '<tr><th>ID</th><th>Name</th><th>Position</th></tr>';
-//       for (const employee of this.employees) {
-//           tableHtml += `<tr><td>${employee.id}</td><td>${employee.name}</td><td>${employee.position}</td></tr>`;
-//       }
-//       tableHtml += '</table>';
-//       return tableHtml;
-//   }
-// }
-
-// // Створення масиву працівників банку
-// const employees = [
-//   new Employee(1, 'John Doe', 'Manager'),
-//   new Employee(2, 'Jane Smith', 'Teller'),
-//   new Employee(3, 'Bob Johnson', 'Accountant'),
-// ];
-
-// // Створення об'єкта класу EmpTable і генерація HTML-коду таблиці
-// const empTable = new EmpTable(employees);
-// const htmlTable = empTable.getHtml();
-
-// // Виведення HTML-коду на екран
-// document.body.innerHTML = htmlTable;
+// HTML-елементи
+const outputElement = document.getElementById('output');
+const writeButton = document.getElementById('write');
+const refillButton = document.getElementById('refill');
 
 
 
+// Створення маркера
+const marker = new RefillableMarker("blue", 100, 200); // Створюємо маркер з 100% чорнила і максимальним об'ємом 200%
 
+// Обробники подій для кнопок
+writeButton.addEventListener('click', () => {
+  const inputText = document.getElementById('input').value;
+  marker.write(inputText, outputElement);
+});
 
+refillButton.addEventListener('click', () => {
+  marker.refill(100); // Заправляємо маркер на 100%
+});
 
+// 3) Реалізуй клас Employee, що описує працівника, і створи масив працівників банку.
+// Реалізуй клас EmpTable для генерації HTML-коду таблиці зі списком працівників банку. Масив працівників необхідно передавати через конструктор, а отримувати HTML-код за допомогою методу getHtml ().
+// Створи об’єкт класу EmpTable і виведи на екран результат роботи методу getHtml ().
 
-// class Circle {
-//   constructor (name) {
-//     this.radius = radius;
-//     this.diameter = this.diameter;
-//   }
-//   get radiusName() {
-//     return this.radius;
-//   }
-//   // set radiusInfo(newRadius) {
-//   //   this.radius = this.radiusInfo;
-//   // }
-//   square() {
-//     return Math.floor(Math.PI * (this.radius ** 2));
-//   }
-//   circumference() {
-//     return Math.ceil(2 * Math.PI * this.radius);
-//   }
-// }
+class User {
+  constructor(name, role) {
+      if (role !== 'admin' && role !== 'user') {
+          alert('Некоректна роль! Роль може бути або admin, або user.');
+      }
+      this.name = name;
+      this.role = role;
+  }
 
+  getName() {
+      return this.name;
+  }
 
-// let circle = new Circle(10);
-// console.log(circle);
+  getRole() {
+      return this.role;
+  }
+
+  login() {
+      console.log(`${this.name} увійшов в систему.`);
+  }
+
+  logout() {
+      console.log(`${this.name} вийшов із системи.`);
+  }
+
+  changeName(newName) {
+      this.name = newName;
+      console.log(`Ім'я користувача було змінено на ${newName}.`);
+  }
+
+  changePassword(newPassword) {
+      console.log(`Пароль користувача ${this.name} було змінено.`);
+  }
+}
+
+class Admin extends User {
+  constructor(name) {
+      super(name, 'admin');
+      this.users = [];
+  }
+
+  addUser(newUser) {
+      this.users.push(newUser);
+      console.log(`Користувач ${newUser.getName()} був доданий.`);
+  }
+
+  removeUser(userToRemove) {
+      const index = this.users.findIndex(user => user.getName() === userToRemove.getName());
+      if (index !== -1) {
+          this.users.splice(index, 1);
+          console.log(`Користувач ${userToRemove.getName()} був видалений.`);
+      }
+  }
+
+  changeUserRole(user, newRole) {
+      if (newRole === 'admin' || newRole === 'user') {
+          user.role = newRole;
+          console.log(`Роль користувача ${user.getName()} була змінена на ${newRole}.`);
+      } else {
+          alert('Некоректна роль! Роль може бути або admin, або user.');
+      }
+  }
+
+  getAllUsers() {
+      return this.users;
+  }
+
+  removeAllUsers() {
+      this.users = [];
+      console.log('Усі користувачі були видалені.');
+  }
+}
+
+// Приклад використання класів
+const user1 = new User('Petro', 'user');
+const user2 = new User('Ivan', 'user');
+const admin = new Admin('AdminUser');
+
+admin.addUser(user1);
+admin.addUser(user2);
+
+console.log(admin.getAllUsers());
+
+admin.changeUserRole(user1, 'admin');
+console.log(user1.getRole());
+
+admin.removeUser(user2);
+console.log(admin.getAllUsers());
+
+admin.removeAllUsers();
+console.log(admin.getAllUsers());
+
