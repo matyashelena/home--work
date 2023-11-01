@@ -93,7 +93,7 @@ function App() {
   return (
       <div className="container">
         <div className="main_box">
-        <p className="title">CSS Weather Forecast</p>
+        <p className="title">CSS Weather Forecast <i className="wi wi-day-sunny"></i></p>
           <WeatherCard/>
         <p className="description_bottom">Have a nice day and don't forget umbrella if you are in New Delhi now!</p>
       </div>
