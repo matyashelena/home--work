@@ -2,79 +2,90 @@ const weatherList = [
   {
       city: 'Lisbon',
       temp: '21',
-      icon: 'wi wi-day-sunny',
+      icon: 'wi-day-sunny',
       width: 'w-50',
-      link: 'https://www.timeanddate.com/weather/portugal/lisbon'
+      link: 'https://www.timeanddate.com/weather/portugal/lisbon',
+      bg: '#70B8DB'
   },
   {
       city: 'Paris',
       temp: '11',
-      icon: 'wi wi-night-clear',
+      icon: 'wi-day-sleet',
       width: 'w-25',
-      link: 'https://www.timeanddate.com/weather/france/paris'
+      link: 'https://www.timeanddate.com/weather/france/paris',
+      bg: '#33CCCC'
   },
   {
     city: 'Belgrade',
     temp: '15',
-    icon: 'wi wi-night-clear',
+    icon: 'wi-day-cloudy',
     width: 'w-25',
-    link: 'https://www.timeanddate.com/weather/serbia/belgrade'
+    link: 'https://www.timeanddate.com/weather/serbia/belgrade',
+    bg: '#B894B8'
 },
 {
     city: 'Venice',
     temp: '21',
-    icon: 'wi wi-night-clear',
+    icon: 'wi-day-cloudy-high',
     width: 'w-25',
-    link: 'https://www.timeanddate.com/weather/italy/venice'
+    link: 'https://www.timeanddate.com/weather/italy/venice',
+    bg: '#C24747'
 },
 {
   city: 'Tel-Avive',
   temp: '32',
-  icon: 'wi wi-night-clear',
+  icon: 'wi-hot',
   width: 'w-25',
-  link: 'https://www.timeanddate.com/weather/israel/tel-aviv'
+  link: 'https://www.timeanddate.com/weather/israel/tel-aviv',
+  bg: '#E2674A'
 },
 {
   city: 'Cair',
   temp: '21',
-  icon: 'wi wi-night-clear',
+  icon: 'wi-day-sunny',
   width: 'w-25',
-  link: 'https://www.timeanddate.com/weather/egypt/cairo'
+  link: 'https://www.timeanddate.com/weather/egypt/cairo',
+  bg: '#FFCC66'
 },
 {
   city: 'New-York',
   temp: '17',
-  icon: 'wi wi-night-clear',
+  icon: 'wi-day-sleet-storm',
   width: 'w-25',
-  link: 'https://www.timeanddate.com/weather/usa/new-york'
+  link: 'https://www.timeanddate.com/weather/usa/new-york',
+  bg: '#99CC99'
 },
 {
   city: 'New-Delhi',
   temp: '17',
-  icon: 'wi wi-night-clear',
+  icon: 'wi-rain-wind',
   width: 'w-25',
-  link: 'https://www.timeanddate.com/weather/india/new-delhi'
+  link: 'https://www.timeanddate.com/weather/india/new-delhi',
+  bg: '#669999'
 },
 {
   city: 'San-Francisco',
   temp: '15',
-  icon: 'wi wi-night-clear',
+  icon: 'wi-day-cloudy',
   width: 'w-50',
-  link: 'https://www.timeanddate.com/weather/usa/san-francisco'
+  link: 'https://www.timeanddate.com/weather/usa/san-francisco',
+  bg: '#CC6699'
 },
 {
   city: 'Tokyo',
   temp: '8',
-  icon: 'wi wi-night-clear',
+  icon: 'wi-night-clear',
   width: 'w-25',
-  link: 'https://www.timeanddate.com/weather/japan/tokyo'
+  link: 'https://www.timeanddate.com/weather/japan/tokyo',
+  bg: '#339966'
 },
 {
   city: 'Sydney',
   temp: '25',
-  icon: 'wi wi-night-clear',
+  icon: 'wi-night-cloudy',
   width: 'w-100',
-  link: 'https://www.timeanddate.com/weather/australia/sydney'
+  link: 'https://www.timeanddate.com/weather/australia/sydney',
+  bg: '#666699'
 }
 ]
 
@@ -94,7 +105,6 @@ function WeatherCard() {
   return (
     <div className="grid_box">
       {weatherList.map((card, index) => {
-      console.log(card);
       return <Card item={card} key={index}/>
       })}
     </div>
@@ -102,12 +112,13 @@ function WeatherCard() {
 }
 
 function Card(props) {
-  const { city, temp, icon, width, link } = props.item;
+  const { city, temp, icon, width, bg, link } = props.item;
+  const classIcon = `wi ${icon}`;
   return (
-    <div className={width}>
+    <div className={width} style={{backgroundColor: bg}}>
       <p className="card-title">{city}</p>
-      <span className="card_temp">{temp} &#8451;  </span>
-      <i className={icon}></i>
+      <span className="card_temp">{temp}&#8451;</span>
+      <i className={classIcon}></i>
       <a target="_blank" className="link_city" href={link}></a>
     </div> 
   )
